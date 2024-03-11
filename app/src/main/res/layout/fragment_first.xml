@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/_4sdp"
+    tools:context=".employeeInfo.transcript.fragments.FirstFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textColor="@color/default_text_color"
+            android:layout_weight=".3"
+            android:fontFamily="@font/poppins"
+            android:text="Revision No: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/revision_no_TR"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_weight=".7"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:focusable="false"
+            android:inputType="textMultiLine"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"
+            android:clickable="false"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Revision Date: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/revision_dateee"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:focusable="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/default_text_color"
+            android:text="Effected Date: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/effectedd_dateee"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:focusable="false"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Publish: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/publish"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Appointment Receive Date: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/appointment_receive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Band: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/band"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/default_text_color"
+            android:text="Job No: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/job_nong"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Structure Designation: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/structure_designation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Functional Designation: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/functional_designation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Functional Designation Bangla: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/functional_designation_bn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Job Objective: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/job_objective"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Division: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/division"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Department: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/department"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Section: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/section"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Additional Charge: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/additional_charge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Primary Station: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/primary_station"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Secondary Station: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/secondary_station"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/default_text_color"
+            android:text="Project: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/project"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Work Time: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/work_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Early Arrival: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/early_arrival"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Extended Departure: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/extended_dep"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Temporary Charge: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/temp_charge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/first_fragment_extra_layout"/>
+
+</LinearLayout>

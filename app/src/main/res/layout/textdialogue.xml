@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dialogue_text_edit_lay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:hint=""
+        android:layout_weight="1.2"
+        android:layout_margin="@dimen/_4sdp"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeWidthFocused="1dp"
+        app:boxCornerRadiusTopStart="@dimen/_4sdp"
+        app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="#f1f2f6"
+        app:hintTextColor="@color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialogue_text_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_10sdp"
+            android:ems="10"
+            android:inputType="textMultiLine" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

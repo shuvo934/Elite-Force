@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/_4sdp"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/item_noo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:padding="2dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins"
+        android:layout_weight=".1"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/job_details_desc"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:padding="2dp"
+        android:fontFamily="@font/poppins"
+        android:layout_weight=".9"
+        android:text=""/>
+
+</LinearLayout>

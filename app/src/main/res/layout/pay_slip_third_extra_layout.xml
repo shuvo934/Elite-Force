@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:padding="@dimen/_1sdp"
+            android:textSize="@dimen/_8sdp"
+            android:fontFamily="@font/poppins"
+            android:gravity=""
+            android:textColor="@color/black"
+            android:layout_weight=".6"
+            android:text="Other Deducts"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/other_deduct_pay_slip"
+            android:layout_width="0dp"
+            android:textSize="@dimen/_8sdp"
+            android:fontFamily="@font/poppins"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:padding="@dimen/_1sdp"
+            android:textColor="@color/black"
+            android:layout_weight=".4"
+            android:text=""/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:background="@android:color/darker_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:padding="@dimen/_1sdp"
+            android:textSize="@dimen/_8sdp"
+            android:fontFamily="@font/poppins"
+            android:gravity=""
+            android:textColor="@color/black"
+            android:layout_weight=".6"
+            android:text="Loan Deduction - Advance From Board"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/loan_deduc_from_board_pay_slip"
+            android:layout_width="0dp"
+            android:textSize="@dimen/_8sdp"
+            android:fontFamily="@font/poppins"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:padding="@dimen/_1sdp"
+            android:textColor="@color/black"
+            android:layout_weight=".4"
+            android:text=""/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:background="@android:color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:padding="@dimen/_1sdp"
+            android:textSize="@dimen/_11sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:background="#F5F5F5"
+            android:gravity=""
+            android:textColor="@color/black"
+            android:layout_weight=".6"
+            android:text="TOTAL DEDUCTION"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/total_deduction_pay_slip"
+            android:layout_width="0dp"
+            android:textSize="@dimen/_11sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:background="#F5F5F5"
+            android:padding="@dimen/_1sdp"
+            android:textColor="@color/black"
+            android:layout_weight=".4"
+            android:text=""/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:layout_height="4dp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:background="@android:color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:padding="@dimen/_1sdp"
+            android:textSize="@dimen/_11sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity=""
+            android:textColor="@color/black"
+            android:layout_weight=".4"
+            android:text="NET PAYMENT:"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/net_payment_pay_slip"
+            android:layout_width="0dp"
+            android:textSize="@dimen/_11sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:padding="@dimen/_1sdp"
+            android:textColor="@color/black"
+            android:layout_weight=".6"
+            android:text=""/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:padding="@dimen/_1sdp"
+            android:textSize="@dimen/_11sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity=""
+            android:textColor="@color/black"
+            android:layout_weight=".4"
+            android:text="IN WORD:"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/in_word_pay_slip"
+            android:layout_width="0dp"
+            android:textSize="@dimen/_11sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:padding="@dimen/_1sdp"
+            android:textColor="@color/black"
+            android:layout_weight=".6"
+            android:text=""/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_2sdp"
+        android:paddingTop="@dimen/_2sdp"
+        android:textStyle="bold"
+        android:fontFamily="@font/open_sans_bold"
+        android:textColor="@color/elite_red"
+        android:text="DEPOSIT DETAILS"
+        android:gravity="center"
+        tools:ignore="HardcodedText" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:background="@android:color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:padding="@dimen/_1sdp"
+            android:textSize="@dimen/_8sdp"
+            android:fontFamily="@font/poppins"
+            android:gravity=""
+            android:textColor="@color/black"
+            android:layout_weight=".5"
+            android:text="Account Name"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/account_name_pay_slip"
+            android:layout_width="0dp"
+            android:textSize="@dimen/_8sdp"
+            android:fontFamily="@font/poppins"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:padding="@dimen/_1sdp"
+            android:textColor="@color/black"
+            android:layout_weight=".5"
+            android:text=""/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:background="@android:color/darker_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:padding="@dimen/_1sdp"
+            android:textSize="@dimen/_8sdp"
+            android:fontFamily="@font/poppins"
+            android:gravity=""
+            android:textColor="@color/black"
+            android:layout_weight=".5"
+            android:text="Account Number"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/account_number_pay_slip"
+            android:layout_width="0dp"
+            android:textSize="@dimen/_8sdp"
+            android:fontFamily="@font/poppins"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:padding="@dimen/_1sdp"
+            android:textColor="@color/black"
+            android:layout_weight=".5"
+            android:text=""/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:background="@android:color/darker_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:padding="@dimen/_1sdp"
+            android:textSize="@dimen/_8sdp"
+            android:fontFamily="@font/poppins"
+            android:gravity=""
+            android:textColor="@color/black"
+            android:layout_weight=".5"
+            android:text="Bank Name"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/bank_name_pay_slip"
+            android:layout_width="0dp"
+            android:textSize="@dimen/_8sdp"
+            android:fontFamily="@font/poppins"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:padding="@dimen/_1sdp"
+            android:textColor="@color/black"
+            android:layout_weight=".5"
+            android:text=""/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+</LinearLayout>

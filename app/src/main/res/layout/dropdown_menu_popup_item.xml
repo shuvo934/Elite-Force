@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/drop_down_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="@dimen/_10sdp"
+        android:padding="@dimen/_12sdp"
+        android:ellipsize="end"
+        android:maxLines="1" />
+
+</LinearLayout>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Shift Time"
+        android:layout_margin="@dimen/_8sdp"
+        android:textColor="@color/elite_red"
+        android:textStyle="bold"
+        android:fontFamily="@font/open_sans_bold"
+        android:textSize="@dimen/_14sdp"
+        android:gravity="center"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:background="#dfe6e9"
+        android:weightSum="1.8">
+        
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Shift"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9sdp"
+            android:fontFamily="@font/poppins"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="@dimen/_2sdp"
+            android:layout_gravity="center"
+            android:background="#dfe6e9"
+            android:layout_weight=".3"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="In Time"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins"
+            android:padding="@dimen/_2sdp"
+            android:textSize="@dimen/_9sdp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:background="#dfe6e9"
+            android:layout_weight=".3"
+            tools:ignore="HardcodedText"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:text="Late Arrival Time"
+            android:padding="@dimen/_2sdp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9sdp"
+            android:textStyle="bold"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#dfe6e9"
+            android:layout_weight=".3"
+            tools:ignore="HardcodedText"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:text="Early Before Time"
+            android:padding="@dimen/_2sdp"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/_9sdp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:background="#dfe6e9"
+            android:layout_weight=".3"
+            tools:ignore="HardcodedText"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:text="Out Time"
+            android:padding="@dimen/_2sdp"
+            android:textSize="@dimen/_9sdp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="#dfe6e9"
+            android:layout_weight=".3"
+            tools:ignore="HardcodedText"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:text="Extended Out Time"
+            android:padding="@dimen/_2sdp"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/_9sdp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="#dfe6e9"
+            android:layout_weight=".3"
+            tools:ignore="HardcodedText"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_235sdp"
+        android:orientation="horizontal">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/all_shift_time_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:scrollbars="vertical"
+            android:padding="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

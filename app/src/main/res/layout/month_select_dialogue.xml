@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/month_search_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search by Month Name"
+        app:boxStrokeWidth="@dimen/_1sdp"
+        android:layout_margin="@dimen/_4sdp"
+        app:boxStrokeColor="@color/black"
+        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+        app:helperTextEnabled="true"
+        app:helperText=""
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        tools:ignore="HardcodedText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/month_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="@dimen/_11sdp"
+            android:textStyle="bold"
+            android:textColor="#636e72"
+            android:inputType="textMultiLine" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_37sdp"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:weightSum="1.2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="#dfe6e9"
+            android:text="Month Name"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_9sdp"
+            android:textColor="@color/black"
+            android:layout_weight=".4"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Month Start"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_9sdp"
+            android:textColor="@color/black"
+            android:background="#dfe6e9"
+            android:layout_weight=".4"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="Month End"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_9sdp"
+            android:background="#dfe6e9"
+            android:layout_weight=".4"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/no_month_found_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="NO MONTH FOUND"
+        android:visibility="gone"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="@dimen/_11sdp"
+        android:layout_margin="@dimen/_4sdp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_235sdp"
+        android:orientation="horizontal">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/month_list_of_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:padding="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

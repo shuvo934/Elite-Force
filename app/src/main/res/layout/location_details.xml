@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/_12sdp">
+
+    <TextView
+        android:id="@+id/way_or_track"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You were in:"
+        android:textStyle="bold"
+        android:textSize="@dimen/_13sdp"
+        android:fontFamily="@font/open_sans_bold"
+        android:textColor="@color/elite_red"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/location_on_24"
+            app:tint="@android:color/holo_green_dark"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/place_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shewrapara"
+            android:fontFamily="@font/poppins"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/start_time_layout"
+            android:layout_width="2.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/elite_grey"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:id="@+id/start_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:text="10:10 AM"
+            android:fontFamily="@font/poppins"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:textStyle="bold"
+            android:textSize="@dimen/_9sdp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/mid_to_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="2.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/elite_grey"
+            android:layout_marginStart="@dimen/_12sdp"/>
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="to"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textStyle="bold"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/last_place_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/location_on_24"
+            app:tint="@color/elite_red"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/last_place_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shewrapara"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/end_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="10:10 AM"
+        android:textColor="@color/black"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:fontFamily="@font/poppins"
+        android:textStyle="bold"
+        android:textSize="@dimen/_9sdp"/>
+
+    <LinearLayout
+        android:id="@+id/distance_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:orientation="horizontal">
+        <TextView
+            android:paddingTop="@dimen/_4sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Travel Distance: "
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/elite_red"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+        <TextView
+            android:layout_marginStart="@dimen/_4sdp"
+            android:id="@+id/calculate_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/_9sdp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/time_calculate_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Travel Time: "
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/elite_red"
+            android:fontFamily="@font/open_sans_bold"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+        <TextView
+            android:layout_marginStart="@dimen/_4sdp"
+            android:id="@+id/calculate_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9sdp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:paddingTop="@dimen/_4sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/elite_grey"
+        android:textStyle="bold"
+        android:text="- - - - - - - - - - - - -"/>
+
+</LinearLayout>

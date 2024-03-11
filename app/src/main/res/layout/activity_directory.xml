@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".directory.Directory">
+
+    <RelativeLayout
+        android:id="@+id/topLay_directory_division"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_66sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/design_2"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_62sdp"
+            android:background="@drawable/design"
+            android:orientation="vertical"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:fontFamily="@font/russo_one"
+                android:gravity="center"
+                android:text="Directory"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_directory_division"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_5sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="@dimen/_1sdp"
+                    app:cardBackgroundColor="@color/white">
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/black">
+                        
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/spinner_layout_division"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_1sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                            app:boxBackgroundColor="@color/white"
+                            app:boxBackgroundMode="filled"
+                            app:endIconMode="dropdown_menu"
+                            app:boxStrokeWidth="0dp"
+                            android:hint="Division"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                            tools:ignore="HardcodedText">
+
+                            <com.rosemaryapp.amazingspinner.AmazingSpinner
+                                android:id="@+id/division_type_spinner"
+                                style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                android:layout_width="match_parent"
+                                android:text=""
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold"
+                                android:layout_height="wrap_content" />
+                            
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="@dimen/_1sdp"
+                    app:cardBackgroundColor="@color/white">
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/black">
+                        
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/spinner_layout_department"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_1sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                            app:boxBackgroundColor="@color/white"
+                            app:boxBackgroundMode="filled"
+                            app:endIconMode="dropdown_menu"
+                            app:boxStrokeWidth="0dp"
+                            android:hint="Department"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                            tools:ignore="HardcodedText">
+
+                            <com.rosemaryapp.amazingspinner.AmazingSpinner
+                                android:id="@+id/department_type_spinner"
+                                style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                android:layout_width="match_parent"
+                                android:text=""
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold"
+                                android:layout_height="wrap_content" />
+                            
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_1sdp"
+                app:cardBackgroundColor="@color/white">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/black">
+                    
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/spinner_layout_designation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_1sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxBackgroundMode="filled"
+                        app:endIconMode="dropdown_menu"
+                        app:boxStrokeWidth="0dp"
+                        android:hint="Designation"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                        tools:ignore="HardcodedText">
+
+                        <com.rosemaryapp.amazingspinner.AmazingSpinner
+                            android:id="@+id/designation_type_spinner"
+                            style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                            android:layout_width="match_parent"
+                            android:text=""
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textSize="@dimen/_10sdp"
+                            android:textStyle="bold"
+                            android:layout_height="wrap_content" />
+                        
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_1sdp"
+                app:cardBackgroundColor="@color/white">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/black">
+                    
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/search_item_name_lay_directory_division"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_1sdp"
+                        android:hint="Search by Name"
+                        app:startIconDrawable="@drawable/search_24"
+                        app:startIconTint="@color/cardview_dark_background"
+                        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                        app:boxStrokeWidthFocused="1dp"
+                        app:helperText=""
+                        app:boxBackgroundColor="@color/white"
+                        app:boxBackgroundMode="filled"
+                        app:boxStrokeWidth="0dp"
+                        app:helperTextEnabled="true"
+                        android:textColorHint="#b2bef2"
+                        tools:ignore="HardcodedText">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/search_item_name_diretory_division"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textSize="@dimen/_10sdp"
+                            android:textColor="#636e72"
+                            android:textStyle="bold" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+        
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_8sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/directory_division_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:scrollbars="vertical"
+                android:background="@android:color/transparent"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

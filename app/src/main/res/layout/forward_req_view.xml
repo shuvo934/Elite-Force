@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forward To:"
+        android:textStyle="bold"
+        android:textSize="@dimen/_12sdp"
+        android:fontFamily="@font/open_sans_bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        tools:ignore="HardcodedText" />
+    
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emp_name_drop_down_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select Employee Name"
+        app:boxStrokeWidth="2dp"
+        android:layout_margin="@dimen/_4sdp"
+        app:boxStrokeColor="@color/black"
+        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+        app:helperTextEnabled="true"
+        android:clickable="true"
+        android:focusable="false"
+        app:helperText=""
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/arrow_drop_down_24"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        tools:ignore="HardcodedText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emp_name_drop_down"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_11sdp"
+            android:textColor="#636e72"
+            android:clickable="true"
+            android:focusable="false"
+            android:inputType="text"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/forward_list_view_approve_lay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_235sdp"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:background="#dfe6e9"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text="Employee Name"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:background="#dfe6e9"
+                android:layout_weight=".25"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Calling Title"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:background="#dfe6e9"
+                android:layout_weight=".25"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Designation"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:background="#dfe6e9"
+                android:layout_weight=".25"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Division"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:background="#dfe6e9"
+                android:layout_weight=".25"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/no_employee_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NO EMPLOYEE FOUND"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold"
+            android:gravity="center"
+            tools:ignore="HardcodedText" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/forward_list_view_approve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forward Comment:"
+        android:textStyle="bold"
+        android:textSize="@dimen/_12sdp"
+        android:fontFamily="@font/open_sans_bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/comments_given_for_forward_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Write Comments"
+        android:layout_margin="@dimen/_4sdp"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeWidthFocused="1dp"
+        app:helperTextTextColor="#d63031"
+        app:boxStrokeColor="@color/black"
+        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+        app:helperTextEnabled="true"
+        app:helperText=""
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        tools:ignore="HardcodedText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/comments_given_for_forward"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text=""
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_11sdp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:inputType="text"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/forward_go_back"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight=".5"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/custom_button3"
+            android:text="Go Back"
+            android:fontFamily="@font/lato_bold"
+            android:textSize="@dimen/_11sdp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            tools:ignore="ButtonStyle,HardcodedText" />
+
+        <Button
+            android:id="@+id/forward_continue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight=".5"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:fontFamily="@font/lato_bold"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/custom_button3"
+            android:text="Continue"
+            android:textSize="@dimen/_11sdp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            tools:ignore="ButtonStyle,HardcodedText" />
+
+    </LinearLayout>
+
+</LinearLayout>

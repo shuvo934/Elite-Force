@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".attendance.att_update.req_status.statusDetails.AttUpdateStatusDetails">
+
+    <RelativeLayout
+        android:id="@+id/upLayNew_st_dt"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_66sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/design_2"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_62sdp"
+            android:background="@drawable/design"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:fontFamily="@font/russo_one"
+                android:gravity="center"
+                android:text="Status Details"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+            
+        </LinearLayout>
+        
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/_8sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/upLayNew_st_dt"
+        app:cardElevation="@dimen/_6sdp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_2sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+                    
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Status:"
+                        android:layout_weight=".3"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginBottom="@dimen/_4sdp"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textColor="@color/default_text_color"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight=".7"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/_4sdp">
+                        
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/status_card_from_list"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardBackgroundColor="@android:color/holo_red_dark">
+                            
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/status_of_att_from_list"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:paddingTop="@dimen/_2sdp"
+                                android:paddingBottom="@dimen/_2sdp"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp"
+                                android:text=""
+                                android:fontFamily="@font/open_sans_bold"/>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/approver_layout_from_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:weightSum="1">
+                    
+                    <TextView
+                        android:id="@+id/is_app_or_rej"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Approved by:"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:layout_weight=".3"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginBottom="@dimen/_4sdp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/default_text_color"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:id="@+id/approver_name_by_from_list"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:paddingStart="@dimen/_2sdp"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:paddingEnd="@dimen/_2sdp"
+                        android:text=""/>
+                    
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3"
+                        android:text="Request Code:"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginBottom="@dimen/_4sdp"
+                        android:textColor="@color/default_text_color"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:id="@+id/request_code_from_list"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:paddingStart="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_2sdp"
+                        android:text=""/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="#f5f6fa" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="- - - - - - - - - - - - - - - - - -"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2sdp"
+                    android:background="#f5f6fa" />
+
+                <LinearLayout
+
+                    android:id="@+id/after_request_selecting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1.2"
+                        android:baselineAligned="false">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:hint="Name:"
+                            android:layout_weight=".6"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            app:boxStrokeColor="@color/black"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="1dp"
+                            app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                            app:boxBackgroundMode="filled"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:enabled="false"
+                            app:boxBackgroundColor="@color/white"
+                            app:hintTextColor="@color/default_text_color"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/name_att_st_dt"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:clickable="false"
+                                android:enabled="false"
+                                android:focusable="false"
+                                android:textSize="@dimen/_8sdp"
+                                android:text=""
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:inputType="textMultiLine" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:hint="ID:"
+                            android:layout_weight=".3"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            app:boxStrokeColor="@color/black"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="1dp"
+                            app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                            app:boxBackgroundMode="filled"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:enabled="false"
+                            app:boxBackgroundColor="@color/white"
+                            app:hintTextColor="@color/default_text_color"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/id_att_st_dt"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:clickable="false"
+                                android:enabled="false"
+                                android:textSize="@dimen/_8sdp"
+                                android:text=""
+                                android:focusable="false"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:inputType="textMultiLine" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:hint="Date:"
+                            android:layout_weight=".3"
+                            android:layout_margin="@dimen/_4sdp"
+                            app:boxStrokeColor="@color/black"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="1dp"
+                            app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                            app:boxBackgroundMode="filled"
+                            android:clickable="false"
+                            android:enabled="false"
+                            android:focusable="false"
+                            app:boxBackgroundColor="@color/white"
+                            app:hintTextColor="@color/default_text_color"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/now_date_att_st_dt"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:clickable="false"
+                                android:enabled="false"
+                                android:textSize="@dimen/_8sdp"
+                                android:text=""
+                                android:focusable="false"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:inputType="textMultiLine" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:background="#f5f6fa" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:text="- - - - - - - - - - - - - - - - - -"
+                        tools:ignore="HardcodedText"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_2sdp"
+                        android:background="#f5f6fa" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:weightSum="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            android:layout_weight=".7"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_gravity="center"
+                            android:textColor="@color/default_text_color"
+                            android:text="Request Type: "
+                            tools:ignore="HardcodedText" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint=""
+                            android:layout_weight=".3"
+                            app:boxStrokeWidth="0dp"
+                            android:layout_margin="@dimen/_4sdp"
+                            app:boxStrokeColor="@color/black"
+                            app:hintTextColor="#dfe6e9"
+                            app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                            app:boxBackgroundMode="filled"
+                            android:textColorHint = "@color/black"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:enabled="false"
+                            app:helperTextEnabled="true"
+                            app:helperText=""
+                            app:boxBackgroundColor="#F5F5F5"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/req_type_st_dt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:enabled="false"
+                                android:text=""
+                                android:gravity="end"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:inputType="textMultiLine" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:weightSum="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            android:layout_weight=".7"
+                            android:layout_gravity="center"
+                            android:textColor="@color/default_text_color"
+                            android:text="Attendance Type: "
+                            tools:ignore="HardcodedText" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint=""
+                            android:layout_weight=".3"
+                            app:boxStrokeWidth="0dp"
+                            android:layout_margin="@dimen/_4sdp"
+                            app:boxStrokeColor="@color/black"
+                            app:hintTextColor="#dfe6e9"
+                            app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                            app:boxBackgroundMode="filled"
+                            android:textColorHint = "@color/black"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:enabled="false"
+                            app:helperTextEnabled="true"
+                            app:helperText=""
+                            app:boxBackgroundColor="#F5F5F5"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/att_type_st_dt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:enabled="false"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text=""
+                                android:gravity="end"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:inputType="textMultiLine" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_2sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:background="#f5f6fa" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:text="- - - - - - - - - - - - - - - - - -"
+                            tools:ignore="HardcodedText"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_2sdp"
+                            android:background="#f5f6fa" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:weightSum="1.2"
+                            android:baselineAligned="false">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Update Date:"
+                                android:layout_weight="1.2"
+                                app:startIconDrawable="@drawable/calendar_icon"
+                                app:startIconTintMode="screen"
+                                app:startIconTint="@android:color/transparent"
+                                android:layout_margin="@dimen/_4sdp"
+                                app:boxStrokeColor="@color/black"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="1dp"
+                                app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                                app:boxBackgroundMode="filled"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:enabled="false"
+                                app:boxBackgroundColor="@color/white"
+                                app:hintTextColor="@color/default_text_color"
+                                tools:ignore="HardcodedText">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/date_to_be_updated_st_dt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:clickable="false"
+                                    android:enabled="false"
+                                    android:focusable="false"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:text=""
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:inputType="textMultiLine" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Time to be Updated:"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:textColor="@color/default_text_color"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1.2"
+                            android:baselineAligned="false">
+
+                            <LinearLayout
+                                android:id="@+id/in_time_lay_st_dt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="visible"
+                                android:layout_weight=".6">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="In Time:"
+                                    app:startIconDrawable="@drawable/time_icon"
+                                    app:startIconTintMode="screen"
+                                    app:startIconTint="@android:color/transparent"
+                                    android:layout_margin="@dimen/_4sdp"
+                                    app:boxStrokeColor="@color/black"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                                    app:boxBackgroundMode="filled"
+                                    android:clickable="false"
+                                    android:focusable="false"
+                                    android:enabled="false"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:hintTextColor="@color/default_text_color"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/arrival_time_to_be_updated_st_dt"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:clickable="false"
+                                        android:enabled="false"
+                                        android:focusable="false"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:text=""
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:inputType="textMultiLine" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/out_time_lay_st_dt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="visible"
+                                android:layout_weight=".6">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Out Time:"
+                                    app:startIconDrawable="@drawable/time_icon"
+                                    app:startIconTintMode="screen"
+                                    app:startIconTint="@android:color/transparent"
+                                    android:layout_margin="@dimen/_4sdp"
+                                    app:boxStrokeColor="@color/black"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                                    app:boxBackgroundMode="filled"
+                                    android:clickable="false"
+                                    android:focusable="false"
+                                    android:enabled="false"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:hintTextColor="@color/default_text_color"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/departure_time_to_be_updated_st_dt"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:clickable="false"
+                                        android:enabled="false"
+                                        android:focusable="false"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:text=""
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:inputType="textMultiLine"/>
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_2sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:background="#f5f6fa" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:text="- - - - - - - - - - - - - - - - - -"
+                            tools:ignore="HardcodedText"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_2sdp"
+                            android:background="#f5f6fa" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:weightSum="1"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_weight=".7"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_gravity="center"
+                                android:textColor="@color/default_text_color"
+                                android:text="Location to be Updated: "
+                                tools:ignore="HardcodedText" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint=""
+                                android:layout_weight=".3"
+                                app:boxStrokeWidth="0dp"
+                                android:layout_margin="@dimen/_4sdp"
+                                app:boxStrokeColor="@color/black"
+                                app:hintTextColor="#dfe6e9"
+                                app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                                app:boxBackgroundMode="filled"
+                                android:textColorHint = "@color/default_text_color"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:enabled="false"
+                                app:helperTextEnabled="true"
+                                app:helperText=""
+                                app:boxBackgroundColor="#F5F5F5"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/loc_updated_st_dt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:clickable="false"
+                                    android:focusable="false"
+                                    android:enabled="false"
+                                    android:text=""
+                                    android:gravity="end"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:inputType="textMultiLine" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1.2"
+                            android:baselineAligned="false">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Updated Machine Code:"
+                                android:layout_weight=".6"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                app:boxStrokeColor="@color/black"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="1dp"
+                                app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                                app:boxBackgroundMode="filled"
+                                android:clickable="false"
+                                android:enabled="false"
+                                app:boxBackgroundColor="@color/white"
+                                app:hintTextColor="@color/default_text_color"
+                                tools:ignore="HardcodedText">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/updated_machine_code_st_dt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:clickable="false"
+                                    android:enabled="false"
+                                    android:textSize="@dimen/_9sdp"
+                                    android:text=""
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:inputType="textMultiLine" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Machine Type:"
+                                android:layout_weight=".6"
+                                android:layout_margin="@dimen/_4sdp"
+                                app:boxStrokeColor="@color/black"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="1dp"
+                                app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                                app:boxBackgroundMode="filled"
+                                android:clickable="false"
+                                android:enabled="false"
+                                app:boxBackgroundColor="@color/white"
+                                app:hintTextColor="@color/default_text_color"
+                                tools:ignore="HardcodedText">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/updated_machine_type_st_dt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:clickable="false"
+                                    android:enabled="false"
+                                    android:textSize="@dimen/_9sdp"
+                                    android:text=""
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:inputType="textMultiLine" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_2sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:background="#f5f6fa" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:text="- - - - - - - - - - - - - - - - - -"
+                            tools:ignore="HardcodedText"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_2sdp"
+                            android:background="#f5f6fa" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:weightSum="1"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_weight=".7"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_gravity="center"
+                                android:textColor="@color/default_text_color"
+                                android:text="Shift to be Updated: "
+                                tools:ignore="HardcodedText" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint=""
+                                android:layout_weight=".3"
+                                app:boxStrokeWidth="0dp"
+                                android:layout_margin="@dimen/_4sdp"
+                                app:boxStrokeColor="@color/black"
+                                app:hintTextColor="#dfe6e9"
+                                app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                                app:boxBackgroundMode="filled"
+                                android:textColorHint="@color/default_text_color"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:enabled="false"
+                                app:helperTextEnabled="true"
+                                app:helperText=""
+                                app:boxBackgroundColor="#F5F5F5"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/shift_to_be_st_dt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:clickable="false"
+                                    android:focusable="false"
+                                    android:enabled="false"
+                                    android:text=""
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:gravity="end"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:inputType="textMultiLine"/>
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <include
+                            layout="@layout/att_up_status_details_extra_layout"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+    
+</RelativeLayout>

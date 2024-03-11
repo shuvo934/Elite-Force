@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/search_by_emp_name_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search by Employee"
+        app:boxStrokeWidth="2dp"
+        android:layout_margin="@dimen/_4sdp"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="#dfe6e9"
+        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+        app:helperTextEnabled="true"
+        app:helperText=""
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        tools:ignore="HardcodedText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search_by_emp_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textStyle="bold"
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="@dimen/_11sdp"
+            android:textColor="#636e72"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:background="#dfe6e9"
+        android:weightSum="1.6">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="@dimen/_8sdp"
+            android:text="Request Code"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:background="#dfe6e9"
+            android:layout_weight=".4"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="@dimen/_8sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Employee Name"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:background="#dfe6e9"
+            android:layout_weight=".3"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:text="ID"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textSize="@dimen/_8sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="#dfe6e9"
+            android:layout_weight=".3"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:text="Application Date"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textStyle="bold"
+            android:textSize="@dimen/_8sdp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#dfe6e9"
+            android:layout_weight=".3"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"/>
+
+        <TextView
+            android:id="@+id/for_att_leave_approve"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:text="Update Date"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textStyle="bold"
+            android:textSize="@dimen/_8sdp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#dfe6e9"
+            android:layout_weight=".3"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_235sdp"
+        android:orientation="horizontal">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/request_list_for_approve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="E-Mail: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/emall_E_MM"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/default_text_color"
+            android:text="Software Access: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/software_access"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Remote Access: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/remote_access"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Computer: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/computer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:focusable="false"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Dormitory: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/dormitory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_weight=".3"
+            android:layout_gravity="center"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Structural Position: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/spinner_struc_pos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Uniform: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/uniform"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Apartment: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/apartment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Late Acceptable? "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/spinner_late_acceptable"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins"
+            android:text="Attendance Bonus: "
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/spinner_att_bonus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:enabled="false"
+            android:inputType="textMultiLine"
+            android:clickable="false"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+</LinearLayout>
