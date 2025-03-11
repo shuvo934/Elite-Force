@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_marginStart="@dimen/_4sdp"
+    android:layout_marginEnd="@dimen/_4sdp"
+    android:layout_marginBottom="@dimen/_8sdp"
+    app:cardElevation="@dimen/_2sdp"
+    app:cardCornerRadius="@dimen/_8sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/design_4"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="3.3"
+                android:text="EIN Number (ELITE)"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text=":"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/ein_number_elite_for_rec_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="6"
+                android:layout_gravity="center"
+                android:text="106122"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/elite_red"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_9sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="3.3"
+                android:text="EIN Number (ERP)"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text=":"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/ein_number_erp_for_rec_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="6"
+                android:layout_gravity="center"
+                android:text="243059"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/elite_red"
+                android:layout_marginEnd="2dp"
+                android:padding="4dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="3.3"
+                android:layout_gravity="center"
+                android:text="CV Code"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text=":"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/cv_code_for_rec_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="6"
+                android:layout_gravity="center"
+                android:text="CV-24-001844"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:layout_marginEnd="2dp"
+                android:padding="4dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="3.3"
+                android:text="Employee Name"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:text=":"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/employee_name_for_rec_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:background="@color/white"
+                android:text="Md Esrafil Sheikh (Mannan)"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="3.3"
+                android:layout_gravity="center"
+                android:text="Application Date"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text=":"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/application_date_for_rec_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:text="05-SEP-24"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="3.3"
+                android:layout_gravity="center"
+                android:text="Approval Type"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text=":"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/approval_type_for_rec_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:text="CONFIRM"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/mint_leaf"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="3.3"
+                android:layout_gravity="center"
+                android:text="Approval Date"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text=":"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/approval_date_for_rec_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:text="05-SEP-24"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="3.3"
+                android:layout_gravity="center"
+                android:text="Job Status"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text=":"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/job_status_for_rec_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:text="Confirmed"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="3.3"
+                android:layout_gravity="center"
+                android:text="Payment Status"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text=":"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/payment_status_for_rec_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:text="Payment pending"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="3.3"
+                android:layout_gravity="center"
+                android:text="Mobile No"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text=":"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/mobile_no_for_rec_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:text="01767121628"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="3.3"
+                android:layout_gravity="center"
+                android:text="NID"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text=":"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/nid_for_rec_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:text="2412099653"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="3.3"
+                android:layout_gravity="center"
+                android:text="Father name"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text=":"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/father_name_for_rec_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:text="Md. Rahim Mia"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="3.3"
+                android:layout_gravity="center"
+                android:text="Mother Name"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text=":"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/mother_name_for_rec_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:text="Mst. Hamida Begum"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/_2sdp"
+            android:weightSum="1">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".45"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:id="@+id/button_info_to_all_rec"
+                android:textColor="@color/white"
+                android:fontFamily="@font/lato_bold"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:paddingStart="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_2sdp"
+                android:textSize="@dimen/_9sdp"
+                android:background="@drawable/custom_button"
+                android:text="View Info"
+                app:backgroundTint="@null"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_weight=".1"
+                android:textSize="@dimen/_11sdp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_gravity="center"
+                android:textColor="@color/default_text_color"
+                android:textStyle="bold" />
+
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".45"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:id="@+id/button_details_to_approve_all_rec"
+                android:textColor="@color/white"
+                android:fontFamily="@font/lato_bold"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:paddingStart="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_2sdp"
+                android:textSize="@dimen/_9sdp"
+                android:background="@drawable/custom_button"
+                android:text="Final Approve"
+                app:backgroundTint="@null"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

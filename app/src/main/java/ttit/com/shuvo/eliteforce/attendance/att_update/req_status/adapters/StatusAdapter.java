@@ -87,6 +87,20 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.StatusView
         holder.upDate.setText(statusList.getUp_date());
         holder.arr.setText(statusList.getArr_time());
         holder.dept.setText(statusList.getDep_time());
+
+        if (statusList.getArr_time().isEmpty()) {
+            holder.inLay.setVisibility(View.GONE);
+        }
+        else {
+            holder.inLay.setVisibility(View.VISIBLE);
+        }
+
+        if (statusList.getDep_time().isEmpty()) {
+            holder.outLay.setVisibility(View.GONE);
+        }
+        else {
+            holder.outLay.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -108,6 +122,8 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.StatusView
         LinearLayout appLay;
         CardView cardView;
         Button details;
+        LinearLayout inLay;
+        LinearLayout outLay;
 
         public StatusView(@NonNull View itemView) {
             super(itemView);
@@ -122,6 +138,8 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.StatusView
             dept = itemView.findViewById(R.id.departure_time_status);
             approver = itemView.findViewById(R.id.approver_name_by);
             appRej = itemView.findViewById(R.id.text_app_rej);
+            inLay = itemView.findViewById(R.id.req_status_in_time_lay);
+            outLay = itemView.findViewById(R.id.req_status_out_time_lay);
 
             appLay = itemView.findViewById(R.id.approver_layout);
             details = itemView.findViewById(R.id.button_status_all);

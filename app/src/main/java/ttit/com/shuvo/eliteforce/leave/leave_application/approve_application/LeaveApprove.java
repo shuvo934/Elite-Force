@@ -274,7 +274,8 @@ public class LeaveApprove extends AppCompatActivity {
 
         leaveReqList = new ArrayList<>();
 
-        String leaveReqUrl = api_url_front+"leaveRequest/leaveReqLists/"+user_id+"/"+emp_code+"";
+//        String leaveReqUrl = api_url_front+"leaveRequest/leaveReqLists/"+user_id+"/"+emp_code+"";
+        String leaveReqUrl = api_url_front+"leaveRequest/newRequestList";
 
         RequestQueue requestQueue = Volley.newRequestQueue(LeaveApprove.this);
 
@@ -334,6 +335,9 @@ public class LeaveApprove extends AppCompatActivity {
             if (connected) {
                 conn = false;
                 connected = false;
+                fromLApp = 1;
+                SelectApproveReq selectRequest = new SelectApproveReq();
+                selectRequest.show(getSupportFragmentManager(),"Request");
             }
             else {
                 AlertDialog dialog = new AlertDialog.Builder(LeaveApprove.this)

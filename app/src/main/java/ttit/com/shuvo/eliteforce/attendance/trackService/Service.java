@@ -2,6 +2,13 @@ package ttit.com.shuvo.eliteforce.attendance.trackService;
 
 import static ttit.com.shuvo.eliteforce.attendance.trackService.model.DistanceCalculator.CalculationByDistance;
 import static ttit.com.shuvo.eliteforce.attendance.trackService.notification.Notification.CHANNEL_ID;
+import static ttit.com.shuvo.eliteforce.utility.Constants.DISTANCE;
+import static ttit.com.shuvo.eliteforce.utility.Constants.EMP_ID_LOGIN;
+import static ttit.com.shuvo.eliteforce.utility.Constants.FILE_OF_DAILY_ACTIVITY;
+import static ttit.com.shuvo.eliteforce.utility.Constants.LIVE_FLAG;
+import static ttit.com.shuvo.eliteforce.utility.Constants.LOGIN_ACTIVITY_FILE;
+import static ttit.com.shuvo.eliteforce.utility.Constants.STOPPED_TIME;
+import static ttit.com.shuvo.eliteforce.utility.Constants.TOTAL_TIME;
 import static ttit.com.shuvo.eliteforce.utility.Constants.api_url_front;
 
 import android.Manifest;
@@ -81,17 +88,11 @@ public class Service extends android.app.Service {
     public static String length_multi = "";
 
     SharedPreferences sharedPreferences;
-    public static final String LOGIN_ACTIVITY_FILE = "LOGIN_ACTIVITY_FILE_ELITE_FORCE_HR";
-    public static final String EMP_ID_LOGIN = "EMP_ID";
-    public static final String LIVE_FLAG = "LIVE_FLAG";
+
     String emp_id = "";
     int live_flag = 0;
 
     SharedPreferences sharedPreferencesDA;
-    public static String FILE_OF_DAILY_ACTIVITY = "";
-    public static  String DISTANCE = "DISTANCE";
-    public static  String TOTAL_TIME = "TOTAL_TIME";
-    public static  String STOPPED_TIME = "STOPPED_TIME";
 
     private final LocationCallback locationCallback = new LocationCallback() {
         @Override

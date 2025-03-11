@@ -195,6 +195,7 @@ public class SecondFragment extends Fragment {
         fesBonus.add("75 % of Basic");
         fesBonus.add("50 % of Basic");
         fesBonus.add("25% of Basic");
+        fesBonus.add("55% of Basic");
 
 
         foodsubsidy.add("N/A");

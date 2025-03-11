@@ -1,0 +1,1417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fleet.fleet_requisition.NewRequisition">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:alpha="@string/back_alpha"
+        android:background="@drawable/elite_back"/>
+
+    <RelativeLayout
+        android:id="@+id/upLay_fleet_req"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/design_2"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_51sdp"
+            android:background="@drawable/design"
+            android:orientation="vertical"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:fontFamily="@font/russo_one"
+                android:gravity="center"
+                android:text="New Requisition"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/upLay_fleet_req">
+
+        <ScrollView
+            android:id="@+id/fleet_req_full_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/fleet_req_save_button">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="@dimen/_6sdp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardElevation="@dimen/_2sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/spinner_layout_fleet_req_purpose"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxBackgroundMode="filled"
+                                    app:endIconMode="dropdown_menu"
+                                    app:boxStrokeWidth="0dp"
+                                    android:hint="@string/purpose_fl"
+                                    app:hintTextAppearance="@style/TextInputLayoutHintText"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.rosemaryapp.amazingspinner.AmazingSpinner
+                                        android:id="@+id/fleet_req_purpose"
+                                        style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                        android:layout_width="match_parent"
+                                        android:text=""
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/error_of_fleet_req_purpose"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Select Purpose/Mode Of Use"
+                            android:textSize="@dimen/_9sdp"
+                            android:textColor="@color/elite_red"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardElevation="@dimen/_2sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/fleet_request_date_updated_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/req_date_fl"
+                                    android:layout_margin="1dp"
+                                    app:boxStrokeWidth="0dp"
+                                    app:startIconDrawable="@drawable/calendar_icon"
+                                    app:startIconTintMode="screen"
+                                    app:startIconTint="@android:color/transparent"
+                                    android:clickable="true"
+                                    android:focusable="false"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxStrokeColor="@color/white"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxBackgroundMode="filled"
+                                    app:helperTextEnabled="true"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/fleet_request_date"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:clickable="true"
+                                        android:focusable="false"
+                                        android:text=""
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textColor="@color/black"
+                                        android:inputType="textMultiLine" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardElevation="@dimen/_2sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/spinner_layout_fleet_division"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxBackgroundMode="filled"
+                                    app:boxStrokeWidth="0dp"
+                                    android:hint="Division"
+                                    android:enabled="false"
+                                    android:clickable="false"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.rosemaryapp.amazingspinner.AmazingSpinner
+                                        android:id="@+id/fleet_division"
+                                        style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                        android:layout_width="match_parent"
+                                        android:text=""
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardElevation="@dimen/_2sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/spinner_layout_fleet_department"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxBackgroundMode="filled"
+                                    app:boxStrokeWidth="0dp"
+                                    android:hint="Department"
+                                    android:enabled="false"
+                                    android:clickable="false"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.rosemaryapp.amazingspinner.AmazingSpinner
+                                        android:id="@+id/fleet_department"
+                                        style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                        android:layout_width="match_parent"
+                                        android:text=""
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardElevation="@dimen/_2sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/spinner_layout_fleet_req_employee"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxBackgroundMode="filled"
+                                    app:boxStrokeWidth="0dp"
+                                    android:hint="Request Employee"
+                                    android:enabled="false"
+                                    android:clickable="false"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.rosemaryapp.amazingspinner.AmazingSpinner
+                                        android:id="@+id/fleet_req_employee"
+                                        style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                        android:layout_width="match_parent"
+                                        android:text=""
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardElevation="@dimen/_2sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/spinner_layout_fleet_req_mobile_no"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxBackgroundMode="filled"
+                                    app:boxStrokeWidth="0dp"
+                                    android:hint="Requester Mobile No"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/fleet_req_mobile_no"
+                                        style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                        android:layout_width="match_parent"
+                                        android:text=""
+                                        android:inputType="phone"
+                                        android:imeOptions="actionDone"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/error_of_fleet_request_mob_no"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Invalid Number"
+                            android:textSize="@dimen/_9sdp"
+                            android:textColor="@color/elite_red"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="@dimen/_6sdp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="From Location"
+                            android:gravity="center"
+                            android:textSize="@dimen/_13sdp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textColor="@color/white"
+                            android:background="@color/elite_red"
+                            android:layout_marginBottom="@dimen/_3sdp"
+                            android:padding="@dimen/_2sdp"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:orientation="horizontal">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_8sdp"
+                                app:cardCornerRadius="@dimen/_8sdp"
+                                app:cardBackgroundColor="@color/white">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/default_text_color">
+
+                                    <com.google.android.material.textfield.TextInputLayout
+                                        android:id="@+id/spinner_layout_fleet_area_division_from_loc"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="1dp"
+                                        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                        app:boxBackgroundColor="@color/white"
+                                        app:boxBackgroundMode="filled"
+                                        app:endIconMode="dropdown_menu"
+                                        app:boxStrokeWidth="0dp"
+                                        android:hint="@string/division_fl"
+                                        android:textColorHint="@color/elite_grey"
+                                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                        tools:ignore="HardcodedText">
+
+                                        <com.rosemaryapp.amazingspinner.AmazingSpinner
+                                            android:id="@+id/fleet_area_division_from_loc"
+                                            style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                            android:layout_width="match_parent"
+                                            android:text=""
+                                            android:fontFamily="@font/poppins_semibold"
+                                            android:textSize="@dimen/_10sdp"
+                                            android:textStyle="bold"
+                                            android:textColor="@color/black"
+                                            android:layout_height="wrap_content" />
+
+                                    </com.google.android.material.textfield.TextInputLayout>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:layout_marginBottom="@dimen/_8sdp"
+                                app:cardCornerRadius="@dimen/_8sdp"
+                                app:cardBackgroundColor="@color/white">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/default_text_color">
+
+                                    <com.google.android.material.textfield.TextInputLayout
+                                        android:id="@+id/spinner_layout_fleet_area_district_from_loc"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="1dp"
+                                        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                        app:boxBackgroundColor="@color/white"
+                                        app:boxBackgroundMode="filled"
+                                        app:endIconMode="dropdown_menu"
+                                        app:boxStrokeWidth="0dp"
+                                        android:hint="@string/district_fl"
+                                        android:textColorHint="@color/elite_grey"
+                                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                        tools:ignore="HardcodedText">
+
+                                        <com.rosemaryapp.amazingspinner.AmazingSpinner
+                                            android:id="@+id/fleet_area_district_from_loc"
+                                            style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                            android:layout_width="match_parent"
+                                            android:text=""
+                                            android:fontFamily="@font/poppins_semibold"
+                                            android:textSize="@dimen/_10sdp"
+                                            android:textStyle="bold"
+                                            android:textColor="@color/black"
+                                            android:layout_height="wrap_content" />
+
+                                    </com.google.android.material.textfield.TextInputLayout>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/error_of_fleet_from_division_district"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Select Division and District"
+                            android:textSize="@dimen/_9sdp"
+                            android:textColor="@color/elite_red"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/spinner_layout_fleet_area_address_from_loc"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxBackgroundMode="filled"
+                                    app:endIconMode="dropdown_menu"
+                                    android:enabled="false"
+                                    app:boxStrokeWidth="0dp"
+                                    android:hint="@string/area_fl"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                        android:id="@+id/fleet_area_address_from_loc"
+                                        style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                        android:layout_width="match_parent"
+                                        android:text=""
+                                        android:inputType="text"
+                                        android:importantForAutofill="no"
+                                        android:ellipsize="none"
+                                        android:maxLines="100"
+                                        android:scrollHorizontally="false"
+                                        android:imeOptions="actionDone"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/error_of_fleet_from_area_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Write Area Address"
+                            android:textSize="@dimen/_9sdp"
+                            android:textColor="@color/elite_red"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/spinner_layout_fleet_pickup_point"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxBackgroundMode="filled"
+                                    app:boxStrokeWidth="0dp"
+                                    android:hint="@string/pck_pnt_fl"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/fleet_pickup_point"
+                                        style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                        android:layout_width="match_parent"
+                                        android:text=""
+                                        android:inputType="textPostalAddress"
+                                        android:imeOptions="actionDone"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/error_of_fleet_from_pickup_point"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Write Pickup Point"
+                            android:textSize="@dimen/_9sdp"
+                            android:textColor="@color/elite_red"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardElevation="@dimen/_2sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/fleet_leaving_date_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/leave_date_fl"
+                                    android:layout_margin="1dp"
+                                    app:boxStrokeWidth="0dp"
+                                    app:startIconDrawable="@drawable/calendar_icon"
+                                    app:startIconTintMode="screen"
+                                    app:startIconTint="@android:color/transparent"
+                                    android:clickable="true"
+                                    android:focusable="false"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxStrokeColor="@color/white"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxBackgroundMode="filled"
+                                    app:helperTextEnabled="true"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/fleet_leaving_date"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:clickable="true"
+                                        android:focusable="false"
+                                        android:text=""
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textColor="@color/black"
+                                        android:inputType="textMultiLine" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/error_of_fleet_leaving_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Select Leaving Date &amp; Time"
+                            android:textSize="@dimen/_9sdp"
+                            android:textColor="@color/elite_red"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="@dimen/_6sdp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="To Location"
+                            android:gravity="center"
+                            android:textSize="@dimen/_13sdp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textColor="@color/white"
+                            android:background="@color/elite_red"
+                            android:layout_marginBottom="@dimen/_3sdp"
+                            android:padding="@dimen/_2sdp"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:orientation="horizontal">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_8sdp"
+                                app:cardCornerRadius="@dimen/_8sdp"
+                                app:cardBackgroundColor="@color/white">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/default_text_color">
+
+                                    <com.google.android.material.textfield.TextInputLayout
+                                        android:id="@+id/spinner_layout_fleet_area_division_to_loc"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="1dp"
+                                        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                        app:boxBackgroundColor="@color/white"
+                                        app:boxBackgroundMode="filled"
+                                        app:endIconMode="dropdown_menu"
+                                        app:boxStrokeWidth="0dp"
+                                        android:hint="@string/division_fl"
+                                        android:textColorHint="@color/elite_grey"
+                                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                        tools:ignore="HardcodedText">
+
+                                        <com.rosemaryapp.amazingspinner.AmazingSpinner
+                                            android:id="@+id/fleet_area_division_to_loc"
+                                            style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                            android:layout_width="match_parent"
+                                            android:text=""
+                                            android:fontFamily="@font/poppins_semibold"
+                                            android:textSize="@dimen/_10sdp"
+                                            android:textStyle="bold"
+                                            android:textColor="@color/black"
+                                            android:layout_height="wrap_content" />
+
+                                    </com.google.android.material.textfield.TextInputLayout>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:layout_marginBottom="@dimen/_8sdp"
+                                app:cardCornerRadius="@dimen/_8sdp"
+                                app:cardBackgroundColor="@color/white">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/default_text_color">
+
+                                    <com.google.android.material.textfield.TextInputLayout
+                                        android:id="@+id/spinner_layout_fleet_area_district_to_loc"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="1dp"
+                                        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                        app:boxBackgroundColor="@color/white"
+                                        app:boxBackgroundMode="filled"
+                                        app:endIconMode="dropdown_menu"
+                                        app:boxStrokeWidth="0dp"
+                                        android:hint="@string/district_fl"
+                                        android:textColorHint="@color/elite_grey"
+                                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                        tools:ignore="HardcodedText">
+
+                                        <com.rosemaryapp.amazingspinner.AmazingSpinner
+                                            android:id="@+id/fleet_area_district_to_loc"
+                                            style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                            android:layout_width="match_parent"
+                                            android:text=""
+                                            android:fontFamily="@font/poppins_semibold"
+                                            android:textSize="@dimen/_10sdp"
+                                            android:textStyle="bold"
+                                            android:textColor="@color/black"
+                                            android:layout_height="wrap_content" />
+
+                                    </com.google.android.material.textfield.TextInputLayout>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/error_of_fleet_to_division_district"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Select Division and District"
+                            android:textSize="@dimen/_9sdp"
+                            android:textColor="@color/elite_red"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/spinner_layout_fleet_area_address_to_loc"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxBackgroundMode="filled"
+                                    app:boxStrokeWidth="0dp"
+                                    app:endIconMode="dropdown_menu"
+                                    android:enabled="false"
+                                    android:hint="@string/area_fl"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                        android:id="@+id/fleet_area_address_to_loc"
+                                        style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                        android:layout_width="match_parent"
+                                        android:text=""
+                                        android:inputType="text"
+                                        android:importantForAutofill="no"
+                                        android:ellipsize="none"
+                                        android:maxLines="100"
+                                        android:imeOptions="actionDone"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/error_of_fleet_to_area_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Write Area Address"
+                            android:textSize="@dimen/_9sdp"
+                            android:textColor="@color/elite_red"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/spinner_layout_fleet_drop_point"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxBackgroundMode="filled"
+                                    app:boxStrokeWidth="0dp"
+                                    android:hint="@string/drp_pnt_fl"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/fleet_drop_point"
+                                        style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                        android:layout_width="match_parent"
+                                        android:text=""
+                                        android:inputType="textPostalAddress"
+                                        android:imeOptions="actionDone"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/error_of_fleet_to_drop_point"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Write Drop Point"
+                            android:textSize="@dimen/_9sdp"
+                            android:textColor="@color/elite_red"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardElevation="@dimen/_2sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/fleet_return_date_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/rtn_date_fl"
+                                    android:layout_margin="1dp"
+                                    app:boxStrokeWidth="0dp"
+                                    app:startIconDrawable="@drawable/calendar_icon"
+                                    app:startIconTintMode="screen"
+                                    app:startIconTint="@android:color/transparent"
+                                    android:clickable="true"
+                                    android:focusable="false"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxStrokeColor="@color/white"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxBackgroundMode="filled"
+                                    app:helperTextEnabled="true"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/fleet_return_date"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:clickable="true"
+                                        android:focusable="false"
+                                        android:text=""
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textColor="@color/black"
+                                        android:inputType="textMultiLine" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/error_of_fleet_return_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Select Return Date &amp; Time"
+                            android:textSize="@dimen/_9sdp"
+                            android:textColor="@color/elite_red"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="@dimen/_6sdp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardElevation="@dimen/_2sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/spinner_layout_req_fleet_type"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxBackgroundMode="filled"
+                                    app:endIconMode="dropdown_menu"
+                                    app:boxStrokeWidth="0dp"
+                                    android:hint="@string/req_fl_type_fl"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.rosemaryapp.amazingspinner.AmazingSpinner
+                                        android:id="@+id/req_fleet_type"
+                                        style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                        android:layout_width="match_parent"
+                                        android:text=""
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/error_of_req_fleet_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Select Requisition Fleet Type"
+                            android:textSize="@dimen/_9sdp"
+                            android:textColor="@color/elite_red"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardElevation="@dimen/_2sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/spinner_layout_fleet_vehicle_qty"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxBackgroundMode="filled"
+                                    app:boxStrokeWidth="0dp"
+                                    android:enabled="false"
+                                    android:hint="@string/vhl_qty_fl"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/fleet_vehicle_qty"
+                                        style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                        android:layout_width="match_parent"
+                                        android:text="1"
+                                        android:inputType="numberDecimal"
+                                        android:imeOptions="actionDone"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/error_of_fleet_vehicle_qty"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Write Vehicle Qty"
+                            android:textSize="@dimen/_9sdp"
+                            android:textColor="@color/elite_red"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardElevation="@dimen/_2sdp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/default_text_color">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/spinner_layout_fleet_travelers_qty"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="1dp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxBackgroundColor="@color/white"
+                                    app:boxBackgroundMode="filled"
+                                    app:boxStrokeWidth="0dp"
+                                    android:hint="@string/trv_qty_fl"
+                                    android:textColorHint="@color/elite_grey"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                    tools:ignore="HardcodedText">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/fleet_travelers_qty"
+                                        style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                                        android:layout_width="match_parent"
+                                        android:text=""
+                                        android:inputType="numberDecimal"
+                                        android:imeOptions="actionDone"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/black"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/error_of_travelers_qty_fleet"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Write Travelers Qty"
+                            android:textSize="@dimen/_9sdp"
+                            android:textColor="@color/elite_red"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fleet_req_save_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_margin="@dimen/_8sdp"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_4sdp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/custom_button"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/name_of_movement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/russo_one"
+                    android:gravity="center"
+                    android:text="SEND"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

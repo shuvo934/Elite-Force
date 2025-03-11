@@ -4,6 +4,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="elite_grey">#96999b</color>
     <color name="elite_red">#ed1a3d</color>
+    <color name="elite_red_a">#90ed1a3d</color>
     <color name="default_text_color">#6C6E6F</color>
     <color name="divider_color">#f5f6fa</color>
+    <color name="mint_leaf">#00b894</color>
+    <color name="sea_brook">#487eb0</color>
+    <color name="elite_grey_a">#5096999b</color>
+    <color name="present_color">#00C080</color>
+    <color name="progress_back_color">#ced6e0</color>
+    <color name="clouds">#ecf0f1</color>
 </resources>

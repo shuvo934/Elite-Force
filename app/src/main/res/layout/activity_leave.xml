@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".leave.Leave">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:alpha="@string/back_alpha"
+        android:background="@drawable/elite_back"/>
 
     <RelativeLayout
         android:id="@+id/uplay_leave"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_66sdp">
+        android:layout_height="@dimen/_55sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +36,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_62sdp"
+            android:layout_height="@dimen/_51sdp"
             android:background="@drawable/design"
             android:orientation="vertical"
             android:layout_alignParentEnd="true"
@@ -51,6 +63,7 @@
     </RelativeLayout>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/leave_chart_card_view_in_leave"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_200sdp"
         android:padding="@dimen/_8sdp"
@@ -60,27 +73,50 @@
         android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_8sdp"
         app:cardElevation="@dimen/_5sdp"
-        app:cardBackgroundColor="@color/white">
+        app:cardBackgroundColor="@color/white"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/uplay_leave">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/refresh_graph_leave"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:fontFamily="@font/poppins"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold"
-                android:gravity="end"
-                android:layout_marginTop="@dimen/_4sdp"
-                android:layout_marginStart="@dimen/_4sdp"
-                android:layout_marginEnd="@dimen/_6sdp"
-                android:textColor="@color/black"
-                android:layout_gravity="center" />
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_4sdp">
+
+                <TextView
+                    android:id="@+id/refresh_graph_leave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:fontFamily="@font/poppins"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:gravity="end"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/leave_arrow_drop_down_image"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:textColor="@color/elite_red"
+                    android:layout_gravity="center" />
+
+                <ImageView
+                    android:id="@+id/leave_arrow_drop_down_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_drop_down_24"
+                    app:tint="@color/elite_red"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_6sdp"/>
+
+            </RelativeLayout>
             
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/multi_bar_chart"
@@ -94,7 +130,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/leave_chart_card_view_in_leave">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -113,7 +153,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/leave_balance_sheet"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/_100sdp"
+                    android:layout_height="@dimen/_107sdp"
                     android:layout_weight=".5"
                     app:cardCornerRadius="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_12sdp"
@@ -121,7 +161,8 @@
                     android:layout_marginBottom="@dimen/_12sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
                     app:cardElevation="@dimen/_5sdp"
-                    android:background="@color/white">
+                    android:layout_gravity="center"
+                    app:cardBackgroundColor="@color/white">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -131,37 +172,45 @@
                         android:background="@drawable/design_4"
                         android:orientation="vertical">
 
+                        <ImageView
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/leave_balance_icon"
+                            app:tint="@color/elite_red"
+                            tools:ignore="ContentDescription"/>
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_4sdp"
                             android:layout_marginEnd="@dimen/_4sdp"
-                            android:padding="@dimen/_12sdp"
+                            android:padding="@dimen/_8sdp"
                             android:fontFamily="@font/open_sans_bold"
                             android:gravity="center"
                             android:text="Leave Balance"
                             android:textColor="@color/black"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText" />
 
                     </LinearLayout>
-
-
 
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/leave_application"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/_100sdp"
+                    android:layout_height="@dimen/_107sdp"
                     android:layout_weight=".5"
                     app:cardCornerRadius="@dimen/_8sdp"
                     app:cardElevation="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginBottom="@dimen/_12sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginStart="@dimen/_16sdp"
-                    android:background="@color/white">
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_gravity="center"
+                    app:cardBackgroundColor="@color/white">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -171,6 +220,14 @@
                         android:background="@drawable/design_4"
                         android:orientation="vertical">
 
+                        <ImageView
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/leave_application_all"
+                            app:tint="@color/elite_red"
+                            tools:ignore="ContentDescription"/>
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -178,8 +235,9 @@
                             android:gravity="center"
                             android:layout_marginStart="@dimen/_4sdp"
                             android:layout_marginEnd="@dimen/_4sdp"
-                            android:padding="@dimen/_12sdp"
+                            android:padding="@dimen/_8sdp"
                             android:text="Leave Application"
+                            android:textSize="@dimen/_10sdp"
                             android:textColor="@color/black"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText" />
@@ -202,7 +260,7 @@
                     android:id="@+id/leave_status"
                     android:layout_width="0dp"
                     android:layout_weight=".5"
-                    android:layout_height="@dimen/_100sdp"
+                    android:layout_height="@dimen/_107sdp"
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginBottom="@dimen/_12sdp"
                     android:layout_marginStart="@dimen/_8sdp"
@@ -210,7 +268,7 @@
                     app:cardCornerRadius="@dimen/_8sdp"
                     android:layout_gravity="center"
                     app:cardElevation="@dimen/_5sdp"
-                    android:background="@color/white">
+                    app:cardBackgroundColor="@color/white">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -220,16 +278,25 @@
                         android:background="@drawable/design_4"
                         android:orientation="vertical">
 
+                        <ImageView
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/leave_status_icon"
+                            app:tint="@color/elite_red"
+                            tools:ignore="ContentDescription"/>
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_4sdp"
                             android:layout_marginEnd="@dimen/_4sdp"
-                            android:padding="@dimen/_12sdp"
+                            android:padding="@dimen/_8sdp"
                             android:fontFamily="@font/open_sans_bold"
                             android:gravity="center"
                             android:text="Leave Status"
                             android:textColor="@color/black"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText" />
 
@@ -243,4 +310,4 @@
         
     </ScrollView>
 
-</LinearLayout>
+</RelativeLayout>

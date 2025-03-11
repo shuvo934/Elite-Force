@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="4.3"
+                android:text="NID"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"
+                tools:ignore="HardcodedText,NestedWeights" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text="@string/colon"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/nid_for_rec_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text=""
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="4.3"
+                android:text="Birth Certificate"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"
+                tools:ignore="HardcodedText,NestedWeights" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text="@string/colon"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/birth_certificate_for_rec_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text=""
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:layout_marginEnd="2dp"
+                android:padding="4dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="4.3"
+                android:text="Mobile No"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"
+                tools:ignore="HardcodedText,NestedWeights" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text="@string/colon"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/mobile_no_for_rec_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text=""
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="4.3"
+                android:text="Gender"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"
+                tools:ignore="HardcodedText,NestedWeights" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text="@string/colon"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/gender_for_rec_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text=""
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:layout_marginEnd="2dp"
+                android:padding="4dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="4.3"
+                android:text="Religion"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"
+                tools:ignore="HardcodedText,NestedWeights" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text="@string/colon"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/religion_for_rec_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text=""
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="4.3"
+                android:text="Nationality"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"
+                tools:ignore="HardcodedText,NestedWeights" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text="@string/colon"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/nationality_for_rec_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text=""
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:layout_marginEnd="2dp"
+                android:padding="4dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="4.3"
+                android:text="Height"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"
+                tools:ignore="HardcodedText,NestedWeights" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text="@string/colon"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/height_for_rec_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text=""
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="4.3"
+                android:text="Weight"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"
+                tools:ignore="HardcodedText,NestedWeights" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text="@string/colon"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/weight_for_rec_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text=""
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:layout_marginEnd="2dp"
+                android:padding="4dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="3.3"
+            android:text="Identification Mark"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:padding="4dp"
+            android:layout_marginStart="2dp"
+            android:textSize="@dimen/_8sdp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:text="@string/colon"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="4dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:textSize="@dimen/_8sdp"/>
+
+        <TextView
+            android:id="@+id/identification_mark_for_rec_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="6"
+            android:layout_gravity="center"
+            android:text=""
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/default_text_color"
+            android:layout_marginEnd="2dp"
+            android:padding="4dp"
+            android:textSize="@dimen/_9sdp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="3.3"
+            android:text="Permanent Address"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:padding="4dp"
+            android:layout_marginStart="2dp"
+            android:textSize="@dimen/_8sdp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:text="@string/colon"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="4dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:textSize="@dimen/_8sdp"/>
+
+        <TextView
+            android:id="@+id/permanent_address_for_rec_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="6"
+            android:layout_gravity="center"
+            android:text=""
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/default_text_color"
+            android:layout_marginEnd="2dp"
+            android:padding="4dp"
+            android:textSize="@dimen/_9sdp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="4.3"
+                android:text="District"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"
+                tools:ignore="HardcodedText,NestedWeights" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text="@string/colon"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/district_for_rec_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text=""
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="4.3"
+                android:text="Thana (Permanent)"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"
+                tools:ignore="HardcodedText,NestedWeights" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text="@string/colon"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/permanent_thana_for_rec_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text=""
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:layout_marginEnd="2dp"
+                android:padding="4dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="4.3"
+                android:text="Post Office"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"
+                tools:ignore="HardcodedText,NestedWeights" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text="@string/colon"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/post_office_for_rec_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text=""
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:padding="4dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="4.3"
+                android:text="Union"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:textSize="@dimen/_8sdp"
+                tools:ignore="HardcodedText,NestedWeights" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:text="@string/colon"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/union_for_rec_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text=""
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/default_text_color"
+                android:layout_marginEnd="2dp"
+                android:padding="4dp"
+                android:textSize="@dimen/_8sdp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="3.3"
+            android:text="Village"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:padding="4dp"
+            android:layout_marginStart="2dp"
+            android:textSize="@dimen/_8sdp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:text="@string/colon"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="4dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:textSize="@dimen/_8sdp"/>
+
+        <TextView
+            android:id="@+id/village_for_rec_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="6"
+            android:layout_gravity="center"
+            android:text=""
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/default_text_color"
+            android:layout_marginEnd="2dp"
+            android:padding="4dp"
+            android:textSize="@dimen/_9sdp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="3.3"
+            android:text="Present Address"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:padding="4dp"
+            android:layout_marginStart="2dp"
+            android:textSize="@dimen/_8sdp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:text="@string/colon"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="4dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:textSize="@dimen/_8sdp"/>
+
+        <TextView
+            android:id="@+id/present_address_for_rec_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="6"
+            android:layout_gravity="center"
+            android:text=""
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/default_text_color"
+            android:layout_marginEnd="2dp"
+            android:padding="4dp"
+            android:textSize="@dimen/_9sdp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="3.3"
+            android:text="Present Address Thana"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:padding="4dp"
+            android:layout_marginStart="2dp"
+            android:textSize="@dimen/_8sdp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight=".7"
+            android:layout_gravity="center"
+            android:text="@string/colon"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="4dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:textSize="@dimen/_8sdp"/>
+
+        <TextView
+            android:id="@+id/present_address_thana_for_rec_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="6"
+            android:layout_gravity="center"
+            android:text=""
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/default_text_color"
+            android:layout_marginEnd="2dp"
+            android:padding="4dp"
+            android:textSize="@dimen/_9sdp"/>
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/candidate_info_extra_layout_1"/>
+
+</LinearLayout>

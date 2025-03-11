@@ -5,6 +5,7 @@ import static ttit.com.shuvo.eliteforce.attendance.Attendance.tracking_flag;
 import static ttit.com.shuvo.eliteforce.login.Login.userInfoLists;
 import static ttit.com.shuvo.eliteforce.utility.Constants.api_url_front;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -25,6 +26,7 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
@@ -51,6 +53,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -58,15 +61,20 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResponse;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStates;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.location.Priority;
+import com.google.android.gms.location.SettingsClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.tasks.Task;
 
 import org.json.JSONArray;
@@ -76,6 +84,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -83,19 +92,23 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import ttit.com.shuvo.eliteforce.R;
+import ttit.com.shuvo.eliteforce.attendance.give_attendance.arraylists.AreaLists;
+import ttit.com.shuvo.eliteforce.attendance.give_attendance.dialogs.AttendanceRequest;
 import ttit.com.shuvo.eliteforce.attendance.trackService.Service;
+import ttit.com.shuvo.eliteforce.mainPage.MainMenu;
 import ttit.com.shuvo.eliteforce.utility.WaitProgress;
 
-public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     TextView currLoc;
     TextView checkInTime;
     CardView chekInButton;
     TextView nameOfCheckIN;
-    private GoogleApiClient googleApiClient;
     FusedLocationProviderClient fusedLocationProviderClient;
     LocationManager locationManager;
     LocationRequest locationRequest;
@@ -126,6 +139,10 @@ public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallb
     String timeToShow = "";
     TextClock digitalClock;
     TextView todayTime;
+
+    ArrayList<AreaLists> areaLists;
+
+    Logger logger = Logger.getLogger(AttendanceGive.class.getName());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -279,7 +296,7 @@ public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallb
 
                     Log.i("LocationFused ", location.toString());
                     lastLatLongitude[0] = new LatLng(location.getLatitude(), location.getLongitude());
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastLatLongitude[0], 18));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastLatLongitude[0], 16.5F));
                     System.out.println(lastLatLongitude[0]);
                     lat = String.valueOf(lastLatLongitude[0].latitude);
                     lon = String.valueOf(lastLatLongitude[0].longitude);
@@ -298,123 +315,271 @@ public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallb
         chekInButton.setOnClickListener(v -> {
             if (!inTime.isEmpty()) {
                 LatLng c_latLng = new LatLng(0,0);
-                if (officeLatitude != null && officeLongitude != null) {
-                    if (!officeLatitude.isEmpty() && !officeLongitude.isEmpty()) {
-                        c_latLng = new LatLng(Double.parseDouble(officeLatitude),Double.parseDouble(officeLongitude));
-                    }
-                }
-                if (c_latLng.latitude != 0 && c_latLng.longitude != 0) {
-                    float[] distance = new float[1];
-                    Location.distanceBetween(c_latLng.latitude,c_latLng.longitude,lastLatLongitude[0].latitude,lastLatLongitude[0].longitude,distance);
+                boolean found = false;
+                float[] distance = new float[1];
+                float prev_distance = 0;
+                String prev_mach_code = "";
+                if (!areaLists.isEmpty()) {
+                    for (int i = 0; i < areaLists.size(); i++) {
+                        officeLatitude = areaLists.get(i).getLatitude();
+                        officeLongitude = areaLists.get(i).getLongitude();
+                        coverage = areaLists.get(i).getCoverage();
 
-                    float radius = 0;
-                    if (coverage != null) {
-                        if (!coverage.isEmpty()) {
-                            radius = Float.parseFloat(coverage);
+                        if (officeLatitude != null && officeLongitude != null) {
+                            if (!officeLatitude.isEmpty() && !officeLongitude.isEmpty()) {
+                                c_latLng = new LatLng(Double.parseDouble(officeLatitude),Double.parseDouble(officeLongitude));
+                            }
                         }
-                    }
 
-                    if (radius == 0) {
-                        machineCode = "3";
-                    }
-                    else {
-                        machineCode = "1";
-                    }
+                        if (c_latLng.latitude != 0 && c_latLng.longitude != 0) {
+                            Location.distanceBetween(c_latLng.latitude,c_latLng.longitude,lastLatLongitude[0].latitude,lastLatLongitude[0].longitude,distance);
 
-                    if (distance[0] <= radius || radius == 0) {
-                        if (tracking_flag == 1 ) {
-                            if (isMyServiceRunning()) {
+                            float radius = 0;
+                            if (coverage != null) {
+                                if (!coverage.isEmpty()) {
+                                    radius = Float.parseFloat(coverage);
+                                }
+                            }
 
-                                AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
-                                builder.setTitle("Attendance!")
-                                        .setMessage("Do you want to punch & stop your tracker?")
-                                        .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
-                                        .setNegativeButton("NO", (dialog, which) -> {
+                            machineCode = areaLists.get(i).getCoa_id();
 
-                                        });
-                                AlertDialog alert = builder.create();
-                                alert.show();
+                            if (distance[0] <= radius) {
+                                found = true;
+                                prev_mach_code = machineCode;
+                                break;
                             }
                             else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
-                                builder.setTitle("Attendance!")
-                                        .setMessage("Do you want to punch & start your tracker?")
-                                        .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
-                                        .setNegativeButton("NO", (dialog, which) -> {
-
-                                        });
-                                AlertDialog alert = builder.create();
-                                alert.show();
+                                float dd = distance[0] - radius;
+                                if (prev_distance == 0) {
+                                    prev_distance = dd;
+                                    prev_mach_code = machineCode;
+                                }
+                                else if (dd < prev_distance) {
+                                    prev_distance = dd;
+                                    prev_mach_code = machineCode;
+                                }
                             }
                         }
-                        else {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
-                            builder.setTitle("Punch Attendance!")
-                                    .setMessage("Do you want to punch now?")
-                                    .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
-                                    .setNegativeButton("NO", (dialog, which) -> {
+                    }
 
-                                    });
-                            AlertDialog alert = builder.create();
-                            alert.show();
-                        }
-                    }
-                    else {
-                        Toast.makeText(getApplicationContext(),"You are not around your office area",Toast.LENGTH_SHORT).show();
-                    }
+                    machineCode = prev_mach_code;
+
+//                    if (found) {
+//                        if (tracking_flag == 1 ) {
+//                            if (isMyServiceRunning()) {
+//
+//                                AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
+//                                builder.setTitle("Attendance!")
+//                                        .setMessage("Do you want to punch & stop your tracker?")
+//                                        .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
+//                                        .setNegativeButton("NO", (dialog, which) -> {
+//
+//                                        });
+//                                AlertDialog alert = builder.create();
+//                                alert.show();
+//                            }
+//                            else {
+//                                AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
+//                                builder.setTitle("Attendance!")
+//                                        .setMessage("Do you want to punch & start your tracker?")
+//                                        .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
+//                                        .setNegativeButton("NO", (dialog, which) -> {
+//
+//                                        });
+//                                AlertDialog alert = builder.create();
+//                                alert.show();
+//                            }
+//                        }
+//                        else {
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
+//                            builder.setTitle("Punch Attendance!")
+//                                    .setMessage("Do you want to punch now?")
+//                                    .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
+//                                    .setNegativeButton("NO", (dialog, which) -> {
+//
+//                                    });
+//                            AlertDialog alert = builder.create();
+//                            alert.show();
+//                        }
+//                    }
+//                    else {
+//                        Toast.makeText(getApplicationContext(),"You are not around your office area",Toast.LENGTH_SHORT).show();
+//                    }
+                    AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
+                    boolean finalFound = found;
+                    float finalPrev_distance = prev_distance;
+                    builder.setTitle("Punch Attendance!")
+                            .setMessage("Do you want to punch now?")
+                            .setPositiveButton("YES", (dialog, which) -> checkAddress(finalFound, finalPrev_distance))
+                            .setNegativeButton("NO", (dialog, which) -> {
+
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
                 }
                 else {
-                    machineCode = "3";
-                    if (tracking_flag == 1) {
-                        if (isMyServiceRunning()) {
-
-                            AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
-                            builder.setTitle("Attendance!")
-                                    .setMessage("Do you want to punch & stop your tracker?")
-                                    .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
-                                    .setNegativeButton("NO", (dialog, which) -> {
-
-                                    });
-                            AlertDialog alert = builder.create();
-                            alert.show();
-                        }
-                        else {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
-                            builder.setTitle("Attendance!")
-                                    .setMessage("Do you want to punch & start your tracker?")
-                                    .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
-                                    .setNegativeButton("NO", (dialog, which) -> {
-
-                                    });
-                            AlertDialog alert = builder.create();
-                            alert.show();
-                        }
-                    }
-                    else {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
-                        builder.setTitle("Punch Attendance!")
-                                .setMessage("Do you want to punch now?")
-                                .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
-                                .setNegativeButton("NO", (dialog, which) -> {
-
-                                });
-                        AlertDialog alert = builder.create();
-                        alert.show();
-                    }
+                    Toast.makeText(getApplicationContext(),"You don't have any assign area. Please contact with administrator",Toast.LENGTH_LONG).show();
                 }
+//                else {
+//                    machineCode = "3";
+//                    if (tracking_flag == 1) {
+//                        if (isMyServiceRunning()) {
+//
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
+//                            builder.setTitle("Attendance!")
+//                                    .setMessage("Do you want to punch & stop your tracker?")
+//                                    .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
+//                                    .setNegativeButton("NO", (dialog, which) -> {
+//
+//                                    });
+//                            AlertDialog alert = builder.create();
+//                            alert.show();
+//                        }
+//                        else {
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
+//                            builder.setTitle("Attendance!")
+//                                    .setMessage("Do you want to punch & start your tracker?")
+//                                    .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
+//                                    .setNegativeButton("NO", (dialog, which) -> {
+//
+//                                    });
+//                            AlertDialog alert = builder.create();
+//                            alert.show();
+//                        }
+//                    }
+//                    else {
+//                        AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
+//                        builder.setTitle("Punch Attendance!")
+//                                .setMessage("Do you want to punch now?")
+//                                .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
+//                                .setNegativeButton("NO", (dialog, which) -> {
+//
+//                                });
+//                        AlertDialog alert = builder.create();
+//                        alert.show();
+//                    }
+//                }
+
+                // ---- OLD Code ----
+//                if (officeLatitude != null && officeLongitude != null) {
+//                    if (!officeLatitude.isEmpty() && !officeLongitude.isEmpty()) {
+//                        c_latLng = new LatLng(Double.parseDouble(officeLatitude),Double.parseDouble(officeLongitude));
+//                    }
+//                }
+//                if (c_latLng.latitude != 0 && c_latLng.longitude != 0) {
+//                    float[] distance = new float[1];
+//                    Location.distanceBetween(c_latLng.latitude,c_latLng.longitude,lastLatLongitude[0].latitude,lastLatLongitude[0].longitude,distance);
+//
+//                    float radius = 0;
+//                    if (coverage != null) {
+//                        if (!coverage.isEmpty()) {
+//                            radius = Float.parseFloat(coverage);
+//                        }
+//                    }
+//
+//                    if (radius == 0) {
+//                        machineCode = "3";
+//                    }
+//                    else {
+//                        machineCode = "1";
+//                    }
+//
+//                    if (distance[0] <= radius || radius == 0) {
+//                        if (tracking_flag == 1 ) {
+//                            if (isMyServiceRunning()) {
+//
+//                                AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
+//                                builder.setTitle("Attendance!")
+//                                        .setMessage("Do you want to punch & stop your tracker?")
+//                                        .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
+//                                        .setNegativeButton("NO", (dialog, which) -> {
+//
+//                                        });
+//                                AlertDialog alert = builder.create();
+//                                alert.show();
+//                            }
+//                            else {
+//                                AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
+//                                builder.setTitle("Attendance!")
+//                                        .setMessage("Do you want to punch & start your tracker?")
+//                                        .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
+//                                        .setNegativeButton("NO", (dialog, which) -> {
+//
+//                                        });
+//                                AlertDialog alert = builder.create();
+//                                alert.show();
+//                            }
+//                        }
+//                        else {
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
+//                            builder.setTitle("Punch Attendance!")
+//                                    .setMessage("Do you want to punch now?")
+//                                    .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
+//                                    .setNegativeButton("NO", (dialog, which) -> {
+//
+//                                    });
+//                            AlertDialog alert = builder.create();
+//                            alert.show();
+//                        }
+//                    }
+//                    else {
+//                        Toast.makeText(getApplicationContext(),"You are not around your office area",Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//                else {
+//                    machineCode = "3";
+//                    if (tracking_flag == 1) {
+//                        if (isMyServiceRunning()) {
+//
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
+//                            builder.setTitle("Attendance!")
+//                                    .setMessage("Do you want to punch & stop your tracker?")
+//                                    .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
+//                                    .setNegativeButton("NO", (dialog, which) -> {
+//
+//                                    });
+//                            AlertDialog alert = builder.create();
+//                            alert.show();
+//                        }
+//                        else {
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
+//                            builder.setTitle("Attendance!")
+//                                    .setMessage("Do you want to punch & start your tracker?")
+//                                    .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
+//                                    .setNegativeButton("NO", (dialog, which) -> {
+//
+//                                    });
+//                            AlertDialog alert = builder.create();
+//                            alert.show();
+//                        }
+//                    }
+//                    else {
+//                        AlertDialog.Builder builder = new AlertDialog.Builder(AttendanceGive.this);
+//                        builder.setTitle("Punch Attendance!")
+//                                .setMessage("Do you want to punch now?")
+//                                .setPositiveButton("YES", (dialog, which) -> new CheckAddress().execute())
+//                                .setNegativeButton("NO", (dialog, which) -> {
+//
+//                                });
+//                        AlertDialog alert = builder.create();
+//                        alert.show();
+//                    }
+//                }
             }
             else {
                 Toast.makeText(getApplicationContext(),"Please wait for getting the location",Toast.LENGTH_SHORT).show();
             }
         });
 
-        getOfficeLocation();
-    }
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                fusedLocationProviderClient.removeLocationUpdates(locationCallback);
+                finish();
+            }
+        });
 
-    @Override
-    public void onBackPressed() {
-        fusedLocationProviderClient.removeLocationUpdates(locationCallback);
-        finish();
+        getOfficeLocation();
     }
 
     public void getAddress(double lat, double lng) {
@@ -431,7 +596,6 @@ public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallb
             }
         }
         catch (IOException e) {
-            e.printStackTrace();
             address = "";
         }
     }
@@ -455,52 +619,94 @@ public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallb
         });
 
         fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper());
+
+        for (int i = 0; i < areaLists.size(); i++) {
+            mMap.addCircle(new CircleOptions()
+                    .center(new LatLng(Float.parseFloat(areaLists.get(i).getLatitude()), Float.parseFloat(areaLists.get(i).getLongitude())))
+                    .radius(Integer.parseInt(areaLists.get(i).getCoverage()))
+                    .strokeColor(getColor(R.color.elite_red))
+                    .strokeWidth(4F)
+                    .fillColor(getColor(R.color.elite_grey_a)));
+        }
     }
 
+//    private void enableGPS() {
+//        if (googleApiClient == null) {
+//            googleApiClient = new GoogleApiClient.Builder(this)
+//                    .addApi(LocationServices.API).addConnectionCallbacks(AttendanceGive.this)
+//                    .addOnConnectionFailedListener(AttendanceGive.this).build();
+//            googleApiClient.connect();
+//            LocationRequest locationRequest = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 5000)
+//                    .setWaitForAccurateLocation(false)
+//                    .setMinUpdateIntervalMillis(1000)
+//                    .setMaxUpdateDelayMillis(2000)
+//                    .build();
+//            LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
+//                    .addLocationRequest(locationRequest);
+//
+//            // **************************
+//            builder.setAlwaysShow(true); // this is the key ingredient
+//            // **************************
+//
+//            PendingResult<LocationSettingsResult> result = LocationServices.SettingsApi
+//                    .checkLocationSettings(googleApiClient, builder.build());
+//            result.setResultCallback(result1 -> {
+//                final Status status = result1.getStatus();
+//                final LocationSettingsStates state = result1
+//                        .getLocationSettingsStates();
+//                switch (status.getStatusCode()) {
+//                    case LocationSettingsStatusCodes.SUCCESS:
+//                        Log.i("Exit", "3");
+//                        zoomToUserLocation();
+//                        break;
+//                    case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
+//                        Log.i("Exit", "4");
+//                        try {
+//                            status.startResolutionForResult(AttendanceGive.this, 1000);
+//                        }
+//                        catch (IntentSender.SendIntentException e) {
+//                            // Ignore the error.
+//                        }
+//                        break;
+//                    case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
+//                        Log.i("Exit", "5");
+//                        break;
+//                }
+//            });
+//        }
+//    }
+
     private void enableGPS() {
-        if (googleApiClient == null) {
-            googleApiClient = new GoogleApiClient.Builder(this)
-                    .addApi(LocationServices.API).addConnectionCallbacks(AttendanceGive.this)
-                    .addOnConnectionFailedListener(AttendanceGive.this).build();
-            googleApiClient.connect();
-            LocationRequest locationRequest = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 5000)
-                    .setWaitForAccurateLocation(false)
-                    .setMinUpdateIntervalMillis(1000)
-                    .setMaxUpdateDelayMillis(2000)
-                    .build();
-            LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
-                    .addLocationRequest(locationRequest);
+        LocationRequest locationRequest = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 3000)
+                .setWaitForAccurateLocation(false)
+                .setMinUpdateIntervalMillis(1000)
+                .setMaxUpdateDelayMillis(2000)
+                .build();
+        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
+                .addLocationRequest(locationRequest);
 
-            // **************************
-            builder.setAlwaysShow(true); // this is the key ingredient
-            // **************************
+        SettingsClient client = LocationServices.getSettingsClient(this);
+        Task<LocationSettingsResponse> task = client.checkLocationSettings(builder.build());
 
-            PendingResult<LocationSettingsResult> result = LocationServices.SettingsApi
-                    .checkLocationSettings(googleApiClient, builder.build());
-            result.setResultCallback(result1 -> {
-                final Status status = result1.getStatus();
-                final LocationSettingsStates state = result1
-                        .getLocationSettingsStates();
-                switch (status.getStatusCode()) {
-                    case LocationSettingsStatusCodes.SUCCESS:
-                        Log.i("Exit", "3");
-                        zoomToUserLocation();
-                        break;
-                    case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
-                        Log.i("Exit", "4");
-                        try {
-                            status.startResolutionForResult(AttendanceGive.this, 1000);
-                        }
-                        catch (IntentSender.SendIntentException e) {
-                            // Ignore the error.
-                        }
-                        break;
-                    case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
-                        Log.i("Exit", "5");
-                        break;
+        task.addOnSuccessListener(this, locationSettingsResponse -> {
+            zoomToUserLocation();
+        });
+
+        task.addOnFailureListener(this, e -> {
+            if (e instanceof ResolvableApiException) {
+                // Location settings are not satisfied, but this can be fixed
+                // by showing the user a dialog.
+                try {
+                    // Show the dialog by calling startResolutionForResult(),
+                    // and check the result in onActivityResult().
+                    ResolvableApiException resolvable = (ResolvableApiException) e;
+                    resolvable.startResolutionForResult(AttendanceGive.this,
+                            1000);
+                } catch (IntentSender.SendIntentException sendEx) {
+                    // Ignore the error.
                 }
-            });
-        }
+            }
+        });
     }
 
     private boolean isMyServiceRunning() {
@@ -528,83 +734,101 @@ public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallb
         }
     }
 
-    public boolean isConnected() {
-        boolean connected = false;
-        boolean isMobile = false;
-        try {
-            ConnectivityManager cm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-            @SuppressLint("MissingPermission") NetworkInfo nInfo = cm.getActiveNetworkInfo();
-            connected = nInfo != null && nInfo.isAvailable() && nInfo.isConnected();
-            return connected;
-        } catch (Exception e) {
-            Log.e("Connectivity Exception", Objects.requireNonNull(e.getMessage()));
-        }
-        return connected;
+    public void checkAddress(boolean found, float distance) {
+        waitProgress.show(getSupportFragmentManager(),"WaitBar");
+        waitProgress.setCancelable(false);
+        new Thread(() -> {
+            getAddress(Double.parseDouble(lat),Double.parseDouble(lon));
+            runOnUiThread(() -> {
+                if (found) {
+                    giveAttendance();
+                }
+                else {
+                    waitProgress.dismiss();
+                    AttendanceRequest attendanceRequest = new AttendanceRequest(AttendanceGive.this, emp_id, ts.toString(),machineCode,lat,lon,address,distance);
+                    attendanceRequest.show(getSupportFragmentManager(),"ATT_REQ");
+                }
+            });
+        }).start();
     }
 
-    public boolean isOnline() {
-
-        Runtime runtime = Runtime.getRuntime();
-        try {
-            Process ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8");
-            int     exitValue = ipProcess.waitFor();
-            return (exitValue == 0);
-        }
-        catch (IOException | InterruptedException e)          { e.printStackTrace(); }
-
-        return false;
-    }
-
-    public class CheckAddress extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            waitProgress.show(getSupportFragmentManager(),"WaitBar");
-            waitProgress.setCancelable(false);
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            if (isConnected() && isOnline()) {
-                conn = true;
-                getAddress(Double.parseDouble(lat),Double.parseDouble(lon));
-            }
-            else {
-                conn = false;
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-
-            if (conn) {
-                conn = false;
-                giveAttendance();
-            }
-            else {
-                waitProgress.dismiss();
-                AlertDialog dialog = new AlertDialog.Builder(AttendanceGive.this)
-                        .setMessage("Please Check Your Internet Connection")
-                        .setPositiveButton("Retry", null)
-                        .setNegativeButton("Cancel",null)
-                        .show();
-
-                dialog.setCancelable(false);
-                dialog.setCanceledOnTouchOutside(false);
-                Button positive = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
-                positive.setOnClickListener(v -> {
-
-                    new CheckAddress().execute();
-                    dialog.dismiss();
-                });
-                Button negative = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
-                negative.setOnClickListener(v -> dialog.dismiss());
-            }
-        }
-    }
+//    public boolean isConnected() {
+//        boolean connected = false;
+//        boolean isMobile = false;
+//        try {
+//            ConnectivityManager cm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+//            @SuppressLint("MissingPermission") NetworkInfo nInfo = cm.getActiveNetworkInfo();
+//            connected = nInfo != null && nInfo.isAvailable() && nInfo.isConnected();
+//            return connected;
+//        } catch (Exception e) {
+//            Log.e("Connectivity Exception", Objects.requireNonNull(e.getMessage()));
+//        }
+//        return connected;
+//    }
+//
+//    public boolean isOnline() {
+//
+//        Runtime runtime = Runtime.getRuntime();
+//        try {
+//            Process ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8");
+//            int     exitValue = ipProcess.waitFor();
+//            return (exitValue == 0);
+//        }
+//        catch (IOException | InterruptedException e)          { e.printStackTrace(); }
+//
+//        return false;
+//    }
+//
+//    public class CheckAddress extends AsyncTask<Void, Void, Void> {
+//
+//        @Override
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//            waitProgress.show(getSupportFragmentManager(),"WaitBar");
+//            waitProgress.setCancelable(false);
+//        }
+//
+//        @Override
+//        protected Void doInBackground(Void... voids) {
+//            if (isConnected() && isOnline()) {
+//                conn = true;
+//                getAddress(Double.parseDouble(lat),Double.parseDouble(lon));
+//            }
+//            else {
+//                conn = false;
+//            }
+//            return null;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(Void aVoid) {
+//            super.onPostExecute(aVoid);
+//
+//            if (conn) {
+//                conn = false;
+//                giveAttendance();
+//            }
+//            else {
+//                waitProgress.dismiss();
+//                AlertDialog dialog = new AlertDialog.Builder(AttendanceGive.this)
+//                        .setMessage("Please Check Your Internet Connection")
+//                        .setPositiveButton("Retry", null)
+//                        .setNegativeButton("Cancel",null)
+//                        .show();
+//
+//                dialog.setCancelable(false);
+//                dialog.setCanceledOnTouchOutside(false);
+//                Button positive = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+//                positive.setOnClickListener(v -> {
+//
+//                    new CheckAddress().execute();
+//                    dialog.dismiss();
+//                });
+//                Button negative = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+//                negative.setOnClickListener(v -> dialog.dismiss());
+//            }
+//        }
+//    }
 
     public void giveAttendance() {
         conn = false;
@@ -629,12 +853,12 @@ public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallb
                 updateLayout();
             }
             catch (JSONException e) {
-                e.printStackTrace();
+                logger.log(Level.WARNING,e.getMessage(),e);
                 connected = false;
                 updateLayout();
             }
         }, error -> {
-            error.printStackTrace();
+            logger.log(Level.WARNING,error.getMessage(),error);
             conn = false;
             connected = false;
             updateLayout();
@@ -720,7 +944,9 @@ public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallb
                 Button positive = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
                 positive.setOnClickListener(v -> {
 
-                    new CheckAddress().execute();
+                    waitProgress.show(getSupportFragmentManager(),"WaitBar");
+                    waitProgress.setCancelable(false);
+                    giveAttendance();
                     dialog.dismiss();
                 });
                 Button negative = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
@@ -739,7 +965,9 @@ public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallb
             Button positive = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
             positive.setOnClickListener(v -> {
 
-                new CheckAddress().execute();
+                waitProgress.show(getSupportFragmentManager(),"WaitBar");
+                waitProgress.setCancelable(false);
+                giveAttendance();
                 dialog.dismiss();
             });
             Button negative = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
@@ -753,7 +981,10 @@ public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallb
         conn = false;
         connected = false;
 
-        String offLocationUrl = api_url_front+"attendance/getOffLatLong/"+emp_id+"";
+        areaLists = new ArrayList<>();
+
+//        String offLocationUrl = api_url_front+"attendance/getOffLatLong/"+emp_id+"";
+        String offLocationUrl = api_url_front+"attendance/getAreaCoverage?p_emp_id="+emp_id;
 
         RequestQueue requestQueue = Volley.newRequestQueue(AttendanceGive.this);
 
@@ -767,25 +998,58 @@ public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallb
                     JSONArray array = new JSONArray(items);
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject offLocInfo = array.getJSONObject(i);
-                        officeLatitude = offLocInfo.getString("coa_latitude").equals("null") ? null : offLocInfo.getString("coa_latitude");
-                        officeLongitude = offLocInfo.getString("coa_longitude").equals("null") ? null : offLocInfo.getString("coa_longitude");
-                        coverage = offLocInfo.getString("coa_coverage").equals("null") ? null : offLocInfo.getString("coa_coverage");
+                        officeLatitude = offLocInfo.getString("coa_latitude").equals("null") ? "" : offLocInfo.getString("coa_latitude");
+                        officeLongitude = offLocInfo.getString("coa_longitude").equals("null") ? "" : offLocInfo.getString("coa_longitude");
+                        coverage = offLocInfo.getString("coa_coverage").equals("null") ? "" : offLocInfo.getString("coa_coverage");
+                        String coa_id = offLocInfo.getString("coa_id").equals("null") ? "" : offLocInfo.getString("coa_id");
+
+                        areaLists.add(new AreaLists(officeLatitude,officeLongitude,coverage,coa_id));
                     }
                 }
                 connected = true;
                 updateInfo();
             }
             catch (JSONException e) {
-                e.printStackTrace();
+                logger.log(Level.WARNING,e.getMessage(),e);
                 connected = false;
                 updateInfo();
             }
         }, error -> {
-            error.printStackTrace();
+            logger.log(Level.WARNING,error.getMessage(),error);
             conn = false;
             connected = false;
             updateInfo();
         });
+
+//        StringRequest offLocReq = new StringRequest(Request.Method.GET, offLocationUrl, response -> {
+//            conn = true;
+//            try {
+//                JSONObject jsonObject = new JSONObject(response);
+//                String items = jsonObject.getString("items");
+//                String count = jsonObject.getString("count");
+//                if (!count.equals("0")) {
+//                    JSONArray array = new JSONArray(items);
+//                    for (int i = 0; i < array.length(); i++) {
+//                        JSONObject offLocInfo = array.getJSONObject(i);
+//                        officeLatitude = offLocInfo.getString("coa_latitude").equals("null") ? null : offLocInfo.getString("coa_latitude");
+//                        officeLongitude = offLocInfo.getString("coa_longitude").equals("null") ? null : offLocInfo.getString("coa_longitude");
+//                        coverage = offLocInfo.getString("coa_coverage").equals("null") ? null : offLocInfo.getString("coa_coverage");
+//                    }
+//                }
+//                connected = true;
+//                updateInfo();
+//            }
+//            catch (JSONException e) {
+//                e.printStackTrace();
+//                connected = false;
+//                updateInfo();
+//            }
+//        }, error -> {
+//            error.printStackTrace();
+//            conn = false;
+//            connected = false;
+//            updateInfo();
+//        });
 
         requestQueue.add(offLocReq);
     }
@@ -842,20 +1106,5 @@ public class AttendanceGive extends AppCompatActivity implements OnMapReadyCallb
                 finish();
             });
         }
-    }
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
     }
 }

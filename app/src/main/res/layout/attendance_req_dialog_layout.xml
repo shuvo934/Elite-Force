@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_39sdp"
+            android:orientation="horizontal"
+            android:background="#dfe6e9">
+
+            <ImageView
+                android:layout_width="@dimen/_21sdp"
+                android:layout_height="@dimen/_21sdp"
+                android:id="@+id/close_logo_of_att_req"
+                android:src="@drawable/close_24"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_12sdp"
+                app:tint="@color/black"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="start|center_vertical"
+                android:text="Attendance Request"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:paddingTop="@dimen/_2sdp"
+                android:layout_gravity="center"
+                android:background="#dfe6e9"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/att_req_full_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/attendance_request_msg_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/_9sdp"
+                android:layout_margin="@dimen/_8sdp"
+                android:textColor="@color/black"/>
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Do you want to continue?"-->
+<!--                    android:fontFamily="@font/poppins_bold"-->
+<!--                    android:textSize="@dimen/_10sdp"-->
+<!--                    android:layout_margin="@dimen/_8sdp"-->
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_toStartOf="@+id/no_text_view"-->
+<!--                    android:textColor="@color/black"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/no_text_view"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="No"-->
+<!--                    android:fontFamily="@font/poppins_bold"-->
+<!--                    android:paddingTop="@dimen/_2sdp"-->
+<!--                    android:textSize="@dimen/_10sdp"-->
+<!--                    android:layout_margin="@dimen/_8sdp"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_toStartOf="@id/yes_no_att_req_switch"-->
+<!--                    android:textColor="@color/elite_grey"/>-->
+
+
+<!--                <androidx.appcompat.widget.SwitchCompat-->
+<!--                    android:id="@+id/yes_no_att_req_switch"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:checked="true"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_toStartOf="@+id/yes_text_view"-->
+<!--                    app:thumbTint="@color/elite_grey"-->
+<!--                    app:trackTint="@color/elite_red"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/yes_text_view"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Yes"-->
+<!--                    android:fontFamily="@font/poppins_bold"-->
+<!--                    android:paddingTop="@dimen/_2sdp"-->
+<!--                    android:textSize="@dimen/_10sdp"-->
+<!--                    android:layout_margin="@dimen/_8sdp"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:textColor="@color/black"/>-->
+
+<!--            </RelativeLayout>-->
+
+            <LinearLayout
+                android:id="@+id/reason_for_att_req_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1.2">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Reason"
+                    android:layout_weight="1.175"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    app:boxStrokeWidth="2dp"
+                    app:boxStrokeWidthFocused="1dp"
+                    app:helperTextTextColor="#d63031"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxStrokeColor="@color/black"
+                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                    app:helperTextEnabled="true"
+                    app:helperText=""
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    tools:ignore="HardcodedText">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/reason_for_att_req"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:text=""
+                        android:textSize="@dimen/_11sdp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textColor="@color/black"
+                        android:inputType="text"
+                        android:imeOptions="actionDone"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop = "@dimen/_4sdp"
+                    android:layout_weight=".025"
+                    android:layout_gravity="top"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:src="@drawable/ic_star"
+                    tools:ignore="ContentDescription" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/error_input_reason_for_att_req"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#d63031"
+                android:visibility="visible"
+                android:textSize="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Please Provide Reason for Attendance Request"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note_text"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:textSize="@dimen/_9sdp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="If you generate Day's first Attendance Request and if it is not approved yet then your next attendance will not be valid."
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/default_text_color"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:textSize="@dimen/_9sdp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:weightSum="10">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cancel_att_req"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="cancel"
+                    android:fontFamily="@font/russo_one"
+                    android:layout_margin="@dimen/_8sdp"
+                    app:cornerRadius="@dimen/_12sdp"
+                    android:backgroundTint="@color/elite_grey"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/submit_att_req"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="OK"
+                    android:fontFamily="@font/russo_one"
+                    android:layout_margin="@dimen/_8sdp"
+                    app:cornerRadius="@dimen/_12sdp"
+                    android:backgroundTint="@color/elite_red"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress_indicator_att_req"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/_68sdp"
+        android:indeterminate="true"
+        android:layout_gravity="center"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reload_page_button_att_req"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="Retry"
+        android:layout_margin="@dimen/_68sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:cornerRadius="@dimen/_10sdp"
+        android:fontFamily="@font/patua_one"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/elite_red"
+        tools:ignore="HardcodedText" />
+
+</RelativeLayout>
+

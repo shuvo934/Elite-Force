@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".attendance.out_att_appr.approve_att.ApproveAttendance">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:alpha="@string/back_alpha"
+        android:background="@drawable/elite_back"/>
+
+    <RelativeLayout
+        android:id="@+id/upLay_attendance_approve"
+        android:layout_width="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="@dimen/_55sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/design_2"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_51sdp"
+            android:background="@drawable/design"
+            android:orientation="vertical"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:fontFamily="@font/russo_one"
+                android:gravity="center"
+                android:text="Approve Attendance"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/upLay_attendance_approve"
+        android:layout_alignParentBottom="true">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".8"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/attendance_map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.cardview.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".9">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".8"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/emp_name_att_req_approve"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Ratul Khan"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textSize="@dimen/_13sdp"
+                            android:textColor="@color/elite_red"/>
+
+                        <TextView
+                            android:id="@+id/emp_designation_att_req_approve"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="Accounts Executive"
+                            android:gravity="center"
+                            android:textSize="@dimen/_9sdp"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:textColor="@color/default_text_color"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/emp_dept_div_att_req_approve"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Accounts, Finance"
+                            android:gravity="center"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textSize="@dimen/_9sdp"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:textColor="@color/default_text_color"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".4"
+                                android:text="Attendance Time :"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10sdp"/>
+
+                            <TextView
+                                android:id="@+id/att_time_for_att_approve"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".6"
+                                android:text=""
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textColor="@color/default_text_color"
+                                android:textSize="@dimen/_10sdp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".4"
+                                android:text="Attendance Address :"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10sdp"/>
+
+                            <TextView
+                                android:id="@+id/att_adds_for_att_approve"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".6"
+                                android:text=""
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textColor="@color/default_text_color"
+                                android:textSize="@dimen/_10sdp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".4"
+                                android:text="Distance (from Allocated Area) :"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10sdp"/>
+
+                            <TextView
+                                android:id="@+id/att_distance_for_att_approve"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".6"
+                                android:text=""
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textColor="@color/default_text_color"
+                                android:textSize="@dimen/_10sdp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".4"
+                                android:text="Reason for Attendance Request :"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10sdp"/>
+
+                            <TextView
+                                android:id="@+id/reason_for_att_approve"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".6"
+                                android:text=""
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textColor="@color/default_text_color"
+                                android:textSize="@dimen/_10sdp"/>
+
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Comments"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            app:boxStrokeWidth="2dp"
+                            app:boxStrokeWidthFocused="1dp"
+                            app:helperTextTextColor="#d63031"
+                            app:boxBackgroundColor="@color/white"
+                            app:boxStrokeColor="@color/black"
+                            app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                            app:helperTextEnabled="true"
+                            app:helperText=""
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/comments_for_att_req_rejected"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:text=""
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textColor="@color/black"
+                                android:inputType="text"
+                                android:imeOptions="actionDone"/>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:id="@+id/error_input_reason_for_att_req_rej"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#d63031"
+                            android:visibility="visible"
+                            android:textSize="@dimen/_8sdp"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Please provide comments for Rejection"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".3"
+            android:gravity="center"
+            android:weightSum="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/att_req_reject_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:visibility="visible"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:fontFamily="@font/russo_one"
+                android:background="@drawable/custom_button4"
+                android:text="Reject"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/att_req_approve_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:visibility="visible"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:fontFamily="@font/russo_one"
+                android:background="@drawable/custom_button"
+                android:text="Approve"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

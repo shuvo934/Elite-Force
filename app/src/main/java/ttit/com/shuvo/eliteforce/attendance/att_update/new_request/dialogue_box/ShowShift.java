@@ -1,7 +1,7 @@
 package ttit.com.shuvo.eliteforce.attendance.att_update.new_request.dialogue_box;
 
-import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.shift_osm_id;
-import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.showShiftNumber;
+//import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.shift_osm_id;
+//import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.showShiftNumber;
 import static ttit.com.shuvo.eliteforce.utility.Constants.api_url_front;
 
 import android.app.Dialog;
@@ -71,9 +71,9 @@ public class ShowShift extends AppCompatDialogFragment {
 
         showShiftLists = new ArrayList<>();
 
-        if (showShiftNumber == 1) {
-            osm_id = shift_osm_id;
-        }
+//        if (showShiftNumber == 1) {
+//            osm_id = shift_osm_id;
+//        }
 
         apptRecyclerView = view.findViewById(R.id.all_shift_time_view);
         apptRecyclerView.setHasFixedSize(true);
@@ -88,7 +88,7 @@ public class ShowShift extends AppCompatDialogFragment {
         showShiftdialog.setCanceledOnTouchOutside(false);
 
         showShiftdialog.setButton(Dialog.BUTTON_NEGATIVE, "OK", (dialog, which) -> {
-            showShiftNumber = 0;
+//            showShiftNumber = 0;
             dialog.dismiss();
         });
 

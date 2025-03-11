@@ -248,7 +248,7 @@ public class AttUpdateStatusDetails extends AppCompatActivity {
                         addressOut = attStatInfo.getString("darm_add_during_cause")
                                 .equals("null") ? null : attStatInfo.getString("darm_add_during_cause");
                         forwardTo = attStatInfo.getString("approver")
-                                .equals("null") ? "" : attStatInfo.getString("approver");
+                                .equals("null") ? "Admin of HR" : attStatInfo.getString("approver");
                         locationId = attStatInfo.getString("darm_req_location_id")
                                 .equals("null") ? null : attStatInfo.getString("darm_req_location_id");
                         comments = attStatInfo.getString("darm_comments")

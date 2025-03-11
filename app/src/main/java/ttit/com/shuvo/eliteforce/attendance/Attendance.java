@@ -1,6 +1,10 @@
 package ttit.com.shuvo.eliteforce.attendance;
 
 import static ttit.com.shuvo.eliteforce.login.Login.userInfoLists;
+import static ttit.com.shuvo.eliteforce.utility.Constants.DISTANCE;
+import static ttit.com.shuvo.eliteforce.utility.Constants.FILE_OF_DAILY_ACTIVITY;
+import static ttit.com.shuvo.eliteforce.utility.Constants.STOPPED_TIME;
+import static ttit.com.shuvo.eliteforce.utility.Constants.TOTAL_TIME;
 import static ttit.com.shuvo.eliteforce.utility.Constants.api_url_front;
 
 import androidx.appcompat.app.AlertDialog;
@@ -15,6 +19,7 @@ import android.os.Environment;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -56,14 +61,18 @@ import ttit.com.shuvo.eliteforce.R;
 import ttit.com.shuvo.eliteforce.attendance.att_report.AttendanceReport;
 import ttit.com.shuvo.eliteforce.attendance.att_update.AttendanceUpdate;
 import ttit.com.shuvo.eliteforce.attendance.give_attendance.AttendanceGive;
-import ttit.com.shuvo.eliteforce.attendance.movement_reg.MovementRegister;
+import ttit.com.shuvo.eliteforce.attendance.out_att_appr.AttendanceReqApprove;
 import ttit.com.shuvo.eliteforce.utility.WaitProgress;
 
 public class Attendance extends AppCompatActivity implements View.OnTouchListener {
     MaterialCardView attReport;
     MaterialCardView attUpdateall;
     MaterialCardView attGive;
-    MaterialCardView movReg;
+    RelativeLayout attReqSelectLay;
+    MaterialCardView attReq;
+    RelativeLayout attReqCountLay;
+    TextView attReqCount;
+    String req_count = "";
 
     PieChart pieChart;
     TextView refresh;
@@ -101,15 +110,12 @@ public class Attendance extends AppCompatActivity implements View.OnTouchListene
     ArrayList<PieEntry> NoOfEmp;
 
     SharedPreferences sharedPreferencesDA;
-    public static String FILE_OF_DAILY_ACTIVITY = "";
-    public static  String DISTANCE = "DISTANCE";
-    public static  String TOTAL_TIME = "TOTAL_TIME";
-    public static  String STOPPED_TIME = "STOPPED_TIME";
 
     float dX;
     float dY;
     private static float downRawX, downRawY;
     private final static float CLICK_DRAG_TOLERANCE = 10;
+    boolean first_flag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,7 +125,10 @@ public class Attendance extends AppCompatActivity implements View.OnTouchListene
         attReport =findViewById(R.id.attendance_report);
         attUpdateall = findViewById(R.id.atten_update_all);
         attGive = findViewById(R.id.attendance_give);
-        movReg = findViewById(R.id.movement_register_button);
+        attReqSelectLay = findViewById(R.id.att_req_select_lay);
+        attReq = findViewById(R.id.attendance_req_approve);
+        attReqCountLay = findViewById(R.id.att_req_count_lay);
+        attReqCount = findViewById(R.id.att_req_count_in_attendance);
 
         pieChart = findViewById(R.id.piechart_attendance);
         refresh = findViewById(R.id.refresh_graph_attendance);
@@ -160,6 +169,13 @@ public class Attendance extends AppCompatActivity implements View.OnTouchListene
         floatingActionButton.setOnTouchListener(Attendance.this);
         floatingActionButton.setOnClickListener(view -> showBottomSheetDialog());
 
+        if (emp_id.equals("88")) {
+            attReqSelectLay.setVisibility(View.VISIBLE);
+        }
+        else {
+            attReqSelectLay.setVisibility(View.GONE);
+        }
+
         attReport.setOnClickListener(v -> {
             Intent intent = new Intent(Attendance.this, AttendanceReport.class);
             startActivity(intent);
@@ -177,8 +193,8 @@ public class Attendance extends AppCompatActivity implements View.OnTouchListene
             startActivity(intent);
         });
 
-        movReg.setOnClickListener(v -> {
-            Intent intent = new Intent(Attendance.this, MovementRegister.class);
+        attReq.setOnClickListener(view -> {
+            Intent intent = new Intent(Attendance.this, AttendanceReqApprove.class);
             startActivity(intent);
         });
 
@@ -259,40 +275,40 @@ public class Attendance extends AppCompatActivity implements View.OnTouchListene
                 String yearName = "";
 
                 if (month == 1) {
-                    monthName = "JANUARY";
+                    monthName = "January";
                     mon1 = "JAN";
                 } else if (month == 2) {
-                    monthName = "FEBRUARY";
+                    monthName = "February";
                     mon1 = "FEB";
                 } else if (month == 3) {
-                    monthName = "MARCH";
+                    monthName = "March";
                     mon1 = "MAR";
                 } else if (month == 4) {
-                    monthName = "APRIL";
+                    monthName = "April";
                     mon1 = "APR";
                 } else if (month == 5) {
-                    monthName = "MAY";
+                    monthName = "May";
                     mon1 = "MAY";
                 } else if (month == 6) {
-                    monthName = "JUNE";
+                    monthName = "June";
                     mon1 = "JUN";
                 } else if (month == 7) {
-                    monthName = "JULY";
+                    monthName = "July";
                     mon1 = "JUL";
                 } else if (month == 8) {
-                    monthName = "AUGUST";
+                    monthName = "August";
                     mon1 = "AUG";
                 } else if (month == 9) {
-                    monthName = "SEPTEMBER";
+                    monthName = "September";
                     mon1 = "SEP";
                 } else if (month == 10) {
-                    monthName = "OCTOBER";
+                    monthName = "October";
                     mon1 = "OCT";
                 } else if (month == 11) {
-                    monthName = "NOVEMBER";
+                    monthName = "November";
                     mon1 = "NOV";
                 } else if (month == 12) {
-                    monthName = "DECEMBER";
+                    monthName = "December";
                     mon1 = "DEC";
                 }
 
@@ -348,7 +364,16 @@ public class Attendance extends AppCompatActivity implements View.OnTouchListene
             lastTenDays.add(ddd);
         }
 
+        first_flag = true;
         getAttendanceGraph();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!first_flag) {
+            getAttReq();
+        }
     }
 
     private void attendanceChartInit() {
@@ -397,9 +422,113 @@ public class Attendance extends AppCompatActivity implements View.OnTouchListene
         bottomSheetDialog.show();
     }
 
+    public void getAttReq() {
+        waitProgress.show(getSupportFragmentManager(),"WaitBar");
+        waitProgress.setCancelable(false);
+        attReqCountLay.setVisibility(View.GONE);
+        conn = false;
+        connected = false;
+
+        req_count = "0";
+
+        String attendReqCountUrl = api_url_front+"attendance/getAttReqCount";
+
+        RequestQueue requestQueue = Volley.newRequestQueue(Attendance.this);
+
+        StringRequest attendCountReq = new StringRequest(Request.Method.GET, attendReqCountUrl, response -> {
+            conn = true;
+            try {
+                JSONObject jsonObject = new JSONObject(response);
+                String items = jsonObject.getString("items");
+                String count = jsonObject.getString("count");
+                if (!count.equals("0")) {
+                    JSONArray array = new JSONArray(items);
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject attendanceInfo = array.getJSONObject(i);
+
+                        req_count = attendanceInfo.getString("val")
+                                .equals("null") ? "0" : attendanceInfo.getString("val");
+
+                    }
+                }
+                connected = true;
+                updateInterface();
+
+            }
+            catch (JSONException e) {
+                connected = false;
+                e.printStackTrace();
+                updateInterface();
+            }
+        }, error -> {
+            conn = false;
+            connected = false;
+            error.printStackTrace();
+            updateInterface();
+        });
+
+        requestQueue.add(attendCountReq);
+    }
+
+    private void updateInterface() {
+        waitProgress.dismiss();
+        if (conn) {
+            if (connected) {
+                if (req_count.equals("0")) {
+                    attReqCountLay.setVisibility(View.GONE);
+                }
+                else {
+                    attReqCountLay.setVisibility(View.VISIBLE);
+                    attReqCount.setText(req_count);
+                }
+                first_flag = false;
+                conn = false;
+                connected = false;
+            }
+            else {
+                AlertDialog dialog = new AlertDialog.Builder(Attendance.this)
+                        .setMessage("There is a network issue in the server. Please Try later")
+                        .setPositiveButton("Retry", null)
+                        .setNegativeButton("Cancel", null)
+                        .show();
+
+                Button positive = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                positive.setOnClickListener(v -> {
+
+                    getAttReq();
+                    dialog.dismiss();
+                });
+
+                Button negative = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+                negative.setOnClickListener(v -> {
+                    dialog.dismiss();
+                });
+            }
+        }
+        else {
+            AlertDialog dialog = new AlertDialog.Builder(Attendance.this)
+                    .setMessage("Please Check Your Internet Connection")
+                    .setPositiveButton("Retry", null)
+                    .setNegativeButton("Cancel", null)
+                    .show();
+
+            Button positive = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            positive.setOnClickListener(v -> {
+                getAttReq();
+                dialog.dismiss();
+            });
+
+            Button negative = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+            negative.setOnClickListener(v -> {
+                dialog.dismiss();
+            });
+        }
+    }
+
     public void getAttendanceGraph() {
         waitProgress.show(getSupportFragmentManager(),"WaitBar");
         waitProgress.setCancelable(false);
+        attReqCountLay.setVisibility(View.GONE);
         conn = false;
         connected = false;
 
@@ -410,10 +539,42 @@ public class Attendance extends AppCompatActivity implements View.OnTouchListene
         holiday = "";
         late = "";
         early = "";
+        req_count = "0";
 
         String attendDataUrl = api_url_front+"dashboard/getAttendanceData/"+beginDate+"/"+lastDate+"/"+emp_id+"";
+        String attendReqCountUrl = api_url_front+"attendance/getAttReqCount";
 
         RequestQueue requestQueue = Volley.newRequestQueue(Attendance.this);
+
+        StringRequest attendCountReq = new StringRequest(Request.Method.GET, attendReqCountUrl, response -> {
+            conn = true;
+            try {
+                JSONObject jsonObject = new JSONObject(response);
+                String items = jsonObject.getString("items");
+                String count = jsonObject.getString("count");
+                if (!count.equals("0")) {
+                    JSONArray array = new JSONArray(items);
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject attendanceInfo = array.getJSONObject(i);
+
+                        req_count = attendanceInfo.getString("val")
+                                .equals("null") ? "0" : attendanceInfo.getString("val");
+
+                    }
+                }
+                getEmpData();
+            }
+            catch (JSONException e) {
+                connected = false;
+                e.printStackTrace();
+                updateLayout();
+            }
+        }, error -> {
+            conn = false;
+            connected = false;
+            error.printStackTrace();
+            updateLayout();
+        });
 
         StringRequest attendDataReq = new StringRequest(Request.Method.GET, attendDataUrl, response -> {
             conn = true;
@@ -440,7 +601,7 @@ public class Attendance extends AppCompatActivity implements View.OnTouchListene
                                 .equals("null") ? "0" : attendanceInfo.getString("early_count");
 
                     }
-                    getEmpData();
+                    requestQueue.add(attendCountReq);
                 }
                 else {
                     connected = false;
@@ -940,6 +1101,15 @@ public class Attendance extends AppCompatActivity implements View.OnTouchListene
                 else {
                     lastLtimAttBot = "--:--";
                 }
+
+                if (req_count.equals("0")) {
+                    attReqCountLay.setVisibility(View.GONE);
+                }
+                else {
+                    attReqCountLay.setVisibility(View.VISIBLE);
+                    attReqCount.setText(req_count);
+                }
+                first_flag = false;
                 conn = false;
                 connected = false;
             }

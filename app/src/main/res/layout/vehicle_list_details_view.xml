@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="1.4"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/vehicle_name_from_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="@dimen/_8sdp"
+        android:fontFamily="@font/poppins_semibold"
+        android:padding="@dimen/_2sdp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_weight=".5"/>
+
+    <LinearLayout
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/black"/>
+
+    <TextView
+        android:id="@+id/vehicle_year_from_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="@dimen/_8sdp"
+        android:fontFamily="@font/poppins"
+        android:padding="@dimen/_2sdp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_weight=".2"/>
+
+    <LinearLayout
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/black"/>
+
+    <TextView
+        android:id="@+id/vehicle_model_from_list"
+        android:layout_width="0dp"
+        android:layout_gravity="center"
+        android:layout_height="match_parent"
+        android:textSize="@dimen/_8sdp"
+        android:fontFamily="@font/poppins"
+        android:padding="@dimen/_2sdp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_weight=".2"/>
+
+    <LinearLayout
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/black"/>
+
+    <TextView
+        android:id="@+id/vehicle_reg_no_from_list"
+        android:layout_width="0dp"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:padding="@dimen/_2sdp"
+        android:textSize="@dimen/_8sdp"
+        android:fontFamily="@font/poppins"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight=".5"/>
+
+</LinearLayout>

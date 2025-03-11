@@ -51,7 +51,7 @@ public class LeaveBalance extends AppCompatActivity {
     LeaveBalanceAdapter leaveBalanceAdapter;
 
 
-    public static ArrayList<LeaveBalanceList> leaveBalanceLists;
+    ArrayList<LeaveBalanceList> leaveBalanceLists;
 
     WaitProgress waitProgress = new WaitProgress();
     private Boolean conn = false;
@@ -75,7 +75,7 @@ public class LeaveBalance extends AppCompatActivity {
 
         leaveBalanceLists = new ArrayList<>();
 
-        if (userInfoLists.size() != 0) {
+        if (!userInfoLists.isEmpty()) {
             String firstname = userInfoLists.get(0).getUser_fname();
             String lastName = userInfoLists.get(0).getUser_lname();
             if (firstname == null) {
@@ -89,7 +89,7 @@ public class LeaveBalance extends AppCompatActivity {
             emp_id = userInfoLists.get(0).getEmp_id();
         }
 
-        if (userDesignations.size() != 0) {
+        if (!userDesignations.isEmpty()) {
             String jsmName = userDesignations.get(0).getJsm_name();
             if (jsmName == null) {
                 jsmName = "";
@@ -161,8 +161,10 @@ public class LeaveBalance extends AppCompatActivity {
                         String lbd_transfer_qty = leaveBalanceInfo.getString("lbd_transfer_qty")
                                 .equals("null") ? "0" : leaveBalanceInfo.getString("lbd_transfer_qty");
 
-                        leaveBalanceLists.add(new LeaveBalanceList(lc_name,lc_short_code,lbd_opening_qty,
-                                lbd_current_qty,lbd_taken_qty,lbd_transfer_qty,lbd_cash_taken_qty,lbd_balance_qty));
+                        if (!lbd_opening_qty.equals("0") || !lbd_current_qty.equals("0")) {
+                            leaveBalanceLists.add(new LeaveBalanceList(lc_name,lc_short_code,lbd_opening_qty,
+                                    lbd_current_qty,lbd_taken_qty,lbd_transfer_qty,lbd_cash_taken_qty,lbd_balance_qty));
+                        }
 
                         yearrr = now_year;
                     }

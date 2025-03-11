@@ -24,7 +24,9 @@ import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.card.MaterialCardView;
 
@@ -171,40 +173,40 @@ public class Leave extends AppCompatActivity {
                 String yearName;
 
                 if (month == 1) {
-                    monthName = "JANUARY";
+                    monthName = "January";
                     mon = "JAN";
                 } else if (month == 2) {
-                    monthName = "FEBRUARY";
+                    monthName = "February";
                     mon = "FEB";
                 } else if (month == 3) {
-                    monthName = "MARCH";
+                    monthName = "March";
                     mon = "MAR";
                 } else if (month == 4) {
-                    monthName = "APRIL";
+                    monthName = "April";
                     mon = "APR";
                 } else if (month == 5) {
-                    monthName = "MAY";
+                    monthName = "May";
                     mon = "MAY";
                 } else if (month == 6) {
-                    monthName = "JUNE";
+                    monthName = "June";
                     mon = "JUN";
                 } else if (month == 7) {
-                    monthName = "JULY";
+                    monthName = "July";
                     mon = "JUL";
                 } else if (month == 8) {
-                    monthName = "AUGUST";
+                    monthName = "August";
                     mon = "AUG";
                 } else if (month == 9) {
-                    monthName = "SEPTEMBER";
+                    monthName = "September";
                     mon = "SEP";
                 } else if (month == 10) {
-                    monthName = "OCTOBER";
+                    monthName = "October";
                     mon = "OCT";
                 } else if (month == 11) {
-                    monthName = "NOVEMBER";
+                    monthName = "November";
                     mon = "NOV";
                 } else if (month == 12) {
-                    monthName = "DECEMBER";
+                    monthName = "December";
                     mon = "DEC";
                 }
 
@@ -292,6 +294,14 @@ public class Leave extends AppCompatActivity {
         balance = new ArrayList<>();
         earn = new ArrayList<>();
         shortCode = new ArrayList<>();
+
+        BarData data = new BarData();
+        chart.setData(data);
+        chart.getData().clearValues();
+        chart.notifyDataSetChanged();
+        chart.clear();
+        chart.invalidate();
+        chart.fitScreen();
 
         String leaveDataUrl = api_url_front+"dashboard/getLeaveData/"+emp_id+"/"+leaveDate+"";
 

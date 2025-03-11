@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="@dimen/_8sdp"
+    app:cardElevation="@dimen/_3sdp"
+    android:layout_marginStart="@dimen/_4sdp"
+    android:layout_marginEnd="@dimen/_4sdp"
+    android:layout_marginBottom="@dimen/_4sdp"
+    android:layout_marginTop="@dimen/_4sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/_2sdp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Requisition Token : "
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="@dimen/_9sdp"
+                android:layout_gravity="center"
+                android:layout_weight=".45"
+                android:textColor="@color/elite_red"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".55"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:id="@+id/requisition_token_in_req_selected_list"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/_9sdp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:paddingStart="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_2sdp"
+                android:text=""/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/_2sdp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Request Date : "
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="@dimen/_9sdp"
+                android:layout_gravity="center"
+                android:layout_weight=".45"
+                android:textColor="@color/elite_red"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".55"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:id="@+id/request_date_in_req_selected_list"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/_9sdp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:paddingStart="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_2sdp"
+                android:text=""/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/_2sdp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Requester : "
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="@dimen/_9sdp"
+                android:layout_gravity="center"
+                android:layout_weight=".45"
+                android:textColor="@color/elite_red"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".55"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/requester_in_req_selected_list"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="@dimen/_9sdp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:paddingStart="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_2sdp"
+                    android:text=""/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/requester_div_dept_in_req_selected_list"
+                    android:textColor="@color/default_text_color"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="@dimen/_7sdp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:paddingStart="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_2sdp"
+                    android:text=""/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/_2sdp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="FROM (Location) : "
+                android:textSize="@dimen/_9sdp"
+                android:fontFamily="@font/poppins_semibold"
+                android:layout_weight=".45"
+                android:layout_gravity="center"
+                android:textColor="@color/elite_red"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_weight=".55">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/from_location_all_area_in_req_selected_list"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:paddingStart="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_2sdp"
+                    android:textSize="@dimen/_7sdp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text=""/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/at_extra_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:textColor="@color/default_text_color"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:paddingStart="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_2sdp"
+                        android:textSize="@dimen/_7sdp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="at"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/at_extra_text_2"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/from_location_date_in_req_selected_list"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:paddingStart="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_2sdp"
+                        android:textSize="@dimen/_7sdp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text=""/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/_2sdp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="TO (Location) : "
+                android:textSize="@dimen/_9sdp"
+                android:fontFamily="@font/poppins_semibold"
+                android:layout_weight=".45"
+                android:layout_gravity="center"
+                android:textColor="@color/elite_red"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_weight=".55">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/to_location_all_area_in_req_selected_list"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:paddingStart="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_2sdp"
+                    android:textSize="@dimen/_7sdp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text=""/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/at_extra_text_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:textColor="@color/default_text_color"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:paddingStart="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_2sdp"
+                        android:textSize="@dimen/_7sdp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="at"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/at_extra_text_3"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/to_location_date_in_req_selected_list"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:paddingStart="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_2sdp"
+                        android:textSize="@dimen/_7sdp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text=""/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/_2sdp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Req. Vehicle Type :"
+                android:textSize="@dimen/_9sdp"
+                android:fontFamily="@font/poppins_semibold"
+                android:layout_weight=".45"
+                android:layout_gravity="center"
+                android:textColor="@color/elite_red"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".55"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:id="@+id/requisition_fleet_type_in_req_selected_list"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_9sdp"
+                android:fontFamily="@font/poppins_bold"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:paddingStart="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_2sdp"
+                android:text=""/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/_2sdp"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Vehicle Quantity:"
+                    android:textSize="@dimen/_9sdp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:layout_gravity="center"
+                    android:textColor="@color/elite_red"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/vehicle_qty_in_req_selected_list"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:paddingStart="@dimen/_2sdp"
+                    android:textSize="@dimen/_9sdp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:paddingEnd="@dimen/_2sdp"
+                    android:text=""/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Travelers Quantity:"
+                    android:textSize="@dimen/_9sdp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:layout_gravity="center"
+                    android:textColor="@color/elite_red"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/travelers_qty_in_req_selected_list"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:paddingStart="@dimen/_2sdp"
+                    android:textSize="@dimen/_9sdp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:paddingEnd="@dimen/_2sdp"
+                    android:text=""/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

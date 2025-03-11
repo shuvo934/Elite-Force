@@ -6,6 +6,38 @@ import static ttit.com.shuvo.eliteforce.login.Login.isLeaveApproved;
 import static ttit.com.shuvo.eliteforce.login.Login.userDesignations;
 import static ttit.com.shuvo.eliteforce.login.Login.userInfoLists;
 import static ttit.com.shuvo.eliteforce.scheduler.Uploader.channelId;
+import static ttit.com.shuvo.eliteforce.utility.Constants.CONTACT;
+import static ttit.com.shuvo.eliteforce.utility.Constants.DEPT_ID;
+import static ttit.com.shuvo.eliteforce.utility.Constants.DEPT_NAME;
+import static ttit.com.shuvo.eliteforce.utility.Constants.DESG_NAME;
+import static ttit.com.shuvo.eliteforce.utility.Constants.DESG_PRIORITY;
+import static ttit.com.shuvo.eliteforce.utility.Constants.DESIG_ID;
+import static ttit.com.shuvo.eliteforce.utility.Constants.DIV_ID;
+import static ttit.com.shuvo.eliteforce.utility.Constants.DIV_NAME;
+import static ttit.com.shuvo.eliteforce.utility.Constants.EMAIL;
+import static ttit.com.shuvo.eliteforce.utility.Constants.EMP_ID_LOGIN;
+import static ttit.com.shuvo.eliteforce.utility.Constants.FILE_OF_DAILY_ACTIVITY;
+import static ttit.com.shuvo.eliteforce.utility.Constants.ISP_USR_TF;
+import static ttit.com.shuvo.eliteforce.utility.Constants.IS_ATT_APPROVED;
+import static ttit.com.shuvo.eliteforce.utility.Constants.IS_LEAVE_APPROVED;
+import static ttit.com.shuvo.eliteforce.utility.Constants.JOINING_DATE;
+import static ttit.com.shuvo.eliteforce.utility.Constants.JSD_ID_LOGIN;
+import static ttit.com.shuvo.eliteforce.utility.Constants.JSD_OBJECTIVE;
+import static ttit.com.shuvo.eliteforce.utility.Constants.JSM_CODE;
+import static ttit.com.shuvo.eliteforce.utility.Constants.JSM_NAME;
+import static ttit.com.shuvo.eliteforce.utility.Constants.LIVE_FLAG;
+import static ttit.com.shuvo.eliteforce.utility.Constants.LOGIN_ACTIVITY_FILE;
+import static ttit.com.shuvo.eliteforce.utility.Constants.LOGIN_TF;
+import static ttit.com.shuvo.eliteforce.utility.Constants.SCHEDULING_EMP_ID;
+import static ttit.com.shuvo.eliteforce.utility.Constants.SCHEDULING_FILE;
+import static ttit.com.shuvo.eliteforce.utility.Constants.TRIGGERING;
+import static ttit.com.shuvo.eliteforce.utility.Constants.USER_F_NAME;
+import static ttit.com.shuvo.eliteforce.utility.Constants.USER_L_NAME;
+import static ttit.com.shuvo.eliteforce.utility.Constants.USER_NAME;
+import static ttit.com.shuvo.eliteforce.utility.Constants.USR_LOGIN_NAME;
+import static ttit.com.shuvo.eliteforce.utility.Constants.WIDGET_EMP_ID;
+import static ttit.com.shuvo.eliteforce.utility.Constants.WIDGET_FILE;
+import static ttit.com.shuvo.eliteforce.utility.Constants.WIDGET_TRACKER_FLAG;
 import static ttit.com.shuvo.eliteforce.utility.Constants.api_url_front;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -191,41 +223,6 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
 
     CardView userCard;
 
-    public static final String LOGIN_ACTIVITY_FILE = "LOGIN_ACTIVITY_FILE_ELITE_FORCE_HR";
-
-    public static final String USER_NAME = "USER_NAME";
-    public static final String USER_F_NAME = "USER_F_NAME";
-    public static final String USER_L_NAME = "USER_L_NAME";
-    public static final String EMAIL = "EMAIL";
-    public static final String CONTACT = "CONTACT";
-    public static final String EMP_ID_LOGIN = "EMP_ID";
-
-    public static final String JSM_CODE = "JSM_CODE";
-    public static final String JSM_NAME = "JSM_NAME";
-    public static final String JSD_ID_LOGIN = "JSD_ID";
-    public static final String JSD_OBJECTIVE = "JSD_OBJECTIVE";
-    public static final String DEPT_NAME = "DEPT_NAME";
-    public static final String DIV_NAME = "DIV_NAME";
-    public static final String DESG_NAME = "DESG_NAME";
-    public static final String DESG_PRIORITY = "DESG_PRIORITY";
-    public static final String JOINING_DATE = "JOINING_DATE";
-    public static final String DIV_ID = "DIV_ID";
-    public static final String LOGIN_TF = "TRUE_FALSE";
-
-    public static final String IS_ATT_APPROVED = "IS_ATT_APPROVED";
-    public static final String IS_LEAVE_APPROVED = "IS_LEAVE_APPROVED";
-    public static final String LIVE_FLAG = "LIVE_FLAG";
-
-    public static final String SCHEDULING_FILE = "SCHEDULING FILE_EF_HR";
-    public static final String SCHEDULING_EMP_ID = "SCHEDULING EMP ID";
-    public static final String TRIGGERING = "TRIGGER TRUE FALSE";
-
-    public static String FILE_OF_DAILY_ACTIVITY = "";
-
-    public static final String WIDGET_FILE = "WIDGET_FILE_EF_HR";
-    public static final String WIDGET_EMP_ID = "WIDGET_EMP_ID";
-    public static final String WIDGET_TRACKER_FLAG = "WIDGET_TRACKER_FLAG";
-
     boolean loginLog_check;
     boolean checkEmpFlag = false;
 
@@ -311,7 +308,7 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
         floatingActionButton.setOnClickListener(v -> attendanceShortcutTriggered());
 
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-        String wt = "";
+        String wt;
         if (currentHour >= 4 && currentHour <= 11) {
             wt = "GOOD MORNING,";
         }
@@ -346,9 +343,11 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
                 String email = sharedPreferences.getString(EMAIL,null);
                 String contact = sharedPreferences.getString(CONTACT, null);
                 String emp_id_login = sharedPreferences.getString(EMP_ID_LOGIN,null);
+                String usr_login_name = sharedPreferences.getString(USR_LOGIN_NAME,null);
+                boolean isp = sharedPreferences.getBoolean(ISP_USR_TF,false);
 
                 userInfoLists = new ArrayList<>();
-                userInfoLists.add(new UserInfoList(userName,userFname,userLname,email,contact,emp_id_login));
+                userInfoLists.add(new UserInfoList(userName,userFname,userLname,email,contact,emp_id_login,usr_login_name,isp));
 
                 String jsm_code = sharedPreferences.getString(JSM_CODE, null);
                 String jsm_name = sharedPreferences.getString(JSM_NAME, null);
@@ -360,9 +359,11 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
                 String desg_priority = sharedPreferences.getString(DESG_PRIORITY,null);
                 String joining = sharedPreferences.getString(JOINING_DATE, null);
                 String div_id = sharedPreferences.getString(DIV_ID,null);
+                String dept_id = sharedPreferences.getString(DEPT_ID,null);
+                String desig_id = sharedPreferences.getString(DESIG_ID,null);
 
                 userDesignations = new ArrayList<>();
-                userDesignations.add(new UserDesignation(jsm_code,jsm_name,jsd_id,jsd_obj,dept_name,div_name,desg_name,desg_priority,joining,div_id));
+                userDesignations.add(new UserDesignation(jsm_code,jsm_name,jsd_id,jsd_obj,dept_name,div_name,desg_name,desg_priority,joining,div_id,dept_id,desig_id));
 
                 isApproved = sharedPreferences.getInt(IS_ATT_APPROVED,0);
                 isLeaveApproved = sharedPreferences.getInt(IS_LEAVE_APPROVED,0);
@@ -372,7 +373,7 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
         emp_id = userInfoLists.get(0).getEmp_id();
         emp_code = userInfoLists.get(0).getUserName();
 
-        if (userInfoLists.size() != 0) {
+        if (!userInfoLists.isEmpty()) {
             String firstname = userInfoLists.get(0).getUser_fname();
             String lastName = userInfoLists.get(0).getUser_lname();
             if (firstname == null) {
@@ -385,7 +386,7 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
             userName.setText(empFullName);
         }
 
-        if (userDesignations.size() != 0) {
+        if (!userDesignations.isEmpty()) {
             String jsmName = userDesignations.get(0).getJsm_name();
             if (jsmName == null) {
                 jsmName = "";
@@ -493,6 +494,8 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
                             editor1.remove(EMAIL);
                             editor1.remove(CONTACT);
                             editor1.remove(EMP_ID_LOGIN);
+                            editor1.remove(USR_LOGIN_NAME);
+                            editor1.remove(ISP_USR_TF);
 
                             editor1.remove(JSM_CODE);
                             editor1.remove(JSM_NAME);
@@ -504,6 +507,8 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
                             editor1.remove(DESG_PRIORITY);
                             editor1.remove(JOINING_DATE);
                             editor1.remove(DIV_ID);
+                            editor1.remove(DEPT_ID);
+                            editor1.remove(DESIG_ID);
                             editor1.remove(LOGIN_TF);
 
                             editor1.remove(IS_ATT_APPROVED);
@@ -520,10 +525,8 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
                                 editor.commit();
 
                                 Intent intent1 = new Intent(Dashboard.this, Uploader.class);
-                                PendingIntent pendingIntent = null;
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                    pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent1,PendingIntent.FLAG_IMMUTABLE);
-                                }
+                                PendingIntent pendingIntent;
+                                pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent1, PendingIntent.FLAG_IMMUTABLE);
                                 alarmManager.cancel(pendingIntent);
                             }
 
@@ -540,17 +543,11 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
 
         });
 
-        refreshLeave.setOnClickListener(v -> {
-            getLeaveGraph();
-        });
+        refreshLeave.setOnClickListener(v -> getLeaveGraph());
 
-        refreshAttendance.setOnClickListener(v -> {
-            getAttendanceGraph();
-        });
+        refreshAttendance.setOnClickListener(v -> getAttendanceGraph());
 
-        refreshSalary.setOnClickListener(v -> {
-            getSalaryGraph();
-        });
+        refreshSalary.setOnClickListener(v -> getSalaryGraph());
 
         leaveChart.setOnClickListener(v -> {
             Intent intent = new Intent(Dashboard.this, Leave.class);
@@ -640,7 +637,7 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
                 if(dir.exists()) {
                     System.out.println(true);
                     context.getSharedPreferences(FILE_OF_DAILY_ACTIVITY, MODE_PRIVATE).edit().clear().commit();
-                    System.out.println(dir.toString());
+                    System.out.println(dir);
                     boolean ddd = dir.delete();
 
                     if (ddd) {
@@ -964,7 +961,7 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
 
         RequestQueue requestQueue = Volley.newRequestQueue(Dashboard.this);
 
-        String salaryDataUrl = api_url_front+"dashboard/getSalaryAndMonth/"+emp_id+"/"+formattedDate+"";
+        String salaryDataUrl = api_url_front+"dashboard/getSalaryAndMonth/"+emp_id+"/"+formattedDate;
 
         StringRequest salaryMonthReq = new StringRequest(Request.Method.GET, salaryDataUrl, response -> {
             conn = true;
@@ -1088,7 +1085,7 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
         late = "";
         early = "";
 
-        String attendDataUrl = api_url_front+"dashboard/getAttendanceData/"+beginDate+"/"+lastDate+"/"+emp_id+"";
+        String attendDataUrl = api_url_front+"dashboard/getAttendanceData/"+beginDate+"/"+lastDate+"/"+emp_id;
 
         RequestQueue requestQueue = Volley.newRequestQueue(Dashboard.this);
 
@@ -1206,7 +1203,7 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
                     }
                 }
 
-                if (NoOfEmp.size() == 0) {
+                if (NoOfEmp.isEmpty()) {
                     NoOfEmp.add(new PieEntry(1,"No Data Found", 6));
 
                 }
@@ -1285,7 +1282,7 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
         earn = new ArrayList<>();
         shortCode = new ArrayList<>();
 
-        String leaveDataUrl = api_url_front+"dashboard/getLeaveData/"+emp_id+"/"+leaveDate+"";
+        String leaveDataUrl = api_url_front+"dashboard/getLeaveData/"+emp_id+"/"+leaveDate;
 
         RequestQueue requestQueue = Volley.newRequestQueue(Dashboard.this);
 
@@ -1336,7 +1333,7 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
         waitProgress.dismiss();
         if (conn) {
             if(connected) {
-                if (balance.size() == 0 || earn.size() == 0 || shortCode.size() == 0) {
+                if (balance.isEmpty() || earn.isEmpty() || shortCode.isEmpty()) {
                     // do nothing
                     System.out.println("NO DATA FOUND");
                 }
@@ -1457,13 +1454,13 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
         earn = new ArrayList<>();
         shortCode = new ArrayList<>();
 
-        String empFlagUrl = api_url_front+"dashboard/checkEmpUpdated/"+emp_id+"";
-        String salaryDataUrl = api_url_front+"dashboard/getSalaryAndMonth/"+emp_id+"/"+formattedDate+"";
-        String attendDataUrl = api_url_front+"dashboard/getAttendanceData/"+beginDate+"/"+lastDate+"/"+emp_id+"";
-        String leaveDataUrl = api_url_front+"dashboard/getLeaveData/"+emp_id+"/"+leaveDate+"";
-        String trackerFlagUrl = api_url_front+"utility/getTrackerFlag/"+emp_id+"";
+        String empFlagUrl = api_url_front+"dashboard/checkEmpUpdated/"+emp_id;
+        String salaryDataUrl = api_url_front+"dashboard/getSalaryAndMonth/"+emp_id+"/"+formattedDate;
+        String attendDataUrl = api_url_front+"dashboard/getAttendanceData/"+beginDate+"/"+lastDate+"/"+emp_id;
+        String leaveDataUrl = api_url_front+"dashboard/getLeaveData/"+emp_id+"/"+leaveDate;
+        String trackerFlagUrl = api_url_front+"utility/getTrackerFlag/"+emp_id;
         String loginLogUrl = api_url_front+"dashboard/loginLog";
-        String userImageUrl = api_url_front+"utility/getUserImage/"+emp_code+"";
+        String userImageUrl = api_url_front+"utility/getUserImage/"+emp_code;
 
         RequestQueue requestQueue = Volley.newRequestQueue(Dashboard.this);
 
@@ -1982,10 +1979,8 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
                         createNotificationChannel();
 
                         Intent intent = new Intent(Dashboard.this, Uploader.class);
-                        PendingIntent pendingIntent = null;
-                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                            pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent,PendingIntent.FLAG_IMMUTABLE);
-                        }
+                        PendingIntent pendingIntent;
+                        pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
 
                         Calendar calendar = Calendar.getInstance();
@@ -2047,6 +2042,8 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
                                     editor1.remove(DESG_PRIORITY);
                                     editor1.remove(JOINING_DATE);
                                     editor1.remove(DIV_ID);
+                                    editor1.remove(DEPT_ID);
+                                    editor1.remove(DESIG_ID);
                                     editor1.remove(LOGIN_TF);
 
                                     editor1.remove(IS_ATT_APPROVED);
@@ -2481,6 +2478,7 @@ public class Dashboard extends AppCompatActivity implements View.OnTouchListener
         }
     }
 
+    @SuppressLint("MissingPermission")
     public void getNotification(String title, String msg) {
         waitProgress.dismiss();
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, getString(R.string.att_channel_id))

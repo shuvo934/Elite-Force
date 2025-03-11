@@ -127,6 +127,8 @@ public class AttUpReqApprove extends AppCompatActivity {
     String nowUpdateDate = "";
     String jobEmail = "";
 
+    String parsing_message = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -252,6 +254,7 @@ public class AttUpReqApprove extends AppCompatActivity {
         waitProgress.setCancelable(false);
         conn = false;
         connected = false;
+        parsing_message = "";
 
         selectApproveReqLists = new ArrayList<>();
 
@@ -295,12 +298,14 @@ public class AttUpReqApprove extends AppCompatActivity {
             catch (JSONException e) {
                 e.printStackTrace();
                 connected = false;
+                parsing_message = e.getLocalizedMessage();
                 updateInterface();
             }
         }, error -> {
             error.printStackTrace();
             conn = false;
             connected = false;
+            parsing_message = error.getLocalizedMessage();
             updateInterface();
         });
 
@@ -313,10 +318,23 @@ public class AttUpReqApprove extends AppCompatActivity {
             if (connected) {
                 conn = false;
                 connected = false;
+                if (!selectApproveReqLists.isEmpty()) {
+                    fromAttApp = 1;
+                    SelectApproveReq selectRequest = new SelectApproveReq();
+                    selectRequest.show(getSupportFragmentManager(),"Request");
+                }
             }
             else {
+                if (parsing_message != null) {
+                    if (parsing_message.isEmpty() || parsing_message.equals("null")) {
+                        parsing_message = "Server problem or Internet not connected";
+                    }
+                }
+                else {
+                    parsing_message = "Server problem or Internet not connected";
+                }
                 AlertDialog dialog = new AlertDialog.Builder(AttUpReqApprove.this)
-                        .setMessage("There is a network issue in the server. Please Try later.")
+                        .setMessage("Error Message: "+parsing_message+".\n"+"Please try again.")
                         .setPositiveButton("Retry", null)
                         .setNegativeButton("Cancel",null)
                         .show();
@@ -338,8 +356,16 @@ public class AttUpReqApprove extends AppCompatActivity {
             }
         }
         else {
+            if (parsing_message != null) {
+                if (parsing_message.isEmpty() || parsing_message.equals("null")) {
+                    parsing_message = "Server problem or Internet not connected";
+                }
+            }
+            else {
+                parsing_message = "Server problem or Internet not connected";
+            }
             AlertDialog dialog = new AlertDialog.Builder(AttUpReqApprove.this)
-                    .setMessage("Please Check Your Internet Connection")
+                    .setMessage("Error Message: "+parsing_message+".\n"+"Please try again.")
                     .setPositiveButton("Retry", null)
                     .setNegativeButton("Cancel",null)
                     .show();
@@ -385,7 +411,9 @@ public class AttUpReqApprove extends AppCompatActivity {
         forwarded_by = "";
         forward_comm = "";
 
-        String url = api_url_front+"attendanceUpdateReq/getReqData?emp_id="+user_id+"&darm_app_code="+req_code+"";
+        parsing_message = "";
+
+        String url = api_url_front+"attendanceUpdateReq/getReqData?emp_id="+user_id+"&darm_app_code="+req_code;
 
         RequestQueue requestQueue = Volley.newRequestQueue(AttUpReqApprove.this);
 
@@ -440,12 +468,14 @@ public class AttUpReqApprove extends AppCompatActivity {
             catch (JSONException e) {
                 e.printStackTrace();
                 inDataaa = false;
+                parsing_message = e.getLocalizedMessage();
                 updateLayout();
             }
         }, error -> {
             error.printStackTrace();
             dataIn = false;
             inDataaa = false;
+            parsing_message = error.getLocalizedMessage();
             updateLayout();
         });
 
@@ -564,8 +594,16 @@ public class AttUpReqApprove extends AppCompatActivity {
                 inDataaa = false;
             }
             else {
+                if (parsing_message != null) {
+                    if (parsing_message.isEmpty() || parsing_message.equals("null")) {
+                        parsing_message = "Server problem or Internet not connected";
+                    }
+                }
+                else {
+                    parsing_message = "Server problem or Internet not connected";
+                }
                 AlertDialog dialog = new AlertDialog.Builder(AttUpReqApprove.this)
-                        .setMessage("There is a network issue in the server. Please Try later.")
+                        .setMessage("Error Message: "+parsing_message+".\n"+"Please try again.")
                         .setPositiveButton("Retry", null)
                         .setNegativeButton("Cancel",null)
                         .show();
@@ -587,8 +625,16 @@ public class AttUpReqApprove extends AppCompatActivity {
             }
         }
         else {
+            if (parsing_message != null) {
+                if (parsing_message.isEmpty() || parsing_message.equals("null")) {
+                    parsing_message = "Server problem or Internet not connected";
+                }
+            }
+            else {
+                parsing_message = "Server problem or Internet not connected";
+            }
             AlertDialog dialog = new AlertDialog.Builder(AttUpReqApprove.this)
-                    .setMessage("Please Check Your Internet Connection")
+                    .setMessage("Error Message: "+parsing_message+".\n"+"Please try again.")
                     .setPositiveButton("Retry", null)
                     .setNegativeButton("Cancel",null)
                     .show();
@@ -617,6 +663,7 @@ public class AttUpReqApprove extends AppCompatActivity {
         appppppprrrrr = false;
         isApprovedd = false;
         isApprovedChecked = false;
+        parsing_message = "";
 
         approvedEmpId = "";
         jobCalling = "";
@@ -626,7 +673,7 @@ public class AttUpReqApprove extends AppCompatActivity {
         nowUpdateDate = "";
         jobEmail = "";
 
-        String approverDataUrl = api_url_front+"attendanceUpdateReq/getApproverData/"+emp_code+"";
+        String approverDataUrl = api_url_front+"attendanceUpdateReq/getApproverData/"+emp_code;
         String approveAttUrl = api_url_front+"attendanceUpdateReq/approveAttReq";
 
         RequestQueue requestQueue = Volley.newRequestQueue(AttUpReqApprove.this);
@@ -642,6 +689,7 @@ public class AttUpReqApprove extends AppCompatActivity {
                     isApprovedd = updated_req.equals("true");
                 }
                 else {
+                    parsing_message = string_out;
                     System.out.println(string_out);
                     isApprovedChecked = false;
                 }
@@ -650,12 +698,14 @@ public class AttUpReqApprove extends AppCompatActivity {
             catch (JSONException e) {
                 e.printStackTrace();
                 isApprovedChecked = false;
+                parsing_message = e.getLocalizedMessage();
                 updateApprovedReq();
             }
         }, error -> {
             error.printStackTrace();
             appppppprrrrr = false;
             isApprovedChecked = false;
+            parsing_message = error.getLocalizedMessage();
             updateApprovedReq();
         }) {
             @Override
@@ -709,12 +759,14 @@ public class AttUpReqApprove extends AppCompatActivity {
             catch (JSONException e) {
                 e.printStackTrace();
                 isApprovedChecked = false;
+                parsing_message = e.getLocalizedMessage();
                 updateApprovedReq();
             }
         }, error -> {
             error.printStackTrace();
             appppppprrrrr = false;
             isApprovedChecked = false;
+            parsing_message = error.getLocalizedMessage();
             updateApprovedReq();
         });
 
@@ -755,8 +807,16 @@ public class AttUpReqApprove extends AppCompatActivity {
                 isApprovedChecked = false;
             }
             else {
+                if (parsing_message != null) {
+                    if (parsing_message.isEmpty() || parsing_message.equals("null")) {
+                        parsing_message = "Server problem or Internet not connected";
+                    }
+                }
+                else {
+                    parsing_message = "Server problem or Internet not connected";
+                }
                 AlertDialog dialog = new AlertDialog.Builder(AttUpReqApprove.this)
-                        .setMessage("There is a network issue in the server. Please Try later.")
+                        .setMessage("Error Message: "+parsing_message+".\n"+"Please try again.")
                         .setPositiveButton("Retry", null)
                         .setNegativeButton("Cancel",null)
                         .show();
@@ -770,8 +830,16 @@ public class AttUpReqApprove extends AppCompatActivity {
             }
         }
         else {
+            if (parsing_message != null) {
+                if (parsing_message.isEmpty() || parsing_message.equals("null")) {
+                    parsing_message = "Server problem or Internet not connected";
+                }
+            }
+            else {
+                parsing_message = "Server problem or Internet not connected";
+            }
             AlertDialog dialog = new AlertDialog.Builder(AttUpReqApprove.this)
-                    .setMessage("Please Check Your Internet Connection")
+                    .setMessage("Error Message: "+parsing_message+".\n"+"Please try again.")
                     .setPositiveButton("Retry", null)
                     .setNegativeButton("Cancel",null)
                     .show();
@@ -800,8 +868,9 @@ public class AttUpReqApprove extends AppCompatActivity {
         divmId = "";
         nowUpdateDate = "";
         jobEmail = "";
+        parsing_message = "";
 
-        String rejecterDataUrl = api_url_front+"attendanceUpdateReq/getApproverData/"+emp_code+"";
+        String rejecterDataUrl = api_url_front+"attendanceUpdateReq/getApproverData/"+emp_code;
         String rejectAttUrl = api_url_front+"attendanceUpdateReq/rejectAttReq";
 
         RequestQueue requestQueue = Volley.newRequestQueue(AttUpReqApprove.this);
@@ -817,6 +886,7 @@ public class AttUpReqApprove extends AppCompatActivity {
                     isRejected = updated_req.equals("true");
                 }
                 else {
+                    parsing_message = string_out;
                     System.out.println(string_out);
                     isRejectedChecked = false;
                 }
@@ -824,12 +894,14 @@ public class AttUpReqApprove extends AppCompatActivity {
             }
             catch (JSONException e) {
                 isRejectedChecked = false;
+                parsing_message = e.getLocalizedMessage();
                 updateRejectedReq();
             }
         }, error -> {
             error.printStackTrace();
             rrreeejjjeecctt = false;
             isRejectedChecked = false;
+            parsing_message = error.getLocalizedMessage();
             updateRejectedReq();
         }) {
             @Override
@@ -880,12 +952,14 @@ public class AttUpReqApprove extends AppCompatActivity {
             catch (JSONException e) {
                 e.printStackTrace();
                 isRejectedChecked = false;
+                parsing_message = e.getLocalizedMessage();
                 updateRejectedReq();
             }
         }, error -> {
             error.printStackTrace();
             rrreeejjjeecctt = false;
             isRejectedChecked = false;
+            parsing_message = error.getLocalizedMessage();
             updateRejectedReq();
         });
 
@@ -926,8 +1000,16 @@ public class AttUpReqApprove extends AppCompatActivity {
                 isRejectedChecked = false;
             }
             else {
+                if (parsing_message != null) {
+                    if (parsing_message.isEmpty() || parsing_message.equals("null")) {
+                        parsing_message = "Server problem or Internet not connected";
+                    }
+                }
+                else {
+                    parsing_message = "Server problem or Internet not connected";
+                }
                 AlertDialog dialog = new AlertDialog.Builder(AttUpReqApprove.this)
-                        .setMessage("There is a network issue in the server. Please Try later.")
+                        .setMessage("Error Message: "+parsing_message+".\n"+"Please try again.")
                         .setPositiveButton("Retry", null)
                         .setNegativeButton("Cancel",null)
                         .show();
@@ -940,8 +1022,16 @@ public class AttUpReqApprove extends AppCompatActivity {
             }
         }
         else {
+            if (parsing_message != null) {
+                if (parsing_message.isEmpty() || parsing_message.equals("null")) {
+                    parsing_message = "Server problem or Internet not connected";
+                }
+            }
+            else {
+                parsing_message = "Server problem or Internet not connected";
+            }
             AlertDialog dialog = new AlertDialog.Builder(AttUpReqApprove.this)
-                    .setMessage("Please Check Your Internet Connection")
+                    .setMessage("Error Message: "+parsing_message+".\n"+"Please try again.")
                     .setPositiveButton("Retry", null)
                     .setNegativeButton("Cancel",null)
                     .show();

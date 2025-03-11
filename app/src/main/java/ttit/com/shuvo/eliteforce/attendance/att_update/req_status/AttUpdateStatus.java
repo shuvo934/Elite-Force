@@ -103,7 +103,7 @@ public class AttUpdateStatus extends AppCompatActivity {
                         String departure_time = statusInfo.getString("departure_time")
                                 .equals("null") ? "" : statusInfo.getString("departure_time");
                         String emp_name = statusInfo.getString("emp_name")
-                                .equals("null") ? "" : statusInfo.getString("emp_name");
+                                .equals("null") ? "Admin of HR" : statusInfo.getString("emp_name");
 
 
                         statusLists.add(new StatusList(darm_app_code,darm_approved,darm_date,

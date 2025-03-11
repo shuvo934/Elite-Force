@@ -1,37 +1,46 @@
 package ttit.com.shuvo.eliteforce;
 
-import androidx.annotation.NonNull;
+import static ttit.com.shuvo.eliteforce.utility.Constants.LOGIN_ACTIVITY_FILE;
+import static ttit.com.shuvo.eliteforce.utility.Constants.LOGIN_TF;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-import ttit.com.shuvo.eliteforce.dashboard.Dashboard;
 import ttit.com.shuvo.eliteforce.login.Login;
+import ttit.com.shuvo.eliteforce.mainPage.MainMenu;
 
+@RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
 public class MainActivity extends AppCompatActivity {
 
     TextView permissionMsg;
     private final Handler mHandler = new Handler();
-    private final int FINE_LOCATION_ACCESS_REQUEST_CODE = 10001;
 
     SharedPreferences sharedPreferences;
     boolean loginFile = false;
 
-    public static final String LOGIN_ACTIVITY_FILE = "LOGIN_ACTIVITY_FILE_ELITE_FORCE_HR";
-    public static final String LOGIN_TF = "TRUE_FALSE";
+    boolean locPerm = false;
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -62,7 +71,18 @@ public class MainActivity extends AppCompatActivity {
         loginFile = sharedPreferences.getBoolean(LOGIN_TF,false);
         permissionMsg = findViewById(R.id.permission_not_granted_msg);
 
+        locPerm = false;
         enableUserLocation();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (locPerm) {
+            locPerm = false;
+            System.out.println("LETS SEE");
+            enableUserLocation();
+        }
     }
 
     private void showSystemUI() {
@@ -77,14 +97,26 @@ public class MainActivity extends AppCompatActivity {
         mHandler.postDelayed(() -> {
             Intent intent;
             if (loginFile) {
-                intent = new Intent(MainActivity.this, Dashboard.class);
+                intent = new Intent(MainActivity.this, MainMenu.class);
             } else {
                 intent = new Intent(MainActivity.this, Login.class);
             }
             startActivity(intent);
             showSystemUI();
             finish();
-        }, 2000);
+        }, 1500);
+    }
+
+    public void showDialog(String title, String message, String positiveButtonTitle, DialogInterface.OnClickListener positiveListener) {
+        MaterialAlertDialogBuilder alertDialogBuilder = new MaterialAlertDialogBuilder(this);
+        alertDialogBuilder.setIcon(R.drawable.elite_force_logo)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(positiveButtonTitle, positiveListener);
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.setCancelable(false);
+        alertDialog.setCanceledOnTouchOutside(false);
+        alertDialog.show();
     }
 
     private void enableUserLocation() {
@@ -94,132 +126,289 @@ public class MainActivity extends AppCompatActivity {
                 == PackageManager.PERMISSION_GRANTED) {
 
             Log.i("Ekhane", "3");
-            enableFileAccess();
+            enableStorageAccess();
+//            goToActivityMap();
 
-        } else {
+        }
+        else {
             Log.i("Ekhane", "4");
-            // Ask For Permission
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.ACCESS_FINE_LOCATION)) {
-                // we need to show user  alert dialog
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+                    || ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
                 Log.i("Ekhane", "5");
-                ActivityCompat.requestPermissions(this,
-                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION,
-                                android.Manifest.permission.ACCESS_COARSE_LOCATION}, FINE_LOCATION_ACCESS_REQUEST_CODE);
-            } else {
+                showDialog("Location Permission!", "This app needs the precise location permission for functioning.", "OK", (dialogInterface, i) -> {
+                    multipleResultLauncher.launch(new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION,
+                            android.Manifest.permission.ACCESS_COARSE_LOCATION});
+                });
+            }
+            else {
                 Log.i("Ekhane", "6");
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
-                                android.Manifest.permission.ACCESS_COARSE_LOCATION}, FINE_LOCATION_ACCESS_REQUEST_CODE);
+                multipleResultLauncher.launch(new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION,
+                        android.Manifest.permission.ACCESS_COARSE_LOCATION});
             }
         }
     }
 
-    private void enableFileAccess() {
-
-        if (Build.VERSION.SDK_INT >= 23 && Build.VERSION.SDK_INT < 33) {
-            int REQUEST_CODE_PERMISSION_STORAGE = 100;
-            String[] permission = {
-                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.CALL_PHONE,
-            };
-
-            for (String str : permission) {
-                if (this.checkSelfPermission(str) != PackageManager.PERMISSION_GRANTED) {
-                    this.requestPermissions(permission, REQUEST_CODE_PERMISSION_STORAGE);
-                    return;
-                }
-
-            }
-
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED &&
-                    ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED &&
-                    ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED ) {
-
-                goToActivityMap();
-            }
-
+    private final ActivityResultLauncher<String[]> multipleResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), result -> {
+        System.out.println("OnActivityResult: " +result);
+        boolean allGranted = true;
+        for (String key: result.keySet()) {
+            allGranted = allGranted && result.get(key);
         }
-        else if (Build.VERSION.SDK_INT >= 33) {
-            int REQUEST_CODE_PERMISSION_STORAGE = 100;
-            String[] permission = {
-                    Manifest.permission.READ_MEDIA_IMAGES,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.CALL_PHONE,
-            };
-
-            for (String str : permission) {
-                if (this.checkSelfPermission(str) != PackageManager.PERMISSION_GRANTED) {
-                    this.requestPermissions(permission, REQUEST_CODE_PERMISSION_STORAGE);
-                    return;
-                }
+        if (allGranted) {
+            System.out.println("HOLA2");
+            enableStorageAccess();
+        }
+        else {
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.ACCESS_FINE_LOCATION)) {
+                showDialog("Location Permission!", "This app needs the precise location permission to function. Please Allow that permission from settings.", "Go to Settings", (dialogInterface, i) -> {
+                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:"+ getPackageName()));
+                    startActivity(intent);
+                    locPerm = true;
+                });
             }
-
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED &&
-                    ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED &&
-                    ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED ) {
-
-                goToActivityMap();
+            else {
+                System.out.println("HOLA");
+                enableUserLocation();
             }
         }
-    }
+    });
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == FINE_LOCATION_ACCESS_REQUEST_CODE) {
-            Log.i("Ekhane", "7");
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+    private void enableStorageAccess() {
+        if (Build.VERSION.SDK_INT < 33) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED &&
+                    ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            == PackageManager.PERMISSION_GRANTED) {
+
+                Log.i("Ekhane", "7");
+                enableCallPhonePermission();
+            }
+            else {
                 Log.i("Ekhane", "8");
-                // we have the permission
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                        || ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
                     Log.i("Ekhane", "9");
-                    return;
+                    showDialog("Storage Permission!", "This app needs the storage permission for functioning.", "OK", (dialogInterface, i) -> {
+                        storageResultLauncher.launch(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                                android.Manifest.permission.WRITE_EXTERNAL_STORAGE});
+                    });
                 }
+                else {
+                    Log.i("Ekhane", "10");
+                    storageResultLauncher.launch(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                            android.Manifest.permission.WRITE_EXTERNAL_STORAGE});
+                }
+            }
+        }
+        else if (Build.VERSION.SDK_INT == 33) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES)
+                    == PackageManager.PERMISSION_GRANTED) {
 
-                enableFileAccess();
-
+                Log.i("Ekhane", "11");
+                enableCallPhonePermission();
             }
             else {
-                Log.i("Ekhane", "10");
-                //we do not have the permission
-                String text = "Please Give the Permission to Access Your Location for Using This App.";
-                permissionMsg.setText(text);
-//                quit.setVisibility(View.VISIBLE);
+                Log.i("Ekhane", "12");
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_MEDIA_IMAGES)) {
 
-            }
-        } else if (requestCode == 100) {
-            if (grantResults.length > 0 &&
-                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
-                        ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
-                        ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED &&
-                        ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED) {
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    Log.i("Ekhane", "9");
-                    return;
+                    Log.i("Ekhane", "13");
+                    showDialog("Photos and Videos Permission!", "This app needs the photos and videos permission for functioning.", "OK", (dialogInterface, i) -> {
+                        storageResultLauncher.launch(new String[]{android.Manifest.permission.READ_MEDIA_IMAGES});
+                    });
                 }
+                else {
+                    Log.i("Ekhane", "14");
+                    storageResultLauncher.launch(new String[]{android.Manifest.permission.READ_MEDIA_IMAGES});
+                }
+            }
+        }
+        else {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES)
+                    == PackageManager.PERMISSION_GRANTED &&
+                    ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_VISUAL_USER_SELECTED)
+                            == PackageManager.PERMISSION_GRANTED) {
 
+                Log.i("Ekhane", "15");
+                enableCallPhonePermission();
+            }
+            else {
+                Log.i("Ekhane", "16");
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_MEDIA_IMAGES)
+                        || ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_MEDIA_VISUAL_USER_SELECTED)) {
+
+                    Log.i("Ekhane", "17");
+                    showDialog("Photos and Videos Permission!", "This app needs the photos and videos permission for functioning. Don't Select Limited Access. Please select Allow all.", "OK", (dialogInterface, i) -> {
+                        storageResultLauncher.launch(new String[]{android.Manifest.permission.READ_MEDIA_IMAGES,
+                                android.Manifest.permission.READ_MEDIA_VISUAL_USER_SELECTED});
+                    });
+                }
+                else {
+                    Log.i("Ekhane", "18");
+                    storageResultLauncher.launch(new String[]{android.Manifest.permission.READ_MEDIA_IMAGES,
+                            android.Manifest.permission.READ_MEDIA_VISUAL_USER_SELECTED});
+                }
+            }
+        }
+
+    }
+
+    private final ActivityResultLauncher<String[]> storageResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), result -> {
+        System.out.println("OnActivityResult: " +result);
+        boolean allGranted = true;
+        for (String key: result.keySet()) {
+            allGranted = allGranted && result.get(key);
+        }
+        if (allGranted) {
+            System.out.println("HOLA3");
+            enableCallPhonePermission();
+        }
+        else {
+            if (Build.VERSION.SDK_INT < 33) {
+                if (!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                        || !ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    showDialog("Storage Permission!", "This app needs the storage permission to function. Please Allow that permission from settings.", "Go to Settings", (dialogInterface, i) -> {
+                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:"+ getPackageName()));
+                        startActivity(intent);
+                        locPerm = true;
+                    });
+                }
+                else {
+                    System.out.println("HOLA4");
+                    enableStorageAccess();
+                }
+            }
+            else if (Build.VERSION.SDK_INT == 33) {
+                if (!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_MEDIA_IMAGES)) {
+                    showDialog("Photos and Videos Permission!", "This app needs the photos and videos permission to function. Please Allow that permission from settings.", "Go to Settings", (dialogInterface, i) -> {
+                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:"+ getPackageName()));
+                        startActivity(intent);
+                        locPerm = true;
+                    });
+                }
+                else {
+                    System.out.println("HOLA5");
+                    enableStorageAccess();
+                }
+            }
+            else {
+                if (!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_MEDIA_IMAGES)) {
+                    showDialog("Photos and Videos Permission!", "This app needs the photos and videos permission to function. Don't Select Limited Access. Please Allow all from permission settings.", "Go to Settings", (dialogInterface, i) -> {
+                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:"+ getPackageName()));
+                        startActivity(intent);
+                        locPerm = true;
+                    });
+                }
+                else {
+                    System.out.println("HOLA6");
+                    enableStorageAccess();
+                }
+            }
+        }
+    });
+
+    private void enableCallPhonePermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
+                == PackageManager.PERMISSION_GRANTED) {
+
+            Log.i("Ekhane", "19");
+            if (Build.VERSION.SDK_INT < 33) {
                 goToActivityMap();
             }
             else {
-                String text = "Please Allow this Permission for Using This App";
-                permissionMsg.setText(text);
-                Log.i("Aree", "Pala");
-
+                enableNotificationPermission();
             }
-
+        }
+        else {
+            Log.i("Ekhane", "20");
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.CALL_PHONE)) {
+                Log.i("Ekhane", "21");
+                showDialog("Call Permission!", "This app needs the Call permission for functioning.", "OK", (dialogInterface, i) -> {
+                    callPermResultLauncher.launch(new String[]{android.Manifest.permission.CALL_PHONE});
+                });
+            }
+            else {
+                Log.i("Ekhane", "22");
+                callPermResultLauncher.launch(new String[]{android.Manifest.permission.CALL_PHONE});
+            }
         }
     }
+
+    private final ActivityResultLauncher<String[]> callPermResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), result -> {
+        System.out.println("OnActivityResult: " +result);
+        boolean allGranted = true;
+        for (String key: result.keySet()) {
+            allGranted = allGranted && result.get(key);
+        }
+        if (allGranted) {
+            System.out.println("HOLA7");
+            if (Build.VERSION.SDK_INT < 33) {
+                goToActivityMap();
+            }
+            else {
+                enableNotificationPermission();
+            }
+        }
+        else {
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.CALL_PHONE)) {
+                showDialog("Call Permission!", "This app needs the Call permission to function. Please Allow that permission from settings.", "Go to Settings", (dialogInterface, i) -> {
+                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:"+ getPackageName()));
+                    startActivity(intent);
+                    locPerm = true;
+                });
+            }
+            else {
+                System.out.println("HOLA8");
+                enableCallPhonePermission();
+            }
+        }
+    });
+
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    public void enableNotificationPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                == PackageManager.PERMISSION_GRANTED) {
+
+            Log.i("Ekhane", "23");
+            goToActivityMap();
+        }
+        else {
+            Log.i("Ekhane", "24");
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.POST_NOTIFICATIONS)) {
+                Log.i("Ekhane", "25");
+                showDialog("Notification Permission!", "This app needs the Notification permission for functioning.", "OK", (dialogInterface, i) -> {
+                    notifyPermResultLauncher.launch(new String[]{android.Manifest.permission.POST_NOTIFICATIONS});
+                });
+            }
+            else {
+                Log.i("Ekhane", "26");
+                notifyPermResultLauncher.launch(new String[]{android.Manifest.permission.POST_NOTIFICATIONS});
+            }
+        }
+    }
+
+    private final ActivityResultLauncher<String[]> notifyPermResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), result -> {
+        System.out.println("OnActivityResult: " +result);
+        boolean allGranted = true;
+        for (String key: result.keySet()) {
+            allGranted = allGranted && result.get(key);
+        }
+        if (allGranted) {
+            System.out.println("HOLA9");
+            goToActivityMap();
+        }
+        else {
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.POST_NOTIFICATIONS)) {
+                showDialog("Notification Permission!", "This app needs the Notification permission to function. Please Allow that permission from settings.", "Go to Settings", (dialogInterface, i) -> {
+                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:"+ getPackageName()));
+                    startActivity(intent);
+                    locPerm = true;
+                });
+            }
+            else {
+                System.out.println("HOLA10");
+                enableNotificationPermission();
+            }
+        }
+    });
 }

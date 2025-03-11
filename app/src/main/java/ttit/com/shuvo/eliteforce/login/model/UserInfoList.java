@@ -7,14 +7,18 @@ public class UserInfoList {
     private String email;
     private String contact;
     private String emp_id;
+    private String usr_name;
+    private boolean isp_user;
 
-    public UserInfoList(String userName, String user_fname, String user_lname, String email, String contact, String emp_id) {
+    public UserInfoList(String userName, String user_fname, String user_lname, String email, String contact, String emp_id, String usr_name, boolean isp_user) {
         this.userName = userName;
         this.user_fname = user_fname;
         this.user_lname = user_lname;
         this.email = email;
         this.contact = contact;
         this.emp_id = emp_id;
+        this.usr_name = usr_name;
+        this.isp_user = isp_user;
     }
 
     public String getUserName() {
@@ -63,5 +67,21 @@ public class UserInfoList {
 
     public void setEmp_id(String emp_id) {
         this.emp_id = emp_id;
+    }
+
+    public String getUsr_name() {
+        return usr_name;
+    }
+
+    public void setUsr_name(String usr_name) {
+        this.usr_name = usr_name;
+    }
+
+    public boolean isIsp_user() {
+        return isp_user;
+    }
+
+    public void setIsp_user(boolean isp_user) {
+        this.isp_user = isp_user;
     }
 }

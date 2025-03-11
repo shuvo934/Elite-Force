@@ -6,10 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".employeeInfo.transcript.EMPTranscript">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:alpha="@string/back_alpha"
+        android:background="@drawable/elite_back"/>
+
     <RelativeLayout
         android:id="@+id/topLay_emp_trans"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_66sdp"
+        android:layout_height="@dimen/_55sdp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true">
@@ -26,7 +36,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_62sdp"
+            android:layout_height="@dimen/_51sdp"
             android:background="@drawable/design"
             android:orientation="vertical"
             android:layout_alignParentStart="true"

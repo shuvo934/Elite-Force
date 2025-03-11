@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'ttit.com.shuvo.eliteforce'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "ttit.com.shuvo.eliteforce"
-        minSdk 21
-        targetSdk 33
+        minSdk 23
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -37,6 +37,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.activity:activity:1.9.1'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -78,4 +80,17 @@ dependencies {
 
     // in app update
     implementation 'com.google.android.play:app-update:2.1.0'
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+
+    // timer
+    implementation 'com.github.rehmanmuradali:ticker:1.0.1'
+
+    //photo view
+    implementation 'com.github.chrisbanes:PhotoView:2.0.0'
+
+    //calendar view
+    implementation 'com.applandeo:material-calendar-view:1.9.2'
+
+    //map utils
+    implementation 'com.google.maps.android:android-maps-utils:2.3.0'
 }

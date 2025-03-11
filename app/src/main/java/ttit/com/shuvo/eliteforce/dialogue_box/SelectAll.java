@@ -3,14 +3,14 @@ package ttit.com.shuvo.eliteforce.dialogue_box;
 import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.approverTestEdit;
 import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.dialogText;
 import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.errorApprover;
-import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.errorShift;
+//import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.errorShift;
 import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.selectAllLists;
 import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.selected_approver_id;
 import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.selected_approver_name;
-import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.selected_shift_id;
-import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.selected_shift_name;
-import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.shiftTestEdit;
-import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.showShoftTime;
+//import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.selected_shift_id;
+//import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.selected_shift_name;
+//import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.shiftTestEdit;
+//import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.showShoftTime;
 import static ttit.com.shuvo.eliteforce.leave.leave_application.new_application.NewLeaveApplication.allWorkBackup;
 import static ttit.com.shuvo.eliteforce.leave.leave_application.new_application.NewLeaveApplication.dialogText_leave;
 import static ttit.com.shuvo.eliteforce.leave.leave_application.new_application.NewLeaveApplication.errorBackup;
@@ -173,12 +173,12 @@ public class SelectAll extends AppCompatDialogFragment implements SelectAllAdapt
         System.out.println(name);
         System.out.println(id);
         if (dialogText == 1) {
-            shiftTestEdit.setText(name);
-            shiftTestEdit.setTextColor(Color.BLACK);
-            errorShift.setVisibility(View.GONE);
-            selected_shift_id = id;
-            selected_shift_name = name;
-            showShoftTime.setVisibility(View.VISIBLE);
+//            shiftTestEdit.setText(name);
+//            shiftTestEdit.setTextColor(Color.BLACK);
+//            errorShift.setVisibility(View.GONE);
+//            selected_shift_id = id;
+//            selected_shift_name = name;
+//            showShoftTime.setVisibility(View.VISIBLE);
         }
         else if (dialogText == 2) {
             approverTestEdit.setText(name);

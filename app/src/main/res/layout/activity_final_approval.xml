@@ -1,0 +1,1186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".recruitment.approval.FinalApproval">
+
+    <RelativeLayout
+        android:id="@+id/upLay_fin_appr_info"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_height="@dimen/_55sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/design_2"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_51sdp"
+            android:background="@drawable/design"
+            android:orientation="vertical"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:fontFamily="@font/russo_one"
+                android:gravity="center"
+                android:text="Final Approval"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/appr_type_of_rec_app_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="1"
+        android:layout_below="@+id/upLay_fin_appr_info"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_weight=".3"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Approval Type: "
+            tools:ignore="HardcodedText" />
+
+        <Spinner
+            android:layout_gravity="center"
+            android:id="@+id/spinner_approval_type_rec_app"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop = "@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_weight=".68"
+            android:clickable="false"
+            android:background="@drawable/blue_outline"
+            android:popupBackground="@drawable/blue_outline_white_background"
+            android:spinnerMode="dropdown"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop = "@dimen/_4sdp"
+            android:layout_weight=".02"
+            android:layout_gravity="top"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:src="@drawable/ic_star"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/linearLayout_final_approve_button_rec"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_below="@+id/appr_type_of_rec_app_lay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="3dp"
+                android:layout_margin="@dimen/_4sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/elite_red">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Job Info"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12sdp"
+                            android:paddingStart="@dimen/_8sdp"
+                            android:paddingTop="@dimen/_2sdp"
+                            android:paddingEnd="@dimen/_4sdp"
+                            tools:ignore="HardcodedText" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/double_arrow_right_24"
+                            app:tint="@color/white"/>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/after_expanding_job_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Revision No:"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            app:boxStrokeColor="@color/black"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="1dp"
+                            app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                            app:boxBackgroundMode="filled"
+                            android:clickable="false"
+                            android:enabled="false"
+                            app:boxBackgroundColor="@color/white"
+                            app:hintTextColor="@color/black"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/revision_no_of_rec_approval"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:clickable="false"
+                                android:enabled="false"
+                                android:textSize="@dimen/_8sdp"
+                                android:text=""
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:inputType="textMultiLine"/>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:weightSum="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_weight=".3"
+                                android:layout_gravity="center"
+                                android:textSize="@dimen/_10sdp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textColor="@color/default_text_color"
+                                android:text="Job No: "
+                                tools:ignore="HardcodedText" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/job_no_for_rec_appr_layout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:hint=""
+                                android:layout_weight=".68"
+                                app:boxStrokeWidth="2dp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                app:boxStrokeColor="@color/black"
+                                app:hintTextColor="#dfe6e9"
+                                app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                android:textColorHint="@color/black"
+                                app:helperTextEnabled="true"
+                                app:helperText=""
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/job_no_for_rec_appr"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:clickable="true"
+                                    android:editable="false"
+                                    android:focusable="false"
+                                    android:text="Select"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:gravity="end"
+                                    android:textStyle="bold"
+                                    android:textSize="@dimen/_11sdp"
+                                    android:textColor="#636e72"
+                                    android:inputType="textMultiLine"/>
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".02"
+                                android:layout_gravity="top"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:src="@drawable/ic_star"
+                                tools:ignore="ContentDescription" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:baselineAligned="false">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:hint="Division:"
+                                android:layout_weight=".5"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                app:boxStrokeColor="@color/black"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="1dp"
+                                app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                                app:boxBackgroundMode="filled"
+                                android:clickable="false"
+                                android:enabled="false"
+                                app:boxBackgroundColor="@color/white"
+                                app:hintTextColor="@color/black"
+                                tools:ignore="HardcodedText">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/division_of_rec_approval"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:ems="10"
+                                    android:clickable="false"
+                                    android:enabled="false"
+                                    android:textSize="@dimen/_8sdp"
+                                    android:text=""
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:inputType="textMultiLine"/>
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:hint="Department:"
+                                android:layout_weight=".5"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                app:boxStrokeColor="@color/black"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="1dp"
+                                app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                                app:boxBackgroundMode="filled"
+                                android:clickable="false"
+                                android:enabled="false"
+                                app:boxBackgroundColor="@color/white"
+                                app:hintTextColor="@color/black"
+                                tools:ignore="HardcodedText">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/department_of_rec_approval"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:ems="10"
+                                    android:clickable="false"
+                                    android:enabled="false"
+                                    android:textSize="@dimen/_8sdp"
+                                    android:text=""
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:inputType="textMultiLine"/>
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1"
+                            android:baselineAligned="false">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:hint="Structural Designation:"
+                                android:layout_weight=".5"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                app:boxStrokeColor="@color/black"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="1dp"
+                                app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                                app:boxBackgroundMode="filled"
+                                android:clickable="false"
+                                android:enabled="false"
+                                app:boxBackgroundColor="@color/white"
+                                app:hintTextColor="@color/black"
+                                tools:ignore="HardcodedText">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/structural_designation_of_rec_approval"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:ems="10"
+                                    android:clickable="false"
+                                    android:enabled="false"
+                                    android:textSize="@dimen/_8sdp"
+                                    android:text=""
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:inputType="textMultiLine"/>
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:hint="Band:"
+                                android:layout_weight=".5"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                app:boxStrokeColor="@color/black"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="1dp"
+                                app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                                app:boxBackgroundMode="filled"
+                                android:clickable="false"
+                                android:enabled="false"
+                                app:boxBackgroundColor="@color/white"
+                                app:hintTextColor="@color/black"
+                                tools:ignore="HardcodedText">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/band_of_rec_approval"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:ems="10"
+                                    android:clickable="false"
+                                    android:enabled="false"
+                                    android:textSize="@dimen/_8sdp"
+                                    android:text=""
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:inputType="textMultiLine"/>
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1.2">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/func_designation_rec_approval_Layout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Functional Designation:"
+                                android:layout_weight="1.175"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                app:boxStrokeWidth="2dp"
+                                android:clickable="true"
+                                android:editable="false"
+                                android:focusable="false"
+                                app:boxStrokeWidthFocused="1dp"
+                                app:helperTextTextColor="#d63031"
+                                app:boxBackgroundColor="@color/white"
+                                app:boxStrokeColor="@color/black"
+                                app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                app:helperTextEnabled="true"
+                                app:helperText=""
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                tools:ignore="HardcodedText">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/func_designation_rec_approval"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:clickable="true"
+                                    android:editable="false"
+                                    android:focusable="false"
+                                    android:text=""
+                                    android:textSize="@dimen/_11sdp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:textColor="@color/black"
+                                    android:inputType="textMultiLine"/>
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".025"
+                                android:layout_gravity="top"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:src="@drawable/ic_star"
+                                tools:ignore="ContentDescription" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/error_input_func_designation_rec_approval"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:textColor="#d63031"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Please Provide Functional Designation"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1.2">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/func_designation_bangla_rec_approval_Layout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Functional Designation (Bangla):"
+                                android:layout_weight="1.175"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                app:boxStrokeWidth="2dp"
+                                android:clickable="true"
+                                android:editable="false"
+                                android:focusable="false"
+                                app:boxStrokeWidthFocused="1dp"
+                                app:helperTextTextColor="#d63031"
+                                app:boxBackgroundColor="@color/white"
+                                app:boxStrokeColor="@color/black"
+                                app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                app:helperTextEnabled="true"
+                                app:helperText=""
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                tools:ignore="HardcodedText">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/func_designation_bangla_rec_approval"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:clickable="true"
+                                    android:editable="false"
+                                    android:focusable="false"
+                                    android:text=""
+                                    android:textSize="@dimen/_11sdp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:textColor="@color/black"
+                                    android:inputType="textMultiLine"/>
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".025"
+                                android:layout_gravity="top"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:src="@drawable/ic_star"
+                                tools:ignore="ContentDescription" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/error_input_func_designation_bangla_rec_approval"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:textColor="#d63031"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Please Provide Functional Designation in Bangla"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Job Objective:"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            app:boxStrokeColor="@color/black"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="1dp"
+                            app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                            app:boxBackgroundMode="filled"
+                            android:clickable="false"
+                            android:enabled="false"
+                            app:boxBackgroundColor="@color/white"
+                            app:hintTextColor="@color/black"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/job_objective_of_rec_approval"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:clickable="false"
+                                android:enabled="false"
+                                android:textSize="@dimen/_8sdp"
+                                android:text=""
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:inputType="textMultiLine"/>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="3dp"
+                android:layout_margin="@dimen/_4sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/elite_red">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Joining Info"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12sdp"
+                            android:paddingStart="@dimen/_8sdp"
+                            android:paddingTop="@dimen/_2sdp"
+                            android:paddingEnd="@dimen/_4sdp"
+                            tools:ignore="HardcodedText" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/double_arrow_right_24"
+                            app:tint="@color/white"/>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/after_expanding_joining_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:weightSum="1"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_weight=".3"
+                                android:layout_gravity="center"
+                                android:textSize="@dimen/_10sdp"
+                                android:textColor="@color/default_text_color"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Appointment Type: "
+                                tools:ignore="HardcodedText" />
+
+                            <Spinner
+                                android:layout_gravity="center"
+                                android:id="@+id/spinner_appointment_type_rec_app"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop = "@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight=".68"
+                                android:clickable="false"
+                                android:background="@drawable/blue_outline"
+                                android:popupBackground="@drawable/blue_outline_white_background"
+                                android:spinnerMode="dropdown"/>
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop = "@dimen/_4sdp"
+                                android:layout_weight=".02"
+                                android:layout_gravity="top"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:src="@drawable/ic_star"
+                                tools:ignore="ContentDescription" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:weightSum="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_weight=".3"
+                                android:layout_gravity="center"
+                                android:textSize="@dimen/_10sdp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textColor="@color/default_text_color"
+                                android:text="Revision Type: "
+                                tools:ignore="HardcodedText" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/revision_type_for_rec_appr_layout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:hint=""
+                                android:layout_weight=".68"
+                                app:boxStrokeWidth="2dp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                app:boxStrokeColor="@color/black"
+                                app:hintTextColor="#dfe6e9"
+                                app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                android:textColorHint="@color/black"
+                                app:helperTextEnabled="true"
+                                app:helperText=""
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/revision_type_for_rec_appr"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:clickable="true"
+                                    android:editable="false"
+                                    android:focusable="false"
+                                    android:text="Select"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:gravity="end"
+                                    android:textStyle="bold"
+                                    android:textSize="@dimen/_11sdp"
+                                    android:textColor="#636e72"
+                                    android:inputType="textMultiLine"/>
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".02"
+                                android:layout_gravity="top"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:src="@drawable/ic_star"
+                                tools:ignore="ContentDescription" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:weightSum="1"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_weight=".3"
+                                android:layout_gravity="center"
+                                android:textSize="@dimen/_10sdp"
+                                android:textColor="@color/default_text_color"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Service Status: "
+                                tools:ignore="HardcodedText" />
+
+                            <Spinner
+                                android:layout_gravity="center"
+                                android:id="@+id/spinner_service_status_for_rec_app"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop = "@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight=".68"
+                                android:clickable="false"
+                                android:background="@drawable/blue_outline"
+                                android:popupBackground="@drawable/blue_outline_white_background"
+                                android:spinnerMode="dropdown"/>
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop = "@dimen/_4sdp"
+                                android:layout_weight=".02"
+                                android:layout_gravity="top"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:src="@drawable/ic_star"
+                                tools:ignore="ContentDescription" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="3dp"
+                android:layout_margin="@dimen/_4sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/elite_red">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Applicant Training Info"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12sdp"
+                            android:paddingStart="@dimen/_8sdp"
+                            android:paddingTop="@dimen/_2sdp"
+                            android:paddingEnd="@dimen/_4sdp"
+                            tools:ignore="HardcodedText" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/double_arrow_right_24"
+                            app:tint="@color/white"/>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/after_expanding_applicant_training_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:weightSum="1"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_weight=".3"
+                                android:layout_gravity="center"
+                                android:textSize="@dimen/_10sdp"
+                                android:textColor="@color/default_text_color"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Training Classification: "
+                                tools:ignore="HardcodedText" />
+
+                            <Spinner
+                                android:layout_gravity="center"
+                                android:id="@+id/spinner_training_classification_rec_app"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop = "@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight=".68"
+                                android:clickable="false"
+                                android:background="@drawable/blue_outline"
+                                android:popupBackground="@drawable/blue_outline_white_background"
+                                android:spinnerMode="dropdown"/>
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop = "@dimen/_4sdp"
+                                android:layout_weight=".02"
+                                android:layout_gravity="top"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:src="@drawable/ic_star"
+                                tools:ignore="ContentDescription" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:weightSum="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_weight=".3"
+                                android:layout_gravity="center"
+                                android:textSize="@dimen/_10sdp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textColor="@color/default_text_color"
+                                android:text="Training Location: "
+                                tools:ignore="HardcodedText" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/training_location_for_rec_appr_layout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:hint=""
+                                android:layout_weight=".68"
+                                app:boxStrokeWidth="2dp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                app:boxStrokeColor="@color/black"
+                                app:hintTextColor="#dfe6e9"
+                                app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                android:textColorHint="@color/black"
+                                app:helperTextEnabled="true"
+                                android:enabled="false"
+                                app:helperText=""
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/training_location_for_rec_appr"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:clickable="true"
+                                    android:editable="false"
+                                    android:focusable="false"
+                                    android:text="Select"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:gravity="end"
+                                    android:textStyle="bold"
+                                    android:textSize="@dimen/_11sdp"
+                                    android:textColor="#636e72"
+                                    android:inputType="textMultiLine"/>
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".02"
+                                android:layout_gravity="top"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:src="@drawable/ic_star"
+                                tools:ignore="ContentDescription" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/after_selecting_training_classification"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:weightSum="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:layout_marginBottom="@dimen/_4sdp"
+                                    android:layout_weight=".3"
+                                    android:layout_gravity="center"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:textColor="@color/default_text_color"
+                                    android:text="Assign Zone: "
+                                    tools:ignore="HardcodedText" />
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/assign_zone_for_rec_appr_layout"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:hint=""
+                                    android:layout_weight=".7"
+                                    app:boxStrokeWidth="2dp"
+                                    android:layout_marginBottom="@dimen/_4sdp"
+                                    android:layout_marginStart="@dimen/_4sdp"
+                                    android:layout_marginEnd="@dimen/_4sdp"
+                                    app:boxStrokeColor="@color/black"
+                                    app:hintTextColor="#dfe6e9"
+                                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                    android:textColorHint="@color/black"
+                                    app:helperTextEnabled="true"
+                                    android:enabled="false"
+                                    app:helperText=""
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/assign_zone_for_rec_appr"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:clickable="true"
+                                        android:editable="false"
+                                        android:focusable="false"
+                                        android:text="Select"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:gravity="end"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/_11sdp"
+                                        android:textColor="#636e72"
+                                        android:inputType="textMultiLine"/>
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/order_by_rec_approval_Layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Order By"
+                                android:layout_marginBottom="@dimen/_6sdp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                app:boxStrokeWidth="2dp"
+                                android:clickable="true"
+                                android:editable="false"
+                                android:focusable="false"
+                                app:boxStrokeWidthFocused="1dp"
+                                app:helperTextTextColor="#d63031"
+                                app:boxBackgroundColor="@color/white"
+                                app:boxStrokeColor="@color/black"
+                                app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                                app:helperTextEnabled="true"
+                                app:helperText=""
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                tools:ignore="HardcodedText">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/order_by_rec_approval"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:clickable="true"
+                                    android:editable="false"
+                                    android:focusable="false"
+                                    android:text=""
+                                    android:textSize="@dimen/_11sdp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:textColor="@color/black"
+                                    android:inputType="textMultiLine"/>
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_final_approve_button_rec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="visible"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/approve_button_for_rec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:visibility="visible"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:fontFamily="@font/russo_one"
+            android:background="@drawable/custom_button"
+            android:text="Approve"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

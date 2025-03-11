@@ -11,8 +11,10 @@ public class UserDesignation {
     private String desg_priority;
     private String joining_date;
     private String div_id;
+    private String dept_id;
+    private String desig_id;
 
-    public UserDesignation(String jsm_code, String jsm_name, String jsd_id, String jsd_objective, String dept_name, String div_name, String desg_name, String desg_priority, String joining_date, String div_id) {
+    public UserDesignation(String jsm_code, String jsm_name, String jsd_id, String jsd_objective, String dept_name, String div_name, String desg_name, String desg_priority, String joining_date, String div_id, String dept_id, String desig_id) {
         this.jsm_code = jsm_code;
         this.jsm_name = jsm_name;
         this.jsd_id = jsd_id;
@@ -23,6 +25,8 @@ public class UserDesignation {
         this.desg_priority = desg_priority;
         this.joining_date = joining_date;
         this.div_id = div_id;
+        this.dept_id = dept_id;
+        this.desig_id = desig_id;
     }
 
     public String getJsm_code() {
@@ -103,5 +107,21 @@ public class UserDesignation {
 
     public void setDiv_id(String div_id) {
         this.div_id = div_id;
+    }
+
+    public String getDept_id() {
+        return dept_id;
+    }
+
+    public void setDept_id(String dept_id) {
+        this.dept_id = dept_id;
+    }
+
+    public String getDesig_id() {
+        return desig_id;
+    }
+
+    public void setDesig_id(String desig_id) {
+        this.desig_id = desig_id;
     }
 }

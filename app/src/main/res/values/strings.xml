@@ -4,4 +4,29 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="back_alpha">0.6</string>
+    <string name="colon">:</string>
+    <string name="purpose_fl">Purpose/Mode Of Use<font color='red'>*</font></string>
+    <string name="req_date_fl">Request Date<font color='red'>*</font></string>
+    <string name="division_fl">Division<font color='red'>*</font></string>
+    <string name="district_fl">District<font color='red'>*</font></string>
+    <string name="area_fl">Area<font color='red'>*</font></string>
+    <string name="pck_pnt_fl">Pickup Point<font color='red'>*</font></string>
+    <string name="leave_date_fl">Leaving Date &amp; Time<font color='red'>*</font></string>
+    <string name="drp_pnt_fl">Drop Point<font color='red'>*</font></string>
+    <string name="rtn_date_fl">Return Date &amp; Time<font color='red'>*</font></string>
+    <string name="req_fl_type_fl">Requisition Fleet Type<font color='red'>*</font></string>
+    <string name="vhl_qty_fl">Vehicle Qty<font color='red'>*</font></string>
+    <string name="trv_qty_fl">Travelers Qty<font color='red'>*</font></string>
+    <string name="req_st_ass">Requisition Status<font color='red'>*</font></string>
+    <string name="ass_drv_ass">Assign Driver<font color='red'>*</font></string>
+    <string name="ass_vhl_ass">Assign Vehicle<font color='red'>*</font></string>
+    <string name="move_client">Client</string>
+    <string name="move_type">Movement Type<font color='red'>*</font></string>
+    <string name="move_purpose">Movement Purpose<font color='red'>*</font></string>
+    <string name="note_text">Notes: <font color='red'>*</font></string>
+
+    <string name="client_in_ci">Client Name<font color='red'>*</font></string>
+    <string name="pic_in_ci">Picture:<font color='red'>*</font></string>
+
 </resources>

@@ -1,6 +1,8 @@
 package ttit.com.shuvo.eliteforce.attendance.att_report.map_view;
 
 import static ttit.com.shuvo.eliteforce.attendance.att_report.adapters.AttenReportAdapter.blobFromAdapter;
+import static ttit.com.shuvo.eliteforce.login.Login.userInfoLists;
+import static ttit.com.shuvo.eliteforce.movement_reg.movements.adapters.MovementStatusAdapter.movementBlob;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -34,6 +36,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -41,6 +44,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import ttit.com.shuvo.eliteforce.R;
 import ttit.com.shuvo.eliteforce.attendance.att_report.map_view.adapters.LocationAdapter;
@@ -68,12 +73,15 @@ public class TimeLineActivity extends AppCompatActivity implements OnMapReadyCal
     ArrayList<MarkerData> markerData;
     String elr_id = "";
 
-    String downloadFile = "Downloaded_GPX.gpx";
+    String downloadFile = "downloaded_GPX.gpx";
 
     boolean blobNotNull = false;
     String address = "";
     ArrayList<WaypointList> wptList;
     ArrayList<ArrrayFile> multiGpxList;
+    Blob selectedBlob;
+
+    Logger logger = Logger.getLogger(TimeLineActivity.class.getName());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +112,15 @@ public class TimeLineActivity extends AppCompatActivity implements OnMapReadyCal
 
         Intent intent = getIntent();
         elr_id = intent.getStringExtra("ELR");
+        int fl = intent.getIntExtra("MOVE_FLAG",0);
+        if (fl == 1) {
+            selectedBlob = movementBlob;
+        }
+        else {
+            selectedBlob = blobFromAdapter;
+        }
 
+        downloadFile = userInfoLists.get(0).getEmp_id()+"_"+elr_id+"_"+downloadFile;
         getMapData();
 
         mMap.setOnMapClickListener(latLng -> {
@@ -173,7 +189,7 @@ public class TimeLineActivity extends AppCompatActivity implements OnMapReadyCal
                     String distance;
                     String calculateTime = "";
 
-                    if (timelist.size() != 0) {
+                    if (!timelist.isEmpty()) {
                         firstTime = timelist.get(0);
                         lastTime = timelist.get(timelist.size()-1);
 
@@ -187,7 +203,7 @@ public class TimeLineActivity extends AppCompatActivity implements OnMapReadyCal
                             last = sdfTime.parse(lastTime);
                         }
                         catch (ParseException e) {
-                            e.printStackTrace();
+                            logger.log(Level.WARNING,e.getMessage(),e);
                         }
 
                         if (first != null && last != null) {
@@ -307,7 +323,7 @@ public class TimeLineActivity extends AppCompatActivity implements OnMapReadyCal
             return address;
         }
         catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING,e.getMessage(),e);
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
             return null;
         }
@@ -377,11 +393,11 @@ public class TimeLineActivity extends AppCompatActivity implements OnMapReadyCal
         connected = false;
 
         try {
-            if (blobFromAdapter != null && blobFromAdapter.length() != 0) {
+            if (selectedBlob != null && selectedBlob.length() != 0) {
                 System.out.println("BLOB paise");
-                File myExternalFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),downloadFile);
+                File myExternalFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath() + File.separator +  downloadFile);
 
-                InputStream r = blobFromAdapter.getBinaryStream();
+                InputStream r = selectedBlob.getBinaryStream();
                 FileWriter fw=new FileWriter(myExternalFile);
                 int i;
                 while((i=r.read())!=-1)
@@ -397,7 +413,7 @@ public class TimeLineActivity extends AppCompatActivity implements OnMapReadyCal
             updateMap();
         }
         catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING,e.getMessage(),e);
             connected = false;
             updateMap();
         }

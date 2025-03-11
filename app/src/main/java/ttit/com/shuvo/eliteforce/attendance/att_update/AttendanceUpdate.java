@@ -12,6 +12,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ttit.com.shuvo.eliteforce.R;
+import ttit.com.shuvo.eliteforce.attendance.att_update.att_req_stat.AttendanceRequestStatus;
 import ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest;
 import ttit.com.shuvo.eliteforce.attendance.att_update.req_approve.AttUpReqApprove;
 import ttit.com.shuvo.eliteforce.attendance.att_update.req_status.AttUpdateStatus;
@@ -33,7 +36,12 @@ public class AttendanceUpdate extends AppCompatActivity {
 
     MaterialCardView attUpdate;
     MaterialCardView attStatus;
+    MaterialCardView attReqStatus;
     MaterialCardView attApprove;
+    RelativeLayout attApprSelectLay;
+    RelativeLayout attApprCountLay;
+    TextView attApprCount;
+//    String approve_count = "";
 
     WaitProgress waitProgress = new WaitProgress();
     private Boolean conn = false;
@@ -49,14 +57,24 @@ public class AttendanceUpdate extends AppCompatActivity {
 
         attUpdate = findViewById(R.id.atten_update_req);
         attStatus = findViewById(R.id.attendane_update_status);
+        attReqStatus = findViewById(R.id.atten_req_approval_stat);
+        attApprSelectLay = findViewById(R.id.att_up_req_approve_lay);
         attApprove = findViewById(R.id.atten_update_req_approval);
+        attApprCountLay = findViewById(R.id.att_up_req_count_lay);
+        attApprCount = findViewById(R.id.att_up_req_count_in_attendance);
 
         userName = userInfoLists.get(0).getUserName();
 
-        if (isApproved > 0) {
-            attApprove.setVisibility(View.VISIBLE);
-        } else {
-            attApprove.setVisibility(View.GONE);
+//        if (isApproved > 0) {
+//            attApprSelectLay.setVisibility(View.VISIBLE);
+//        } else {
+//            attApprSelectLay.setVisibility(View.GONE);
+//        }
+        if (userInfoLists.get(0).getEmp_id().equals("88")) {
+            attApprSelectLay.setVisibility(View.VISIBLE);
+        }
+        else {
+            attApprSelectLay.setVisibility(View.GONE);
         }
 
         attUpdate.setOnClickListener(v -> {
@@ -66,6 +84,11 @@ public class AttendanceUpdate extends AppCompatActivity {
 
         attStatus.setOnClickListener(v -> {
             Intent intent = new Intent(AttendanceUpdate.this, AttUpdateStatus.class);
+            startActivity(intent);
+        });
+
+        attReqStatus.setOnClickListener(v -> {
+            Intent intent = new Intent(AttendanceUpdate.this, AttendanceRequestStatus.class);
             startActivity(intent);
         });
 
@@ -84,6 +107,7 @@ public class AttendanceUpdate extends AppCompatActivity {
     public void approvedButtonCheck() {
         waitProgress.show(getSupportFragmentManager(),"WaitBar");
         waitProgress.setCancelable(false);
+        attApprCountLay.setVisibility(View.GONE);
         conn = false;
         connected = false;
 
@@ -129,10 +153,18 @@ public class AttendanceUpdate extends AppCompatActivity {
         waitProgress.dismiss();
         if (conn) {
             if (connected) {
+//                if (isApprovedCheckAgain > 0) {
+//                    attApprove.setVisibility(View.VISIBLE);
+//                } else {
+//                    attApprove.setVisibility(View.GONE);
+//                }
+
                 if (isApprovedCheckAgain > 0) {
-                    attApprove.setVisibility(View.VISIBLE);
-                } else {
-                    attApprove.setVisibility(View.GONE);
+                    attApprCountLay.setVisibility(View.VISIBLE);
+                    attApprCount.setText(String.valueOf(isApprovedCheckAgain));
+                }
+                else {
+                    attApprCountLay.setVisibility(View.GONE);
                 }
 
                 conn = false;

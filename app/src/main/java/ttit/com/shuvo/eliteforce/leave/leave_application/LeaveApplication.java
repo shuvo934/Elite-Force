@@ -11,6 +11,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,6 +34,9 @@ public class LeaveApplication extends AppCompatActivity {
     MaterialCardView newApp;
     MaterialCardView appStat;
     MaterialCardView leaveApprove;
+    RelativeLayout leaveApprSelectLay;
+    RelativeLayout leaveApprCountLay;
+    TextView leaveApprCount;
 
     WaitProgress waitProgress = new WaitProgress();
     private Boolean conn = false;
@@ -47,12 +52,22 @@ public class LeaveApplication extends AppCompatActivity {
 
         newApp = findViewById(R.id.leave_application_new_app);
         appStat = findViewById(R.id.leave_application_status_show);
+        leaveApprSelectLay = findViewById(R.id.leave_req_approve_lay);
         leaveApprove = findViewById(R.id.leave_req_approval);
+        leaveApprCountLay = findViewById(R.id.leave_req_count_lay);
+        leaveApprCount = findViewById(R.id.leave_req_count_in_leave);
 
-        if (isLeaveApproved > 0) {
-            leaveApprove.setVisibility(View.VISIBLE);
-        } else {
-            leaveApprove.setVisibility(View.GONE);
+//        if (isLeaveApproved > 0) {
+//            leaveApprove.setVisibility(View.VISIBLE);
+//        } else {
+//            leaveApprove.setVisibility(View.GONE);
+//        }
+
+        if (userInfoLists.get(0).getEmp_id().equals("88")) {
+            leaveApprSelectLay.setVisibility(View.VISIBLE);
+        }
+        else {
+            leaveApprSelectLay.setVisibility(View.GONE);
         }
 
         user_id = userInfoLists.get(0).getUserName();
@@ -82,6 +97,7 @@ public class LeaveApplication extends AppCompatActivity {
     public void getLeaveApproveButtonCheck() {
         waitProgress.show(getSupportFragmentManager(),"WaitBar");
         waitProgress.setCancelable(false);
+        leaveApprCountLay.setVisibility(View.GONE);
         conn = false;
         connected = false;
 
@@ -127,10 +143,18 @@ public class LeaveApplication extends AppCompatActivity {
         waitProgress.dismiss();
         if (conn) {
             if (connected) {
+//                if (isLeaveApprovedCheck > 0) {
+//                    leaveApprove.setVisibility(View.VISIBLE);
+//                } else {
+//                    leaveApprove.setVisibility(View.GONE);
+//                }
+
                 if (isLeaveApprovedCheck > 0) {
-                    leaveApprove.setVisibility(View.VISIBLE);
-                } else {
-                    leaveApprove.setVisibility(View.GONE);
+                    leaveApprCountLay.setVisibility(View.VISIBLE);
+                    leaveApprCount.setText(String.valueOf(isLeaveApprovedCheck));
+                }
+                else {
+                    leaveApprCountLay.setVisibility(View.GONE);
                 }
 
                 conn = false;

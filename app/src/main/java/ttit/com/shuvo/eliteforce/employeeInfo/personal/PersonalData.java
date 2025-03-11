@@ -120,6 +120,8 @@ public class PersonalData extends AppCompatActivity {
         se.add("Not Found");
         se.add("Male");
         se.add("Female");
+        se.add("Transgender");
+        se.add("Prefer not to say");
 
         rel.add("Not Found");
         rel.add("Islam");
@@ -127,6 +129,9 @@ public class PersonalData extends AppCompatActivity {
         rel.add("Buddhist");
         rel.add("Hindu");
         rel.add("Others");
+        rel.add("Sikhism");
+        rel.add("Jains");
+        rel.add("Religion not stated");
 
         ms.add("Not Found");
         ms.add("Married");

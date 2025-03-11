@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".directory.Directory">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:alpha="@string/back_alpha"
+        android:background="@drawable/elite_back"/>
 
     <RelativeLayout
         android:id="@+id/topLay_directory_division"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_66sdp">
+        android:layout_height="@dimen/_55sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +36,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_62sdp"
+            android:layout_height="@dimen/_51sdp"
             android:background="@drawable/design"
             android:orientation="vertical"
             android:layout_alignParentEnd="true"
@@ -61,7 +73,10 @@
         android:layout_gravity="center"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/_8sdp"
-        app:cardElevation="@dimen/_5sdp">
+        app:cardElevation="@dimen/_5sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/topLay_directory_division">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -287,7 +302,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/_4sdp"
-        android:layout_marginBottom="@dimen/_8sdp">
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/card_directory_division">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -308,4 +327,4 @@
 
     </ScrollView>
 
-</LinearLayout>
+</RelativeLayout>

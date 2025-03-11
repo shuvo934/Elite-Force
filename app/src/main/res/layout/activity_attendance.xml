@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".attendance.Attendance">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:alpha="@string/back_alpha"
+        android:background="@drawable/elite_back"/>
 
     <RelativeLayout
         android:id="@+id/upLay_attendance"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_66sdp">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="@dimen/_55sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +36,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_62sdp"
+            android:layout_height="@dimen/_51sdp"
             android:background="@drawable/design"
             android:orientation="vertical"
             android:layout_alignParentEnd="true"
@@ -51,8 +63,12 @@
     </RelativeLayout>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/attendance_pie_chart_card_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_200sdp"
+        android:layout_below="@+id/upLay_attendance"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:padding="@dimen/_8sdp"
         app:cardCornerRadius="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_12sdp"
@@ -67,20 +83,40 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/refresh_graph_attendance"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:fontFamily="@font/poppins"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold"
-                android:gravity="end"
-                android:layout_marginTop="@dimen/_4sdp"
-                android:layout_marginStart="@dimen/_4sdp"
-                android:layout_marginEnd="@dimen/_6sdp"
-                android:textColor="@color/black"
-                android:layout_gravity="center" />
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_4sdp">
+
+                <TextView
+                    android:id="@+id/refresh_graph_attendance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:fontFamily="@font/poppins"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:gravity="end"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/att_arrow_drop_down_image"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:textColor="@color/elite_red"
+                    android:layout_gravity="center" />
+
+                <ImageView
+                    android:id="@+id/att_arrow_drop_down_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_drop_down_24"
+                    app:tint="@color/elite_red"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_6sdp"/>
+
+            </RelativeLayout>
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/piechart_attendance"
@@ -94,7 +130,11 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/attendance_pie_chart_card_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -108,28 +148,26 @@
                 android:id="@+id/scrollView23_attendance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="1"
                 android:layout_gravity="top"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:weightSum="1"
-                    android:layout_weight=".5"
                     android:layout_gravity="center"
                     android:orientation="horizontal">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/attendance_report"
+                        android:id="@+id/attendance_give"
                         android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
+                        android:layout_height="@dimen/_107sdp"
                         app:cardCornerRadius="@dimen/_8sdp"
                         android:layout_weight=".5"
                         android:layout_marginTop="@dimen/_12sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
                         android:layout_marginBottom="@dimen/_12sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
                         android:layout_marginEnd="@dimen/_8sdp"
                         app:cardElevation="@dimen/_5sdp"
                         android:layout_gravity="center"
@@ -143,16 +181,25 @@
                             android:background="@drawable/design_4"
                             android:orientation="vertical">
 
+                            <ImageView
+                                android:layout_width="@dimen/_38sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/attendance_icon"
+                                app:tint="@color/elite_red"
+                                tools:ignore="ContentDescription"/>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/_4sdp"
                                 android:layout_marginEnd="@dimen/_4sdp"
-                                android:padding="@dimen/_12sdp"
+                                android:padding="@dimen/_8sdp"
                                 android:fontFamily="@font/open_sans_bold"
                                 android:gravity="center"
-                                android:text="Attendance Report"
+                                android:text="Give Attendance"
                                 android:textColor="@color/black"
+                                android:textSize="@dimen/_10sdp"
                                 android:textStyle="bold"
                                 tools:ignore="HardcodedText" />
 
@@ -163,7 +210,7 @@
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/atten_update_all"
                         android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
+                        android:layout_height="@dimen/_107sdp"
                         app:cardCornerRadius="@dimen/_8sdp"
                         app:cardElevation="@dimen/_5sdp"
                         android:layout_weight=".5"
@@ -182,6 +229,14 @@
                             android:layout_gravity="center"
                             android:orientation="vertical">
 
+                            <ImageView
+                                android:layout_width="@dimen/_38sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/att_up_icon"
+                                app:tint="@color/elite_red"
+                                tools:ignore="ContentDescription"/>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -189,8 +244,9 @@
                                 android:gravity="center"
                                 android:layout_marginStart="@dimen/_4sdp"
                                 android:layout_marginEnd="@dimen/_4sdp"
-                                android:padding="@dimen/_12sdp"
+                                android:padding="@dimen/_8sdp"
                                 android:text="Attendance Update"
+                                android:textSize="@dimen/_10sdp"
                                 android:textColor="@color/black"
                                 android:textStyle="bold"
                                 tools:ignore="HardcodedText" />
@@ -203,95 +259,156 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight=".5"
                     android:weightSum="1"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/attendance_give"
+                    <RelativeLayout
+                        android:id="@+id/att_req_select_lay"
                         android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        app:cardCornerRadius="@dimen/_8sdp"
-                        android:layout_weight=".5"
-                        android:layout_marginTop="@dimen/_12sdp"
-                        android:layout_marginBottom="@dimen/_12sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        app:cardElevation="@dimen/_5sdp"
-                        android:layout_gravity="center"
-                        app:cardBackgroundColor="@color/white">
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5">
 
-                        <LinearLayout
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/attendance_req_approve"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
+                            android:layout_height="@dimen/_107sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            app:cardElevation="@dimen/_5sdp"
                             android:layout_gravity="center"
-                            android:background="@drawable/design_4"
-                            android:orientation="vertical">
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:background="@drawable/design_4"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_38sdp"
+                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/attendance_out_approve_icon"
+                                    app:tint="@color/elite_red"
+                                    tools:ignore="ContentDescription"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_4sdp"
+                                    android:layout_marginEnd="@dimen/_4sdp"
+                                    android:padding="@dimen/_8sdp"
+                                    android:fontFamily="@font/open_sans_bold"
+                                    android:gravity="center"
+                                    android:layout_centerInParent="true"
+                                    android:text="Attendance Request"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <RelativeLayout
+                            android:id="@+id/att_req_count_lay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:elevation="@dimen/_10sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:src="@drawable/circle_24"
+                                app:tint="@color/elite_red"
+                                android:layout_centerInParent="true"/>
 
                             <TextView
+                                android:id="@+id/att_req_count_in_attendance"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/_4sdp"
-                                android:layout_marginEnd="@dimen/_4sdp"
-                                android:padding="@dimen/_12sdp"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:gravity="center"
-                                android:text="Give Attendance"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText" />
+                                android:textColor="@color/white"
+                                android:text=""
+                                android:textSize="@dimen/_7sdp"
+                                android:fontFamily="@font/bungee"
+                                android:layout_centerInParent="true"/>
 
-                        </LinearLayout>
+                        </RelativeLayout>
 
-                    </com.google.android.material.card.MaterialCardView>
+                    </RelativeLayout>
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/movement_register_button"
+                    <RelativeLayout
                         android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        app:cardCornerRadius="@dimen/_8sdp"
-                        android:layout_weight=".5"
-                        android:layout_marginTop="@dimen/_12sdp"
-                        android:layout_marginBottom="@dimen/_12sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        app:cardElevation="@dimen/_5sdp"
-                        android:layout_gravity="center"
-                        app:cardBackgroundColor="@color/white">
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5">
 
-                        <LinearLayout
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/attendance_report"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
+                            android:layout_height="@dimen/_107sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            app:cardElevation="@dimen/_5sdp"
                             android:layout_gravity="center"
-                            android:background="@drawable/design_4"
-                            android:orientation="vertical">
+                            app:cardBackgroundColor="@color/white">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/_4sdp"
-                                android:layout_marginEnd="@dimen/_4sdp"
-                                android:padding="@dimen/_12sdp"
-                                android:fontFamily="@font/open_sans_bold"
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Movement Register"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText" />
+                                android:layout_gravity="center"
+                                android:background="@drawable/design_4"
+                                android:orientation="vertical">
 
-                        </LinearLayout>
+                                <ImageView
+                                    android:layout_width="@dimen/_38sdp"
+                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/att_rep"
+                                    app:tint="@color/elite_red"
+                                    tools:ignore="ContentDescription"/>
 
-                    </com.google.android.material.card.MaterialCardView>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_4sdp"
+                                    android:layout_marginEnd="@dimen/_4sdp"
+                                    android:padding="@dimen/_8sdp"
+                                    android:fontFamily="@font/open_sans_bold"
+                                    android:gravity="center"
+                                    android:text="Attendance Report"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </RelativeLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
-        </ScrollView>
 
+        </ScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating_button_att_bottom"
@@ -308,4 +425,4 @@
 
     </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>

@@ -6,10 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".attendance.att_update.AttendanceUpdate">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:alpha="@string/back_alpha"
+        android:background="@drawable/elite_back"/>
+
     <RelativeLayout
         android:id="@+id/topLay_att_up"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_66sdp"
+        android:layout_height="@dimen/_55sdp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true">
@@ -26,7 +36,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_62sdp"
+            android:layout_height="@dimen/_51sdp"
             android:background="@drawable/design"
             android:orientation="vertical"
             android:layout_alignParentStart="true"
@@ -67,32 +77,127 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="@dimen/_16sdp">
+            android:layout_marginTop="@dimen/_23sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:gravity="center">
 
-            <HorizontalScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:weightSum="10"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/atten_update_req"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_107sdp"
+                    android:layout_weight="5"
+                    android:padding="@dimen/_8sdp"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    android:layout_margin="@dimen/_15sdp"
+                    app:cardElevation="@dimen/_8sdp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:background="@drawable/design_4"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/att_new_req"
+                            app:tint="@color/elite_red"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            tools:ignore="ContentDescription"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:gravity="center"
+                            android:text="New Update Request"
+                            android:textSize="@dimen/_11sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/attendane_update_status"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_107sdp"
+                    android:layout_weight="5"
+                    android:padding="@dimen/_8sdp"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="@dimen/_8sdp"
+                    android:layout_margin="@dimen/_15sdp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:background="@drawable/design_4"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/att_status_icon"
+                            app:tint="@color/elite_red"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            tools:ignore="ContentDescription"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:gravity="center"
+                            android:text="Update Request Status"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:weightSum="10"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_16sdp"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_weight="5">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/atten_update_req"
-                        android:layout_width="@dimen/_115sdp"
-                        android:layout_height="@dimen/_77sdp"
+                        android:id="@+id/atten_req_approval_stat"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_107sdp"
                         android:padding="@dimen/_8sdp"
                         app:cardCornerRadius="@dimen/_8sdp"
-                        app:cardElevation="@dimen/_7sdp"
-                        android:layout_marginTop="@dimen/_16sdp"
-                        android:layout_marginStart="@dimen/_16sdp"
-                        android:layout_marginBottom="@dimen/_16sdp"
-                        android:layout_marginEnd="@dimen/_16sdp"
-                        android:background="@color/white">
+                        android:layout_margin="@dimen/_15sdp"
+                        app:cardElevation="@dimen/_8sdp"
+                        app:cardBackgroundColor="@color/white">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -102,12 +207,21 @@
                             android:background="@drawable/design_4"
                             android:orientation="vertical">
 
+                            <ImageView
+                                android:layout_width="@dimen/_38sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/att_req_stat"
+                                app:tint="@color/elite_red"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                tools:ignore="ContentDescription"/>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans_bold"
                                 android:gravity="center"
-                                android:text="New Request"
+                                android:text="Attendance Request Status"
                                 android:textSize="@dimen/_11sdp"
                                 android:textColor="@color/black"
                                 android:textStyle="bold"
@@ -117,69 +231,24 @@
 
                     </com.google.android.material.card.MaterialCardView>
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/attendane_update_status"
-                        android:layout_width="@dimen/_115sdp"
-                        android:layout_height="@dimen/_77sdp"
-                        android:padding="@dimen/_8sdp"
-                        app:cardCornerRadius="@dimen/_8sdp"
-                        app:cardElevation="@dimen/_7sdp"
-                        android:layout_marginTop="@dimen/_16sdp"
-                        android:layout_marginEnd="@dimen/_16sdp"
-                        android:layout_marginBottom="@dimen/_16sdp"
-                        android:layout_marginStart="@dimen/_16sdp"
-                        android:background="@color/white">
+                </RelativeLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:layout_gravity="center"
-                            android:background="@drawable/design_4"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:gravity="center"
-                                android:text="Request Status"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_11sdp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText" />
-
-                        </LinearLayout>
-
-                    </com.google.android.material.card.MaterialCardView>
-
-                </LinearLayout>
-
-            </HorizontalScrollView>
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:id="@+id/att_up_req_approve_lay"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal">
+                    android:visibility="visible"
+                    android:layout_weight="5">
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/atten_update_req_approval"
-                        android:layout_width="@dimen/_115sdp"
-                        android:layout_height="@dimen/_77sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_107sdp"
                         android:padding="@dimen/_8sdp"
-                        android:layout_marginStart="@dimen/_16sdp"
-                        android:layout_marginEnd="@dimen/_16sdp"
-                        android:layout_marginTop="@dimen/_16sdp"
-                        android:layout_marginBottom="@dimen/_16sdp"
                         app:cardCornerRadius="@dimen/_8sdp"
-                        app:cardElevation="@dimen/_7sdp"
-                        android:background="@color/white">
+                        android:layout_margin="@dimen/_15sdp"
+                        app:cardElevation="@dimen/_8sdp"
+                        app:cardBackgroundColor="@color/white">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -188,6 +257,15 @@
                             android:layout_gravity="center"
                             android:background="@drawable/design_4"
                             android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/_38sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/att_approve_icon"
+                                app:tint="@color/elite_red"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                tools:ignore="ContentDescription"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -204,9 +282,38 @@
 
                     </com.google.android.material.card.MaterialCardView>
 
-                </LinearLayout>
+                    <RelativeLayout
+                        android:id="@+id/att_up_req_count_lay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:elevation="@dimen/_10sdp">
 
-            </HorizontalScrollView>
+                        <ImageView
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:src="@drawable/circle_24"
+                            app:tint="@color/elite_red"
+                            android:layout_centerInParent="true"/>
+
+                        <TextView
+                            android:id="@+id/att_up_req_count_in_attendance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:text=""
+                            android:textSize="@dimen/_7sdp"
+                            android:fontFamily="@font/bungee"
+                            android:layout_centerInParent="true"/>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 

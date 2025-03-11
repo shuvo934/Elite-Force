@@ -6,10 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".attendance.att_update.req_status.statusDetails.AttUpdateStatusDetails">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:alpha="@string/back_alpha"
+        android:background="@drawable/elite_back"/>
+
     <RelativeLayout
         android:id="@+id/upLayNew_st_dt"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_66sdp"
+        android:layout_height="@dimen/_55sdp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true">
@@ -26,7 +36,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_62sdp"
+            android:layout_height="@dimen/_51sdp"
             android:background="@drawable/design"
             android:orientation="vertical"
             android:layout_alignParentStart="true"
@@ -96,6 +106,7 @@
                         android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/default_text_color"
                         android:textStyle="bold"
+                        android:textSize="@dimen/_11sdp"
                         tools:ignore="HardcodedText" />
 
 
@@ -125,6 +136,7 @@
                                 android:paddingStart="@dimen/_3sdp"
                                 android:paddingEnd="@dimen/_3sdp"
                                 android:text=""
+                                android:textSize="@dimen/_11sdp"
                                 android:fontFamily="@font/open_sans_bold"/>
 
                         </androidx.cardview.widget.CardView>
@@ -154,6 +166,7 @@
                         android:layout_gravity="center"
                         android:textColor="@color/default_text_color"
                         android:textStyle="bold"
+                        android:textSize="@dimen/_11sdp"
                         tools:ignore="HardcodedText" />
 
                     <TextView
@@ -168,6 +181,7 @@
                         android:paddingStart="@dimen/_2sdp"
                         android:layout_margin="@dimen/_4sdp"
                         android:paddingEnd="@dimen/_2sdp"
+                        android:textSize="@dimen/_11sdp"
                         android:text=""/>
                     
                 </LinearLayout>
@@ -189,6 +203,7 @@
                         android:layout_marginBottom="@dimen/_4sdp"
                         android:textColor="@color/default_text_color"
                         android:textStyle="bold"
+                        android:textSize="@dimen/_11sdp"
                         tools:ignore="HardcodedText" />
 
                     <TextView
@@ -203,6 +218,7 @@
                         android:layout_gravity="center"
                         android:paddingStart="@dimen/_2sdp"
                         android:paddingEnd="@dimen/_2sdp"
+                        android:textSize="@dimen/_11sdp"
                         android:text=""/>
 
                 </LinearLayout>
@@ -363,24 +379,24 @@
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_2sdp"
-                        android:layout_marginTop="@dimen/_4sdp"
-                        android:background="#f5f6fa" />
+<!--                    <View-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_2sdp"-->
+<!--                        android:layout_marginTop="@dimen/_4sdp"-->
+<!--                        android:background="#f5f6fa" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:text="- - - - - - - - - - - - - - - - - -"
-                        tools:ignore="HardcodedText"/>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="center"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:text="- - - - - - - - - - - - - - - - - -"-->
+<!--                        tools:ignore="HardcodedText"/>-->
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_2sdp"
-                        android:background="#f5f6fa" />
+<!--                    <View-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_2sdp"-->
+<!--                        android:background="#f5f6fa" />-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -388,6 +404,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/_4sdp"
                         android:weightSum="1"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView
@@ -451,6 +468,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:weightSum="1"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView
@@ -577,6 +595,7 @@
                                     android:focusable="false"
                                     android:fontFamily="@font/poppins_semibold"
                                     android:text=""
+                                    android:textSize="@dimen/_11sdp"
                                     android:textStyle="bold"
                                     android:textColor="@color/black"
                                     android:inputType="textMultiLine" />
@@ -588,11 +607,12 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Time to be Updated:"
+                            android:text="Requested Time for Update"
                             android:fontFamily="@font/poppins_semibold"
                             android:layout_margin="@dimen/_4sdp"
                             android:gravity="center"
                             android:textColor="@color/default_text_color"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText" />
 
@@ -605,7 +625,7 @@
 
                             <LinearLayout
                                 android:id="@+id/in_time_lay_st_dt"
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:visibility="visible"
@@ -646,6 +666,7 @@
                                         android:text=""
                                         android:textStyle="bold"
                                         android:textColor="@color/black"
+                                        android:textSize="@dimen/_11sdp"
                                         android:inputType="textMultiLine" />
 
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -654,7 +675,7 @@
 
                             <LinearLayout
                                 android:id="@+id/out_time_lay_st_dt"
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:visibility="visible"
@@ -694,6 +715,7 @@
                                         android:fontFamily="@font/poppins_semibold"
                                         android:text=""
                                         android:textStyle="bold"
+                                        android:textSize="@dimen/_11sdp"
                                         android:textColor="@color/black"
                                         android:inputType="textMultiLine"/>
 
@@ -706,6 +728,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_2sdp"
+                            android:visibility="gone"
                             android:layout_marginTop="@dimen/_4sdp"
                             android:background="#f5f6fa" />
 
@@ -714,12 +737,14 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:layout_gravity="center"
+                            android:visibility="gone"
                             android:text="- - - - - - - - - - - - - - - - - -"
                             tools:ignore="HardcodedText"/>
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_2sdp"
+                            android:visibility="gone"
                             android:background="#f5f6fa" />
 
                         <LinearLayout
@@ -727,6 +752,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:weightSum="1"
+                            android:visibility="gone"
                             android:layout_marginTop="@dimen/_4sdp"
                             android:orientation="horizontal">
 
@@ -791,6 +817,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:weightSum="1.2"
+                            android:visibility="gone"
                             android:baselineAligned="false">
 
                             <com.google.android.material.textfield.TextInputLayout
@@ -873,12 +900,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_2sdp"
                             android:layout_marginTop="@dimen/_4sdp"
+                            android:visibility="gone"
                             android:background="#f5f6fa" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:visibility="gone"
                             android:layout_gravity="center"
                             android:text="- - - - - - - - - - - - - - - - - -"
                             tools:ignore="HardcodedText"/>
@@ -886,6 +915,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_2sdp"
+                            android:visibility="gone"
                             android:background="#f5f6fa" />
 
                         <LinearLayout
@@ -893,6 +923,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:weightSum="1"
+                            android:visibility="gone"
                             android:layout_marginTop="@dimen/_4sdp"
                             android:orientation="horizontal">
 

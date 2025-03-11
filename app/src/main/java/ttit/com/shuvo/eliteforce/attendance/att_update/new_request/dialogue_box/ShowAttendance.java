@@ -1,7 +1,7 @@
 package ttit.com.shuvo.eliteforce.attendance.att_update.new_request.dialogue_box;
 
-import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.dateToShow;
-import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.showAttendanceNumber;
+//import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.dateToShow;
+//import static ttit.com.shuvo.eliteforce.attendance.att_update.new_request.AttUpNewRequest.showAttendanceNumber;
 import static ttit.com.shuvo.eliteforce.login.Login.userInfoLists;
 import static ttit.com.shuvo.eliteforce.utility.Constants.api_url_front;
 
@@ -84,9 +84,9 @@ public class ShowAttendance extends AppCompatDialogFragment {
         exLocNa = view.findViewById(R.id.existing_loc_name);
 
 
-        if (showAttendanceNumber == 1) {
-            date = dateToShow;
-        }
+//        if (showAttendanceNumber == 1) {
+//            date = dateToShow;
+//        }
 
         builder.setView(view);
 
@@ -96,7 +96,7 @@ public class ShowAttendance extends AppCompatDialogFragment {
         showAttdialog.setCanceledOnTouchOutside(false);
 
         showAttdialog.setButton(Dialog.BUTTON_NEGATIVE, "OK", (dialog, which) -> {
-            showAttendanceNumber = 0;
+//            showAttendanceNumber = 0;
             dialog.dismiss();
         });
 

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_sheet_design"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/leave_date_for_emp_in_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="@dimen/_16sdp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/leave_type_in_leave_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/_4sdp"
+        android:textSize="@dimen/_14sdp"
+        android:fontFamily="@font/poppins_bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Before Leave Balance"
+            android:layout_weight="4.5"
+            android:gravity="end"
+            android:textColor="@color/default_text_color"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/poppins_semibold"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/default_text_color"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/poppins_semibold"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/before_leave_bal_in_leave_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp"
+            android:layout_weight="4.5"
+            android:fontFamily="@font/poppins_semibold"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="----------"
+        android:layout_gravity="center"
+        android:fontFamily="@font/poppins"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:id="@+id/consumption_happ_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:gravity="center"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="After Consumption Current Balance"
+            android:layout_weight="4.5"
+            android:textColor="@color/default_text_color"
+            android:textSize="@dimen/_10sdp"
+            android:gravity="end"
+            android:fontFamily="@font/poppins_semibold"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:gravity="center"
+            android:textColor="@color/default_text_color"
+            android:textSize="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_semibold"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/current_leave_balance_in_leave_staus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="9"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp"
+            android:layout_weight="4.5"
+            android:fontFamily="@font/poppins_semibold"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/consumption_not_happ_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Leave Consumption not happened yet"
+            android:textColor="@color/default_text_color"
+            android:textSize="@dimen/_10sdp"
+            android:gravity="center"
+            android:fontFamily="@font/poppins_semibold"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_marginStart="@dimen/_8sdp"-->
+<!--        android:layout_marginEnd="@dimen/_8sdp"-->
+<!--        android:layout_marginBottom="@dimen/_8sdp"-->
+<!--        android:weightSum="10">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Last Check Time"-->
+<!--            android:textColor="@color/default_text_color"-->
+<!--            android:textSize="@dimen/_10sdp"-->
+<!--            android:layout_weight="4.5"-->
+<!--            android:gravity="end"-->
+<!--            android:fontFamily="@font/poppins_semibold"-->
+<!--            tools:ignore="HardcodedText" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text=":"-->
+<!--            android:gravity="center"-->
+<!--            android:textColor="@color/default_text_color"-->
+<!--            android:textSize="@dimen/_10sdp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:fontFamily="@font/poppins_semibold"-->
+<!--            tools:ignore="HardcodedText" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/last_time_att_bottom"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="12:01 AM"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="@dimen/_10sdp"-->
+<!--            android:layout_weight="4.5"-->
+<!--            android:fontFamily="@font/poppins_semibold"-->
+<!--            tools:ignore="HardcodedText" />-->
+
+<!--    </LinearLayout>-->
+
+</LinearLayout>

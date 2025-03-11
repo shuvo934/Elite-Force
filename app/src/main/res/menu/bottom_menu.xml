@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/my_info_menu"
+        android:title="My Info"
+        android:icon="@drawable/user_info_noc"/>
+    <item
+        android:id="@+id/attendance_menu"
+        android:title="Attendance"
+        android:icon="@drawable/attendance_noc"/>
+    <item
+        android:id="@+id/fab"
+        android:title=""
+        android:enabled="false"/>
+    <item
+        android:id="@+id/leave_menu"
+        android:title="Leave"
+        android:icon="@drawable/leave_noc"/>
+    <item
+        android:id="@+id/pay_roll_menu"
+        android:title="PayRoll"
+        android:icon="@drawable/payroll_noc"/>
+</menu>
